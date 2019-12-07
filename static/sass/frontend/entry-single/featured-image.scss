@@ -1,0 +1,22 @@
+.ct-featured-image {
+	@include media-breakpoint-down (md) {
+		margin-bottom: 30px;
+	}
+
+	@include media-breakpoint-up (lg) {
+		margin-bottom: 50px;
+	}
+}
+
+// boundless image
+.post[data-content="boxed"] {
+	.ct-boundless {
+		max-width: initial;
+		margin-left: calc(var(--contentBoxedSpacing) * -1);
+		margin-right: calc(var(--contentBoxedSpacing) * -1);
+
+		&:first-child {
+			margin-top: calc(var(--contentBoxedSpacing) * -1);
+		}
+	}
+}

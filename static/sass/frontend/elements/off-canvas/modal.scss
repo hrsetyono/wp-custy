@@ -1,0 +1,60 @@
+[data-behaviour='modal'] {
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease-in-out,
+				visibility 0.3s ease-in-out;
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+// modal animations
+[data-panel*='in'] [data-behaviour='modal'].active,
+[data-panel*='out'] [data-behaviour='modal'] {
+	.content-container {
+		animation-duration: 0.3s;
+		animation-fill-mode: both;
+	}
+}
+
+[data-panel*='in'] [data-behaviour='modal'].active {
+	opacity: 1;
+	visibility: visible;
+
+	.content-container {
+		animation-name: move-in;
+	}
+}
+
+[data-panel*='out'] [data-behaviour='modal'] {
+	.content-container {
+		animation-name: move-out;
+	}
+}
+
+// move keyframes
+@keyframes move-in {
+	0% {
+		transform: translate3d(0, -40px, 0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes move-out {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		transform: translate3d(0, 40px, 0);
+	}
+}

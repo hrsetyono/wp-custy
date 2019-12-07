@@ -1,0 +1,43 @@
+.entry-content .page-links {
+	display: flex;
+	align-items: center;
+	margin-top: 2em;
+
+	.post-pages-label, .current, a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 14px;
+		height: 40px;
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 4px;
+		margin: 0 8px;
+	}
+
+	.post-pages-label {
+		padding: 0 15px;
+		font-weight: 500;
+		border-color: #e0e5eb;
+		margin-left: 0;
+	}
+
+	.current, a {
+		width: 41px;
+		font-weight: 600;
+	}
+
+	.current {
+		color: #fff;
+		border-color: var(--paletteColor1);
+		background: var(--paletteColor1);
+	}
+
+	a {
+		border-color: #e0e5eb;
+
+		&:hover {
+			border-color: var(--paletteColor1);
+		}
+	}
+}

@@ -1,0 +1,55 @@
+.button {
+	// loading state
+	&.loading {
+		position: relative;
+
+		&:after {
+			position: var(--loadingIndicatorPosition, absolute);
+			font-family: 'woo';
+			content: "\e982";
+			color: var(--color);
+			opacity: 0.5;
+			width: 15px;
+			height: 15px;
+			font-size: 15px;
+			line-height: 15px;
+			animation: spin 1.5s linear infinite;
+			// animation-play-state: paused;
+		}
+	}
+}
+
+
+// form cart buttons
+form.cart {
+
+	.button {
+		--padding: 0 15px;
+
+		&:after {
+			--color: #fff;
+			--loadingIndicatorPosition: relative;
+			margin-left: 10px;
+			opacity: 1;
+		}
+	}
+}
+
+
+// spin animation
+@keyframes spin {
+	0% { transform:rotate(0deg) }
+	100% { transform:rotate(360deg) }
+}
+
+
+// to remove later
+// #wc-stripe-payment-request-wrapper {
+// 	display: block !important;
+// }
+
+// #wc-stripe-payment-request-button {
+// 	width: 100%;
+// 	height: 44px;
+// 	background: #000000;
+// }

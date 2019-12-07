@@ -1,0 +1,47 @@
+.elementor-products-grid [data-layout="grid"] {
+	@include media-breakpoint-only (md) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media-breakpoint-up (lg) {
+		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+	}
+}
+
+
+// product images
+.woocommerce .elementor-widget-woocommerce-product-images {
+	span.onsale {
+		top: 20px;
+		left: 20px;
+		padding: 0 10px !important;
+	}
+}
+
+
+// quantity input
+.woocommerce div.product.elementor .quantity .qty {
+	height: 40px !important;
+	margin-right: -1px !important;
+}
+
+
+// tabs
+.woocommerce div.product.elementor .woocommerce-tabs {
+	padding-top: 0;
+
+	ul.tabs {
+		margin-bottom: 40px !important;
+	}
+
+	.panel {
+		padding: 0 !important;
+		border-top: none !important;
+	}
+}
+
+
+// breadcrumbs
+.woocommerce div.product.elementor .woocommerce-breadcrumb  {
+	margin-bottom: 0;
+}

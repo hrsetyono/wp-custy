@@ -1,0 +1,27 @@
+.entry-content {
+	.wp-block-button {
+		a {
+			font-size: 15px;
+			font-weight: 500;
+			padding: 12px 28px;
+		}
+
+
+		// outline style
+		&.is-style-outline a {
+		}
+
+
+		// squared style
+		&.is-style-squared a {
+			border-radius: 2px;
+		}
+
+
+		// alignment
+		&.alignleft, &.align-right {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}

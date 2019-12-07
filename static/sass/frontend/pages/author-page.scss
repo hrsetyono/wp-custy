@@ -1,0 +1,71 @@
+.author .page-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+
+	@include media-breakpoint-down (sm) {
+		padding-bottom: 40px;
+	}
+
+	@include media-breakpoint-up (md) {
+		padding-bottom: 60px;
+	}
+
+	img {
+		width: 60px;
+		height: 60px;
+		border-radius: 100%;
+
+		@include media-breakpoint-down (sm) {
+			width: 45px;
+			height: 45px;
+		}
+	}
+
+	.page-title {
+		--fontSize: 1.5rem;
+		margin-top: 10px;
+	}
+
+	.archive-description {
+		max-width: 800px;
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+
+		@include media-breakpoint-down (sm) {
+			display: none;
+		}
+	}
+
+	.ct-meta-info {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		@include list-normalize;
+		margin-top: 10px;
+		font-size: 14px;
+
+		li {
+			&:not(:last-child) {
+				margin-right: 10px;
+
+				&:after {
+					content: '/';
+					margin-left: 10px;
+				}
+			}
+
+			span {
+				font-weight: 600;
+			}
+
+			@include media-breakpoint-down (sm) {
+				&:first-child {
+					display: none;
+				}
+			}
+		}
+	}
+}

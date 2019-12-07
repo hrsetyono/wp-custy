@@ -1,0 +1,23 @@
+.hero-section[data-type="type-1"] {
+	@include media-breakpoint-down (md) {
+		margin-bottom: 30px;
+	}
+
+	@include media-breakpoint-up (lg) {
+		margin-bottom: 50px;
+	}
+
+	.entry-header {
+		.entry-title, .page-title {
+			span {
+				&:after {
+					content: ':';
+				}
+			}
+		}
+
+		> *:not(:first-child) {
+			margin-top: var(--heroContentSpacing, 20px);
+		}
+	}
+}

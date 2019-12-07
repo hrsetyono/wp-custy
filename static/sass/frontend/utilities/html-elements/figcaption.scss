@@ -1,0 +1,57 @@
+.entry-content {
+	figcaption {
+		text-align: center;
+		font-size: 14px;
+		margin: 15px auto 0 auto;
+	}
+}
+
+@include media-breakpoint-up (lg) {
+	[data-page-structure="narrow"] .alignwide {
+		> figcaption {
+			width: calc(100% - var(--wideOffset) * 2);
+		}
+	}
+
+	[data-page-structure="normal"] .alignwide {
+		> figcaption {
+			width: calc((100% - 50vw) * 2 );
+		}
+	}
+}
+
+[data-page-structure="normal"] .alignfull {
+	> figcaption {
+		max-width: var(--maxSiteWidth);
+		
+		@include media-breakpoint-down (sm) {
+			width: 88%;
+		}
+
+		@include media-breakpoint-only (md) {
+			width: 85%;
+		}
+
+		@include media-breakpoint-up (lg) {
+			width: 90%;
+		}
+	}
+}
+
+[data-page-structure="narrow"] .alignfull {
+	> figcaption {
+
+		@include media-breakpoint-down (sm) {
+			width: 88%;
+		}
+
+		@include media-breakpoint-only (md) {
+			width: 85%;
+		}
+
+		@include media-breakpoint-up (lg) {
+			width: calc(var(--narrowContainerWidth) * 0.9);
+			max-width: calc(var(--maxSiteWidth) * (var(--narrowContainerWidthNoUnit) / 100) );
+		}
+	}
+}

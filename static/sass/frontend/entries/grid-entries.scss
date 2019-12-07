@@ -1,0 +1,58 @@
+[data-layout*="grid"] {
+	display: grid;
+	grid-column-gap: var(--cardsGap);
+	grid-row-gap: var(--cardsGap);
+
+	&[data-columns="2"] {
+		@include media-breakpoint-up (md) {
+			grid-template-columns: repeat( 2, 1fr);
+		}
+	}
+
+	&[data-columns="3"] {
+		@include media-breakpoint-only (md) {
+			grid-template-columns: repeat( 2, 1fr);
+		}
+	}
+
+	&[data-columns="4"] {
+		@include media-breakpoint-only (md) {
+			grid-template-columns: repeat( 2, 1fr);
+		}
+	}
+}
+
+
+.ct-container {
+	&[data-sidebar] {
+		[data-layout*="grid"] {
+			&[data-columns="3"] {
+				@include media-breakpoint-up (lg) {
+					grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+				}
+			}
+
+			&[data-columns="4"] {
+				@include media-breakpoint-up (lg) {
+					grid-template-columns: repeat(auto-fill, minmax(22%, 1fr));
+				}
+			}
+		}
+	}
+
+	&:not([data-sidebar]) {
+		[data-layout*="grid"] {
+			&[data-columns="3"] {
+				@include media-breakpoint-up (lg) {
+					grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+				}
+			}
+
+			&[data-columns="4"] {
+				@include media-breakpoint-up (lg) {
+					grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+				}
+			}
+		}
+	}
+}

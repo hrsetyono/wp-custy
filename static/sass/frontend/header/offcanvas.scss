@@ -1,0 +1,50 @@
+#offcanvas {
+	.content-container section {
+		--margin: 20px 0;
+
+		> * {
+			margin: var(--margin);
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+
+	// modal
+	&[data-behaviour="modal"] {
+		@include media-breakpoint-only (md) {
+			--padding: 40px 20vw;
+		}
+
+		@include media-breakpoint-up (lg) {
+			--padding: 40px 25vw;
+		}
+	}
+
+	// panel
+	&[data-behaviour*="side"] {
+		@include media-breakpoint-down (sm) {
+			--padding: 40px;
+		}
+
+		@include media-breakpoint-up (md) {
+			--padding: 40px 20%;
+		}
+	}
+
+
+	// content alignment
+	section[data-align="center"] {
+		align-items: center;
+	}
+
+	section[data-align="right"] {
+		align-items: flex-end;
+	}
+}

@@ -1,0 +1,60 @@
+.ct-product-view {
+	@include media-breakpoint-down (md) {
+		margin-bottom: 3em;
+	}
+
+	.flexy-pills[data-type="thumbs"] {
+		flex-wrap: wrap;
+
+		a {
+			width: 22.75%;
+			margin-top: 3%;
+			margin-right: 3%;
+			opacity: 0.8;
+			transition: opacity 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+			&:nth-child(4n) {
+				margin-right: 0;
+			}
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+// thumbnails on left
+.product.thumbs-left {
+	@include media-breakpoint-up (md) {
+		.flexy-container {
+			position: relative;
+			overflow: hidden;
+		}
+
+		.flexy {
+			width: calc(75% - 0.25em);
+			margin-left: calc(25% + 0.25em);
+		}
+
+		.flexy-pills[data-type="thumbs"] {
+			display: initial;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: calc(25% + 0.25em);
+			padding-right: 1em;
+			overflow-y: scroll;
+
+			a {
+				width: 100%;
+				margin-top: 0;
+
+				&:not(:last-child) {
+					margin-bottom: 1em;
+				}
+			}
+		}
+	}
+}

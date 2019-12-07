@@ -1,0 +1,35 @@
+.menu {
+	display: flex;
+	height: 100%;
+	margin: 0;
+	padding: 0;	
+	list-style: none;
+
+	a {
+		display: flex;
+		align-items: center;
+		text-align: initial;
+	}
+
+	.current-menu-item > a {
+		color: var(--colorHover);
+	}
+
+
+	// top level
+	> li {
+		> a {
+			justify-content: center;
+			white-space: nowrap;
+			padding-left: calc(var(--menuItemsSpacing) / 2);
+			padding-right: calc(var(--menuItemsSpacing) / 2);
+		}
+	}
+}
+
+.ct-create-menu {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	font-size: 14px;
+}

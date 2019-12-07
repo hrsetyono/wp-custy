@@ -1,0 +1,42 @@
+.ct-passepartout {
+	padding: var(--passepartoutSize);
+
+	&:before, &:after {
+		position: fixed;
+		content: '';
+		z-index: 99999;
+		left: 0;
+		width: 100%;
+		height: var(--passepartoutSize);
+		background: var(--passepartoutColor);
+	}
+
+	&:before {
+		top: 0;
+	}
+
+	&:after {
+		bottom: 0;
+	}
+
+	#main-container {
+		min-height: calc(100vh - var(--passepartoutSize) * 2);
+
+		&:before, &:after {
+			position: fixed;
+			content: '';
+			z-index: 99999;
+			width: var(--passepartoutSize);
+			height: 100%;
+			background: var(--passepartoutColor);
+		}
+
+		&:before {
+			left: 0;
+		}
+
+		&:after {
+			right: 0;
+		}
+	}
+}

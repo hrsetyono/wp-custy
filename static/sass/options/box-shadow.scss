@@ -1,0 +1,252 @@
+$values-height: 30px;
+
+.ct-box-shadow {
+	position: relative;
+}
+
+// box shadow values
+.ct-box-shadow-options {
+	display: flex;
+	align-items: center;
+}
+
+.ct-box-shadow-values {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	height: $values-height;
+	cursor: pointer;
+	padding-right: 8px;
+	margin-right: 15px;
+	background: var(--backgroundColor, #fff);
+	border-radius: 3px;
+	border: 1px solid var(--borderColor, #ddd);
+	transition: border-color 0.1s linear;
+
+	white-space: nowrap;
+	overflow: hidden;
+
+	> span {
+		position: relative;
+		display: inline-flex;
+		justify-content: center;
+		cursor: pointer;
+
+		span {
+			position: relative;
+			z-index: 2;
+		}
+
+		&:after {
+			position: absolute;
+			content: '';
+			display: block;
+			min-width: 16px;
+			min-width: calc(100% + 8px);
+			height: 100%;
+			opacity: 0;
+			border-radius: 2px;
+			background: rgba(14, 142, 204, 0.3);
+		}
+
+		&:hover {
+			color: #28607b;
+
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+
+	i {
+		display: inline-block;
+		margin: 0 7px;
+		font-style: normal;
+		font-size: 70%;
+		opacity: 0.5;
+		line-height: normal;
+		vertical-align: top;
+	}
+
+	&:hover {
+		border-color: var(--accentColor);
+	}
+
+	// visibility
+	button {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		flex: 1 0 $values-height;
+		max-width: $values-height;
+		padding: 0;
+		margin-right: 10px;
+		cursor: pointer;
+		border: none;
+		appearance: none;
+		color: #72777c;
+		background: transparent;
+		border-right: 1px solid rgba(221, 221, 221, 0.5);
+
+		&:hover {
+			color: var(--accentColor);
+		}
+
+		svg {
+			fill: currentColor;
+		}
+
+		&:before {
+			position: absolute;
+			opacity: 0;
+			content: '';
+			width: 17px;
+			height: 2px;
+			background: currentColor;
+			border-radius: 5px;
+			transform: rotate(-45deg);
+			box-shadow: 0px 0px 0px 1px #fff;
+			transition: opacity 0.1s ease;
+		}
+
+		&.crossed {
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+// box shadow modal
+.ct-box-shadow-modal {
+	position: absolute;
+	z-index: 20;
+	top: 19px;
+	left: -14px;
+	width: 295px;
+	margin-bottom: 30px;
+	background: #fff;
+	border-radius: 6px;
+	transform-origin: center top;
+	box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+
+	&:before {
+		position: absolute;
+		content: '';
+		top: -7px;
+		left: 141px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 6px 7px 6px;
+		border-color: transparent transparent #ffffff transparent;
+	}
+}
+
+.shadow-sliders {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 40px;
+	grid-row-gap: 40px;
+	position: relative;
+	margin: 20px 20px 27px 20px;
+
+	&:before, &:after {
+		position: absolute;
+		content: '';
+	}
+
+	&:before {
+		top: 50%;
+		width: 100%;
+		border-bottom: 1px dashed #eee;
+	}
+
+	&:after {
+		top: 0;
+		left: 50%;
+		height: calc(100% + 5px);
+		border-right: 1px dashed #eee;
+	}
+
+	label {
+		display: block;
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.1px;
+		margin-bottom: 5px;
+		cursor: default;
+	}
+
+	.ct-slider:before {
+		background: #e3e6e8;
+	}
+}
+
+// shadow style
+.ct-shadow-style {
+	display: flex;
+	padding: 20px;
+	margin: 0;
+	border-top: 1px dashed #eee;
+
+	li {
+		position: relative;
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		cursor: pointer;
+		padding: 5px 0;
+		margin-bottom: 0;
+		font-weight: 500;
+		border: 1px solid #dfe1e4;
+
+		&:first-child {
+			border-radius: 3px 0 0 3px;
+		}
+
+		&:last-child {
+			margin-left: -1px;
+			border-radius: 0 3px 3px 0;
+		}
+
+		&.active {
+			z-index: 2;
+			color: #fff;
+			background: var(--accentColor);
+			border-color: var(--accentColor);
+		}
+
+		&:not(.active):hover {
+			color: var(--accentColor);
+		}
+	}
+}
+
+
+// when disabled
+.ct-box-shadow.ct-disabled {
+	
+	.ct-box-shadow-values {
+		span, i {
+			opacity: 0.7;
+			pointer-events: none;
+		}
+	}
+
+	.ct-color-picker-single {
+		opacity: 0.7;
+
+		.ct-tooltip-top {
+			display: none;
+		}
+	}
+}
+
+

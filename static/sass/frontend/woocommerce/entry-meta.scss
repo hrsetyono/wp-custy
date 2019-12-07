@@ -1,0 +1,31 @@
+.entry-summary > .product_meta {
+	margin-top: 50px;
+	padding-top: 30px;
+	font-size: 13px;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	border-top: 1px solid $border-color;
+
+	> span {
+		font-weight: 700;
+		display: block;
+		
+		&:not(:last-child) {
+			margin-bottom: 5px;
+		}
+
+		> * {
+			opacity: 0.7;
+			font-weight: 500;
+		}
+
+		> a {
+			transition: color 0.1s ease,
+						opacity 0.1s ease;
+						
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+}

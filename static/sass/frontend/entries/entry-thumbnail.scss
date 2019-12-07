@@ -1,0 +1,39 @@
+.entry-card {
+	.ct-image-container {
+		display: flex;
+		flex-direction: column;
+
+		img {
+			max-width: 100%;
+			border-radius: inherit;
+		}
+	}
+}
+
+[data-cards="boxed"] .entry-card {
+	.boundless-image {
+		width: initial;
+		margin-left: calc(var(--cardSpacing, 35px) * -1);
+		margin-right: calc(var(--cardSpacing, 35px) * -1);
+
+		&:first-child {
+			margin-top: calc(var(--cardSpacing, 35px) * -1);
+			border-top-left-radius: inherit;
+			border-top-right-radius: inherit;
+		}
+
+		&:last-child {
+			margin-bottom: calc(var(--cardSpacing, 35px) * -1);
+			border-bottom-left-radius: inherit;
+			border-bottom-right-radius: inherit;
+		}
+	}
+}
+
+// Featured image border radius
+[data-cards="simple"],
+[data-layout="gutenberg"] {
+	.ct-image-container {
+		border-radius: var(--borderRadius, 0px);
+	}
+}

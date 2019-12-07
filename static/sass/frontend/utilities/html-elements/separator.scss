@@ -1,0 +1,25 @@
+.entry-content {
+
+	.wp-block-separator {
+		margin: 2.8em auto;
+		clear: both;
+
+		&:not(.is-style-dots) {
+			width: 50%;
+			height: 1px;
+			border: none;
+			background: #e0e5eb;
+		}
+
+		&.is-style-dots {
+			&:before {
+				font-size: 30px;
+			}
+		}
+
+		&.is-style-wide {
+			width: 100%;
+		}
+	}
+
+}

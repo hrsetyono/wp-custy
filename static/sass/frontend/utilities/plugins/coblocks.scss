@@ -1,0 +1,40 @@
+// social
+.wp-block-coblocks-social {
+	ul li {
+		&:before {
+			display: none;
+		}
+	}
+}
+
+// click to tweet
+.wp-block-coblocks-click-to-tweet {
+	border-radius: 0;
+	border-top: none;
+	border-left: none;
+	border-bottom: none;
+	padding: 0 0 0 25px !important;
+}
+
+// accordion
+.wp-block-coblocks-accordion-item__title {
+	background: rgba(233, 235, 239, 0.8);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.wp-block-coblocks-accordion-item__content {
+	border-color: rgba(233, 235, 239, 0.8);
+}
+
+
+// pricing table
+.wp-block-coblocks-pricing-table {
+	.wp-block-coblocks-pricing-table-item__features li {
+		&:before {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,35 @@
+@import 'type-1';
+@import 'type-2';
+
+.entry-header {
+
+	.entry-meta,
+	.page-description {
+		color: var(--color);
+	}
+
+	.avatar-container {
+		width: 25px;
+		height: 25px;
+		flex: 0 0 25px;
+	}
+}
+
+// alignment
+.hero-section {
+	&[data-alignment="center"] {
+		text-align: center;
+
+		.entry-meta {
+			justify-content: center;
+		}
+	}
+
+	&[data-alignment="right"] {
+		text-align: right;
+
+		.entry-meta {
+			justify-content: flex-end;
+		}
+	}
+}

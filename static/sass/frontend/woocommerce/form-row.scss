@@ -1,0 +1,44 @@
+.form-row {
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	label {
+		display: inline-flex;
+		margin-bottom: 5px;
+	}
+
+	span {
+		display: block;
+	}
+
+	.required {
+		color: red;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	textarea {
+		display: block;
+	}
+
+	&:after {
+		content: ' ';
+    	display: table;
+		clear: both;
+	}
+}
+
+.form-row-first {
+	@include media-breakpoint-up (md) {
+		width: 47%;
+		float: left;
+	}
+}
+
+.form-row-last {
+	@include media-breakpoint-up (md) {
+		width: 47%;
+		float: right;
+	}
+}

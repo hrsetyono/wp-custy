@@ -1,0 +1,11 @@
+form.cart {
+
+	// stripe resets
+	#wc-stripe-payment-request-button-separator {
+		display: none !important;
+	}
+
+	#wc-stripe-payment-request-wrapper {
+		padding-top: 0 !important;
+	}
+}

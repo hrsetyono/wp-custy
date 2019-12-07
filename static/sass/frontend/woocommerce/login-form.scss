@@ -1,0 +1,78 @@
+.woocommerce-account {
+
+	.hero-section {
+		display: none;
+	}
+
+	.woocommerce {
+		> h2 {
+			text-align: center;
+			margin: 0 0 30px 0;
+		}
+	}
+}
+
+
+// login form
+.woocommerce-form-login {
+	max-width: 450px;
+	margin: 50px auto;
+	padding: 30px;
+	border-radius: 5px;
+	background: #fff;
+	border: 1px solid $border-color;
+	box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+
+	label {
+		font-size: 15px;
+	}
+
+	button {
+		width: 50%;
+		margin-right: 2em;
+		float: left;
+	}
+
+	.woocommerce-form-login__rememberme {
+		display: inline-flex;
+		align-items: center;
+		height: 45px;
+		font-size: 13px;
+		margin-bottom: 0;
+
+
+		span {
+			margin-left: 8px;
+		}
+	}
+
+	.woocommerce-LostPassword {
+		font-size: 13px;
+		text-align: center;
+		margin-top: 20px;
+	}
+}
+
+
+// reset password
+.woocommerce-ResetPassword {
+	max-width: 450px;
+	margin: 100px auto;
+	padding: 30px;
+	border-radius: 3px;
+	border: 1px solid $border-color;
+	box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.01);
+
+	p {
+		width: 100%;
+
+		> label {
+			font-size: 15px;
+			margin-bottom: 5px;
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}

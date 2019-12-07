@@ -1,0 +1,39 @@
+.ct-header-cta {
+	display: flex;
+	align-items: center;
+
+	// button size
+	[data-size="small"] {
+		--height: 34px;
+		--padding: 0 17px;
+		--buttonFontSize: 13px;
+	}
+
+	[data-size="medium"] {
+		--height: 42px;
+		--padding: 0 25px;
+	}
+
+	[data-size="large"] {
+		--height: 50px;
+		--padding: 0 35px;
+		--buttonFontSize: 16px;
+	}
+
+	// button type
+	[data-type="type-2"] {
+		background-color: transparent;
+		box-shadow: inset 0px 0px 0px 2px var(--buttonInitialColor);
+
+		&:hover {
+			background-color: transparent;
+			box-shadow: inset 0px 0px 0px 2px var(--buttonHoverColor);
+		}
+	}
+
+	// button hover effect
+	a:not([data-hover]) {
+		--buttonTransform: none;
+		--buttonShadow: none;
+	}
+}

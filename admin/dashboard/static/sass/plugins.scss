@@ -1,0 +1,108 @@
+.ct-recommended-plugins {
+	ul {
+		margin: 0;
+
+		li {
+			display: flex;
+			align-items: center;
+			padding: 25px;
+			margin: 20px 0;
+
+			&:nth-child(odd) {
+				background: rgba(245, 247, 249, 0.8);
+			}
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			img {
+				flex: 0 0 50px;
+				width: 50px;
+				height: 50px;
+				margin-right: 20px;
+				border-radius: 100%;
+				background: #eceef1;
+			}
+		}
+	}
+}
+
+// plugin meta
+.ct-plugin-meta {
+	width: 250px;
+	flex: 0 0 250px;
+
+	h4 {
+		font-size: 15px;
+		font-weight: 500;
+		color: #2e4453;
+		margin: 0 0 5px 0;
+	}
+
+	span {
+		font-size: 13px;
+
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+// plugin controls
+#ct-dashboard .ct-plugin-controls {
+	width: 125px;
+	flex: 0 0 125px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	.ct-loading {
+		margin-right: 10px;
+		flex: 0 0 20px;
+		display: inline-flex;
+	}
+
+	.ct-badge {
+		display: flex;
+		align-items: center;
+		height: 30px;
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.03em;
+		padding: 0 15px;
+		border-radius: 5px;
+		background: #fff;
+		border: 1px solid #e2e6eb;
+	}
+
+	.ct-button {
+		--buttonHeight: 32px;
+	}
+}
+
+
+@media only screen and (max-width: 960px) {
+	.ct-recommended-plugins {
+		.ct-plugin-meta {
+			flex: 1 1 auto;
+		}
+
+		p {
+			display: none;
+		}
+	}
+}
+
+@media only screen and (min-width: 961px) {
+	.ct-recommended-plugins {
+		p {
+			flex: 1 1 auto;
+			margin-right: 20px !important;
+		}
+	}
+}

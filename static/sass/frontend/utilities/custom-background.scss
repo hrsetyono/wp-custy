@@ -1,0 +1,16 @@
+.ct-panel,
+.site-main,
+[data-row],
+.site-footer,
+.ct-related-posts,
+.footer-widgets-area,
+.ct-comments-container,
+.post[data-content="boxed"],
+.page[data-content="boxed"] {
+	background-color: var(--backgroundColor);
+	background-image: var(--backgroundImage);
+	background-size: var(--backgroundSize);
+	background-repeat: var(--backgroundRepeat);
+	background-position: var(--backgroundPosition);
+	background-attachment: var(--backgroundAttachment);
+}

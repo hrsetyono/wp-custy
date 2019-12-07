@@ -1,0 +1,577 @@
+.ct-dark-mode #customize-controls {
+
+	// input
+	input[type='text'],
+	input[type='number'],
+	input[type='search'],
+	textarea {
+		&:not(.wp-color-picker) {
+			color: $light;
+			border-color: $border;
+			background: $background_light;
+
+			&:focus {
+				border-color: lighten($border, 10%);
+				box-shadow: none;
+				// box-shadow: 0 0 2px lighten($border, 10%);
+			}
+		}
+	}
+
+	// checkbox & radiobox
+	input[type=checkbox],
+	input[type=radio] {
+		border-color: lighten($border, 3%);
+		background: $background_light;
+	}
+
+	input[type=checkbox]:before {
+		color: $accent;
+	}
+
+	input[type=radio]:before {
+		background-color: $accent;
+	}
+
+
+	// ct-title
+	.ct-title {
+		h3 {
+			color: $light;
+		}
+
+		p {
+			color: lighten($background, 60%);
+		}
+
+		&:not(:first-child) {
+			border-top-color: $border;
+		}
+	}
+
+	// group title
+	.ct-group-title {
+		border-top-color: $border;
+
+		h3 {
+			// color: $accent;
+			color: lighten($accent, 7%);
+		}
+	}
+
+	// group divider
+	.ct-group-divider h3 {
+		background: $border;
+	}
+
+	// revert button
+	.ct-control .ct-revert {
+		color: $light;
+	}
+
+	// divider
+	.ct-divider:before {
+		background: $border;
+	}
+
+	[data-divider] {
+		&:before, &:after {
+			background: $border;
+		}
+	}
+
+	.ct-control > header label {
+		color: lighten($background, 65%);
+	}
+
+	// switch
+	.ct-option-switch {
+		&:not(.ct-active) {
+			border-color: lighten($border, 4%);
+
+			> span {
+				background: lighten($border, 15%);
+			}
+
+			&:after {
+				border-color: lighten($border, 15%);
+			}
+		}
+
+		&.ct-active {
+			background: $accent;
+			border-color: $accent;
+		}
+	}
+	
+	.ct-control:hover {
+		.ct-option-switch:not(.ct-active) {
+			border-color: lighten($border, 12%);
+
+			> span {
+				background: lighten($border, 25%);
+			}
+		}
+	}
+
+	// slider
+	.ct-option-slider .ct-slider{
+		&:before {
+			--backgroundColor: var(--borderColor);
+		}
+	}
+
+	// image picker
+	.ct-image-picker[data-type='background'] {
+		li {
+			&.active {
+				background: $accent;
+			}
+
+			&:not(.active):not(:hover) {
+				background: rgba(221, 224, 226, 0.7);
+			}
+		}
+	}
+
+	// panel
+	.ct-panel.ct-click-allowed {
+		&:hover:before {
+			background: $background_light;
+		}
+
+		.ct-customizer-panel-option button {
+			color: lighten($background, 60%);
+		}
+	}
+
+	.customize-panel-actions {
+		background: $background_light;
+		border-top-color: $border;
+		border-bottom-color: $border;
+
+		h3 {
+			color: lighten($background, 40%);
+		}
+	}
+
+	.ct-customizer-panel {
+		background: $background;
+		border-bottom-color: $border;
+		border-top-color: $border;
+	}
+
+	// tabs
+	.ct-tabs {
+		> ul > li {
+			color: lighten($background, 60%);
+			border-color: lighten($border, 5%);
+
+			&:after {
+				background: $background;
+			}
+		}
+
+		.ct-current-tab {
+			border-top-color: lighten($border, 5%);
+		}
+	}
+
+	// color picker
+	.ct-color-picker-single {
+		> span > span {
+			box-shadow: 0 0 0 3px lighten($background, 10%);
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	// responsive controls
+	.ct-responsive-controls li {
+		&:not(.active) {
+			--color: #929499;
+
+			&:hover {
+				--color: #babbbe;
+			}
+		}
+
+		&.active {
+			color: $accent;
+		}
+	}
+
+	// number
+	.ct-option-number > a {
+		color: lighten($background, 60%);
+		border-color: lighten($background_light, 5%);
+		background: lighten($background_light, 5%);
+
+		&:not(.ct-disabled):hover {
+			color: #fff;
+			background: $accent;
+			border-color: $accent;
+		}
+	}
+
+	// buttons group
+	.ct-buttons-group li {
+		color: lighten($background, 60%);
+		background: $background_light;
+		box-shadow: inset 0px 0px 0px 1px $border;
+
+		&.active {
+			color: $light;
+			background: $accent;
+			box-shadow: inset 0px 0px 0px 1px darken($accent, 5%);
+		}
+
+		&:not(.active) {
+			&:hover {
+				color: $light;
+				background: lighten($background_light, 4%);
+			}
+		}
+	}
+
+	// option description
+	.ct-option-description {
+		color: lighten($background, 50%);
+	}
+
+	// select
+	.ct-select-input {
+		input {
+			color: $light;
+			border-color: $border;
+			background: $background_light;
+		}
+
+		&:before {
+			background: $background_light;
+		}
+
+		&:after {
+			color: $light;
+		}
+	}
+
+	.ct-select-dropdown {
+		border-color: $border;
+		background: $background_light;
+
+		> div {
+			color: lighten($background, 60%);
+			border-top-color: $border;
+
+			&.active,
+			&.selected {
+				color: $light;
+				background: lighten($background_light, 4%);
+			}
+		}
+	}
+
+	// layers
+	.ct-layer {
+		background: darken($background_light, 1.5%);
+	}
+
+	.ct-layer-controls {
+		color: lighten($background, 60%);
+		border-color: $border;
+		background: lighten($background_light, 1%);
+
+		> * {
+			color: lighten($background, 60%);
+			border-color: $border;
+		}
+
+		.ct-visibility:before {
+			background: lighten($background, 60%);
+			box-shadow: 0px 0px 0px 1px lighten($background_light, 1%);
+		}
+	}
+
+	.ct-layer-content {
+		border-color: $border;
+
+		> * {
+			border-color: $border;
+		}
+	}
+
+	// value changer
+	.ct-value-changer {
+		--backgroundColor: var(--borderColor);
+
+		input[type="number"]{
+			&:focus {
+				border-color: $accent;
+				box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08), 0 0 0 1px $accent !important;
+			}
+		}
+
+		.ct-value-divider {
+			opacity: 0;
+		}
+
+		&:not(.no-unit-list) {
+			.ct-current-value:hover {
+				color: $accent;
+			}
+		}
+	}
+
+	// notification
+	.ct-disabled-notification {
+		color: lighten($background, 50%);
+		background: $background_light;
+		border-left-color: $accent;
+	}
+
+	// attachment
+	.ct-attachment .thumbnail {
+		border-color: $border; 
+	}
+
+	// tooltip
+	[class*="ct-tooltip"] {
+		background: $accent;
+	}
+
+	.ct-tooltip-top:after {
+		border-top: 5px solid $accent;
+	}
+
+	// checkbox & radio
+	.ct-radio-option,
+	.ct-option-checkbox {
+		color: lighten($background, 60%);
+
+		input {
+			border-color: lighten($border, 4%);
+
+			&:checked {
+				border-color: $accent;
+				background: $accent;
+			}
+		}
+
+		label {
+			&:hover input {
+				&:not(:checked) {
+					border-color:lighten($border, 10%);
+				}
+			}
+		}
+	}
+
+	// color pallete
+	.ct-color-palettes {
+		li {
+			&.active,
+			&:hover {
+				background: $background_light;
+			}
+		}
+	}
+
+	// box-shadow
+	.ct-box-shadow-values {
+		background: $background_light;
+
+		button {
+			color: lighten($background, 65%);
+			border-right-color: var(--borderColor);
+
+			&:before {
+				background: lighten($background, 65%);
+				box-shadow: 0px 0px 0px 1px $background_light;
+			}
+		}
+
+		span {
+			&:hover {
+				color: #fff;
+			}
+
+			&:after {
+				background: var(--accentColor);
+			}
+		}
+	}
+
+	.ct-box-shadow-modal {
+		color: #555d66;
+	}
+
+
+	// background
+	.ct-background-modal {
+		color: #555d66;
+
+		header > label,
+		.upload-button {
+			color: #555d66;
+		}
+		
+		.ct-color-picker-single > span > span {
+			box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+		}
+
+		.ct-radio-option li:not(.active) {
+			color: #5c5c5c;
+			background: rgba(221, 221, 221, 0.2);
+			box-shadow: inset 0px 0px 0px 1px #ddd;
+
+			&:hover {
+				background: rgba(255, 255, 255, 0.5);
+			}
+		}
+	}
+
+	// typography
+	.ct-typohraphy-value {
+		border-color: $border;
+		background: $background_light;
+
+		&:hover {
+			border-color: $accent;
+		}
+
+		> div > span {
+			&:hover span {
+				color: $light;
+			}
+
+			&:after {
+				background: $accent;
+			}
+		}
+
+		> a {
+			color: $light;
+		}
+	}
+
+	.ct-typography-modal {
+		color: #555d66;
+
+		.ct-control > header label {
+			color: #555d66;			
+		}
+
+		.ct-responsive-controls li {
+			&:not(.active) {
+				--color: #d6d8dc;
+
+				&:hover {
+					--color: #b6b9bf;
+				}
+			}
+		}
+
+		.ct-slider:before {
+			--backgroundColor: #e3e6e8;
+		}
+
+		.ct-value-changer {
+			input[type='number'] {
+				color: #555d66;
+				background: #fff;
+				border-color: rgba(141, 150, 160, 0.2);
+
+				&:hover, &:focus {
+					border-color: var(--accentColor);
+				}
+			}
+		}
+	}
+}
+
+
+// header builder
+.ct-dark-mode {
+	.ct-available-items {
+		.ct-title {
+			color: $light;
+		}
+
+		.ct-builder-item.sortable-chosen,
+		.ct-item-in-builder {
+			border-color: lighten($background, 15%);
+			background: lighten($background, 1%);
+
+			&:hover {
+				background: lighten($background, 2.5%);
+			}
+		}
+
+		.ct-builder-item:not(.sortable-chosen):hover {
+			border-color: var(--accentColor);
+		}
+	}
+
+	.ct-panel-builder {
+		background: $background;
+		border-top-color: $border;
+	}
+
+	.ct-view-switch {
+		border-top-color: $border;
+		background: $background_light;
+
+		li {
+			color: $light;
+
+			&.active {
+				color: var(--accentColor);
+
+				&:after {
+					background: var(--accentColor);
+				}
+			}
+		}
+	}
+
+	.row-inner {
+		background: $background;
+		border-color: lighten($background, 20%);
+
+		.ct-builder-item:not(.sortable-ghost):hover {
+			border-color: var(--accentColor);
+		}
+	}
+
+	.ct-builder-column-middle {
+		background: lighten($background, 2%);
+		border-color: lighten($background, 20%);
+	}
+
+	.ct-builder-item {
+		color: lighten($background, 60%);
+		border-color: $border;
+		background: lighten($background_light, 1%);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

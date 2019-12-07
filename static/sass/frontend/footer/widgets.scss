@@ -1,0 +1,16 @@
+.site-footer {
+	
+	.widget-title {
+		margin-bottom: 25px
+	}
+
+	.ct-widget {
+		&:not(:first-child) {
+			margin-top: var(--itemsGap);
+		}
+
+		> *:not(.widget-title) {
+			color: var(--color);
+		}
+	}
+}

@@ -1,0 +1,37 @@
+.entry-content {
+	dl {
+		&:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		dt, dd {
+			padding-top: .75em;
+			padding-bottom: .75em;
+		}
+
+		dt {
+			font-weight: bold;
+			clear: left;
+
+			@include media-breakpoint-up (md) {
+				width: 25%;
+				text-align: right;
+				float: left;
+				padding-right: 1em;
+			}
+		}
+
+		dd {
+			margin: 0;
+
+			@include media-breakpoint-up (md) {
+				width: 75%;
+				float: right;
+				padding-left: 1em;
+			}
+		}
+
+	}
+}

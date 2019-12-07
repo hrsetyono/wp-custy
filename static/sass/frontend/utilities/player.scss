@@ -1,0 +1,50 @@
+div.mejs-container {
+	background: transparent;
+
+	.mejs-controls {
+		padding-top: 3px;
+		height: 45px;
+		background: #29333d;
+
+		.mejs-time-rail .mejs-time-current {
+			background: var(--palleteColor1);
+		}
+	}
+
+	.mejs-volume-button > .mejs-volume-slider {
+		background: rgba(41, 51, 61, 0.9);
+	}
+}
+
+
+
+
+// Audio
+.wp-audio-shortcode {
+	.mejs-controls {
+		border-radius: 3px;
+	}
+}
+
+
+// Video
+.wp-video {
+	font-size: 0;
+}
+
+.wp-video-shortcode {
+	width: 100%;
+}
+
+
+
+// Hide browser native player
+audio.wp-audio-shortcode {
+	height: 45px !important;
+	opacity: 0;
+}
+
+video.wp-video-shortcode {
+	opacity: 0;
+	max-width: 100%;
+}

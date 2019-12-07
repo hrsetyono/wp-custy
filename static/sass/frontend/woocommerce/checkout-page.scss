@@ -1,0 +1,80 @@
+.ct-checkout-form-inner {
+	display: grid;
+	grid-column-gap: 45px;
+	grid-row-gap: 40px;
+
+	@include media-breakpoint-up (lg) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	h3 {
+		--fontSize: 17px;
+	}
+
+
+	// customer details
+	.ct-customer-details {
+		.col-2 {
+			margin-top: 40px;
+		}
+
+		#ship-to-different-address {
+			font-size: 15px;
+			font-weight: 600;
+
+			.woocommerce-form__label {
+				display: flex;
+				align-items: center;
+
+				input[type="checkbox"] {
+					margin: 2px 8px 0 0;
+				}
+			}
+		}
+	}
+
+
+	// order review
+	.ct-order-review {
+		align-self: flex-start;
+		position: sticky;
+		top: 50px;
+		border: 2px solid $border-color;
+		@include media-breakpoint-down (sm) {
+			padding: 7.5%;
+		}
+
+		@include media-breakpoint-up (md) {
+			padding: 45px;
+		}
+
+
+		.shop_table {
+			font-size: 15px;
+
+			thead th {
+				border-top: none;
+			}
+
+			th, td {
+				padding-left: 0;
+				padding-right: 0;
+				border-left: none;
+				border-right: none;
+			}
+
+			.product-total,
+			tfoot td {
+				text-align: right;
+			}
+
+			tfoot {
+				tr:last-child {
+					th, td {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+	}
+}

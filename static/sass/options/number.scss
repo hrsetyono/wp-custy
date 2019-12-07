@@ -1,0 +1,102 @@
+$button-size: 30px;
+
+.ct-option-number {
+	display: flex;
+	align-items: center;
+	width: 100px;
+	height: 30px;
+
+	input {
+		--width: calc(100% - #{$button-size * 2 - 2});
+		--margin: 0 -1px;
+		--borderRadius: 0;
+
+		position: relative;
+		z-index: 2;
+		text-align: center;
+	}
+
+	> a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 1;
+		width: $button-size;
+		height: inherit;
+		border: 1px solid #ddd;
+		background: #f8f9f9;
+		box-sizing: border-box;
+		user-select: none;
+
+		&:before, &:after {
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			width: 8px;
+			height: 1px;
+			background: #6e777c;
+			transition: background 0.05s ease-in-out;
+		}
+
+		&.ct-minus {
+			&:after {
+				display: none;
+			}
+		}
+
+		&.ct-plus {
+			&:after {
+				transform: rotate(90deg);
+			}
+		}
+
+		&:not(.ct-disabled) {
+			cursor: pointer;
+
+			&:hover {
+				z-index: 3;
+				color: #fff;
+				background: $accent_color;
+				border-color: $accent_color;
+
+				&:before,
+				&:after {
+					background: #fff;
+				}
+			}
+		}
+	}
+
+	> * {
+		&:first-child {
+			border-top-left-radius: 2px;
+			border-bottom-left-radius: 2px;
+		}
+
+		&:last-child {
+			border-top-right-radius: 2px;
+			border-bottom-right-radius: 2px;
+		}
+	}
+
+	&.ct-reached-limits {
+		.ct-disabled {
+			color: inherit;
+			opacity: 0.5;
+		}
+
+		> a {
+			&:not(.ct-disabled) {
+				&:not(:hover) {
+					background: #eaedee;
+					border-color: #c7c7c7;
+				}
+			}
+		}
+	}
+}

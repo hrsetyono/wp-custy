@@ -1,0 +1,32 @@
+.site-branding {
+	display: flex;
+	flex-direction: column;
+}
+
+.custom-logo-link {
+	display: block;
+}
+
+.custom-logo {
+	width: auto;
+	height: var(--maxHeight);
+}
+
+.site-description {
+	margin-top: 5px;
+	color: var(--color);
+}
+
+// alignment
+[data-column="middle"] .site-branding {
+	align-items: center;
+	text-align: center;
+}
+
+[data-column="start"] [data-items="secondary"],
+[data-column="end"] [data-items="primary"] {
+	.site-branding {
+		align-items: flex-end;
+		text-align: right;
+	}
+}

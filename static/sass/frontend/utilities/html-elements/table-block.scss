@@ -1,0 +1,21 @@
+table {
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+
+	th {
+		font-weight: bolder;
+		text-align: initial;
+	}
+
+	th, td {
+		padding: 0.75rem 1rem;
+		border: 1px solid #e0e5eb;
+	}
+}
+
+.wp-block-table {
+	@include media-breakpoint-down (sm) {
+		@include responsive-table;
+	}
+}

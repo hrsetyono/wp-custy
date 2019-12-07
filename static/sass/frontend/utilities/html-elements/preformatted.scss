@@ -1,0 +1,37 @@
+pre, code {
+	max-width: 100%;
+	overflow: auto;
+	tab-size: 4;
+	background: rgba(233, 235, 239, 0.5);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+pre {
+	padding: 30px;
+}
+
+code {
+	padding: 3px 5px;
+	border-radius: 3px;
+}
+
+.wp-block-code {
+	code {
+		white-space: pre-wrap;
+	}
+}
+
+.wp-block-code,
+.wp-block-verse,
+.wp-block-preformatted {
+	margin: 0 0 1.65em 0;
+
+	> code {
+		padding: 0;
+		border-radius: 0;
+		background: transparent;
+	}
+}

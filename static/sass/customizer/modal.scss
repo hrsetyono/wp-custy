@@ -1,0 +1,96 @@
+.wp-customizer {
+	[data-reach-dialog-overlay] {
+		display: flex;
+		align-items: center;
+		background: rgba(245, 247, 249, 0.7);
+		z-index: 9999999;
+	}
+
+	[data-reach-dialog-content] {
+		position: relative;
+		// text-align: center;
+		width: 550px;
+		min-height: 200px;
+		margin: auto;
+		padding: 40px 60px;
+		box-sizing: border-box;
+		border-radius: 6px;
+		box-shadow: 0 50px 300px rgba(92, 110, 128, 0.5);
+
+		> div {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			font-size: 14px;
+			min-height: inherit;
+			box-sizing: border-box;
+			text-align: center;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+
+			h1 {
+				font-size: 1.5em;
+				line-height: 1.5;
+				margin: 0 0 20px 0;
+				color: #3e5667;
+			}
+
+			p {
+				font-size: inherit;
+				margin: 0 0 20px 0;
+				color: #687c93;
+			}
+		}
+
+		.close-button {
+			display: none;
+		}
+
+		.ct-reset-actions {
+			margin-top: 10px;
+
+			button {
+				display: inline-flex;
+				align-items: center;
+				height: 40px;
+				padding: 0 25px;
+				margin: 0 10px;
+				appearance: none;
+				cursor: pointer;
+				font-size: 14px;
+				font-weight: 500;
+				letter-spacing: 0.01em;
+				border-radius: 4px;
+				border: 1px solid;
+				transition: all 0.2s ease;
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			.ct-button {
+				color: rgba(46, 68, 83, 0.8);
+				border-color: #e2e6eb;
+				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+
+				&:hover {
+					color: #2e4453;
+					border-color: rgba(190, 196, 203, 1);
+				}
+			}
+
+			.ct-button-primary {
+				color: #fff;
+				background: #0085ba;
+				border-color: rgba(1, 118, 165, 0.6);
+				box-shadow: 0 1px 4px rgba(1, 96, 134, 0.4);
+
+				&:hover {
+					background: #039CD8;
+					border-color: rgba(1, 118, 165, 1);
+				}
+			}
+		}
+	}
+}

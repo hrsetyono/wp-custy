@@ -1,0 +1,56 @@
+#ct-dashboard {
+	.ct-welcome-message {
+		text-align: center;
+
+		h2 {
+			margin-top: 0;
+		}
+
+		p {
+			font-size: 18px;
+		}
+	}
+
+	.ct-first-steps-container {
+		text-align: center;
+
+		h2 {
+			width: 50%;
+			margin: 60px auto 0 auto;
+			padding-top: 50px;
+			border-top: 1px solid rgba(143, 163, 184, 0.15);
+		}
+
+		.ct-first-steps {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-column-gap: 35px;
+			grid-row-gap: 45px;
+			margin-top: 40px;
+
+			li {
+				margin: 0;
+				padding: 40px;
+				background: #fff;
+				border-radius: 3px;
+				box-shadow: 0 20px 30px rgba(143, 163, 184, 0.15);
+
+
+		
+				svg {
+					width: 25px;
+					height: 25px;
+					fill: #3297d3;
+				}
+
+				h4 {
+					// color: #0085ba;
+				}
+
+				p {
+					margin: 10px 0 30px 0;
+				}
+			}
+		}	
+	}
+}

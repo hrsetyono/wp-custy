@@ -1,0 +1,33 @@
+.entry-tags {
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: capitalize;
+	clear: both;
+	margin-top: 40px;
+
+	li {
+		&:after {
+			display: none;
+		}
+	}
+
+	a {
+		--height: 30px;
+		--padding: 0 12px;
+		--buttonFontSize: 14px;
+		--buttonTextInitialColor: var(--color);
+		--buttonInitialColor: transparent;
+
+		box-shadow: inset 0px 0px 0px 1px #dadde2;
+
+		&:hover {
+			box-shadow: inset 0px 0px 0px 1px var(--paletteColor2);
+		}
+
+		&:after {
+			order: -1;
+			content: '#';
+			margin-right: 5px;
+		}
+	}
+}

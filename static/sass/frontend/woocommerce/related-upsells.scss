@@ -1,0 +1,17 @@
+.related,
+.upsells {
+	> h2 {
+		--fontSize: 20px;
+		margin-bottom: 30px;
+	}
+}
+
+
+.product {
+	> .related,
+	> .upsells {
+		margin-top: 60px;
+		padding-top: 50px;
+		border-top: 1px solid $border-color;
+	}
+}

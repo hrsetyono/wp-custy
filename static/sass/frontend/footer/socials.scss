@@ -1,0 +1,26 @@
+[data-column="socials"] {
+	display: flex;
+	justify-content: var(--alignment);
+}
+
+.ct-footer-socials {
+	margin: var(--margin);
+
+	ul {
+		// --wrap: nowrap;
+		justify-content: var(--alignment);
+	}
+
+	[data-icons*="rounded"],
+	[data-icons*="square"] {
+		a {
+			width: calc(var(--iconSize) * 2.5);
+			height: calc(var(--iconSize) * 2.5);
+		}
+	}
+
+	svg {
+		width: auto;
+		height: var(--iconSize);
+	}
+}

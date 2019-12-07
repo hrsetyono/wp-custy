@@ -1,0 +1,9 @@
+$block-max-width: 750px;
+
+@import 'block-image';
+@import 'block-quote';
+@import 'block-cover';
+
+.wp-block {
+	max-width: $block-max-width;
+}

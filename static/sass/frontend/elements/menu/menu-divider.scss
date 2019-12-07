@@ -1,0 +1,35 @@
+[data-menu-divider] > ul > li {
+	display: flex;
+	align-items: center;
+	
+	&:not(:last-child) {
+		&:after {
+			color: var(--menuInitialColor);
+		}
+	}
+}
+
+[data-menu-divider="dash"] > ul > li {
+	&:not(:last-child) {
+		&:after {
+			content: '/';
+			margin-top: -1px;
+			font-size: 10px;
+			font-weight: normal;
+		}
+	}
+}
+
+[data-menu-divider="dot"] > ul > li {
+	&:not(:last-child) {
+		&:after {
+			content: '';
+			width: 4px;
+			height: 4px;
+			opacity: 0.8;
+			font-weight: normal;
+			background: currentColor;
+			border-radius: 100%;
+		}
+	}
+}

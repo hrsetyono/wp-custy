@@ -1,0 +1,8 @@
+// narrow width
+[data-page-structure*="narrow"] {
+	@include media-breakpoint-up (lg) {
+		// width: 60%;
+		width: var(--narrowContainerWidth);
+		margin: 0 auto;
+	}
+}

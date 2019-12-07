@@ -1,0 +1,88 @@
+.term-php #edittag,
+.profile-php #your-profile,
+.user-edit-php #your-profile {
+	max-width: 100%;
+
+	> h2 {
+		font-size: 15px;
+		margin: 20px 0 -11px 0;
+		padding: 20px 27px;
+		background: #F7F7F7;
+		border: 1px solid #e5e5e5;
+		box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	}
+
+	> .form-table {
+		margin-top: 10px;
+		background: #fff;
+		border: 1px solid #e5e5e5;
+		box-shadow: 0 1px 1px rgba(0,0,0,.04);
+
+		> tbody {
+			display: block;
+			padding: 10px 0;
+
+			tr {
+				display: flex;
+				padding: 25px 27px;
+
+				&:not(:last-child) {
+					border-bottom: 1px solid #eee;
+				}
+
+				> th {
+					flex: 0 0 200px;
+					padding-top: 0;
+				}
+
+				> td {
+					width: 70%;
+					padding: 0;
+					margin: 0;
+
+					> input,
+					> textarea {
+						width: 95%;
+						font-family: inherit;
+					}
+
+					.description {
+						display: flex;
+						margin-top: 4px;
+					}
+				}
+
+				@media screen and (max-width: 782px) {
+					flex-direction: column;
+
+					> th {
+						flex: 0 1 auto;
+						padding: 0 0 10px 0;
+					}
+
+					> td {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	> .ct-meta-box-container {
+		margin-top: 30px;
+
+		.ct-options-root {
+			background: #fff;
+			border: 1px solid #e5e5e5;
+			box-shadow: 0 1px 1px rgba(0,0,0,.04);
+
+			> .ct-tabs:before {
+				display: none;
+			}
+		}
+	}
+
+	> .edit-tag-actions {
+		padding-left: 0;
+	}
+}

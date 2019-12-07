@@ -1,0 +1,87 @@
+[data-layout="grid"] {
+
+	.shop-entry-card {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		border-radius: 2px;
+
+		&:hover {
+			.star-rating {
+				opacity: 1;
+			}
+		}
+	}
+
+	.onsale {
+		top: 20px;
+		right: 20px;
+	}
+
+	.star-rating {
+		--starRatingPosition: absolute;
+		top: 25px;
+		left: 25px;
+		opacity: 0;
+		transition: opacity 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	}
+
+	.ct-card-content,
+	.ct-ghost-item {
+		width: 100%;
+		flex: 1 0 auto;
+	}
+
+	.ct-ghost-item {
+		visibility: hidden;
+	}
+
+	.product-categories {
+		margin-top: 5px;
+	}
+
+	.woo-card-actions {
+		display: flex;
+		width: calc(100% + 60px);
+		margin: 25px -30px -30px -30px;
+		border-top: 1px solid #eff1f5;
+
+		> * {
+			width: 50%;
+			min-height: 55px;
+		}
+
+		.price {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			font-size: 14px;
+			font-weight: 500;
+			padding: 5px;
+			color: var(--color);
+
+			&:after {
+				position: absolute;
+				content: '';
+				right: 0;
+				width: 1px;
+				height: 30px;
+				top: calc(50% - 15px);
+				background: #eff1f5;
+			}
+		}
+
+		a {
+			--padding: 5px;
+			--buttonFontFamily: var(--fontFamily);
+			--buttonFontSize: 14px;
+			--buttonTextInitialColor: var(--color);
+			--buttonTextHoverColor: var(--colorHover);
+			--buttonInitialColor: transparent;
+			--buttonHoverColor: transparent;
+			--buttonShadow: none;
+			--buttonTransform: none;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+.admin-bar {
+	@media screen and (max-width: 782px) {
+		--adminBar: 46px;
+	}
+
+	@media screen and (min-width: 783px) {
+		--adminBar: 32px;
+	}
+
+	#offcanvas,
+	#search-modal,
+	.ct-floating-bar,
+	&.ct-passepartout:before,
+	.demo_store[data-position="top"] {
+		top: var(--adminBar) !important;
+	}
+}

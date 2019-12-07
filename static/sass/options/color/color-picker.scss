@@ -1,0 +1,123 @@
+$slider-width: 24px;
+
+.ct-color-picker-modal .wp-picker-holder {
+	padding: 20px 17px;
+	border-bottom: 1px solid #eee;
+
+	.iris-picker {
+		// display: block !important;
+		width: initial !important;
+		height: initial !important;
+		border: none;
+		border-radius: initial;
+	}
+
+	.iris-picker-inner {
+		display: flex;
+		position: static;
+		top: initial;
+		left: initial;
+		right: initial;
+		bottom: initial;
+	}
+
+	.iris-square {
+		width: 100% !important;
+		height: 190px !important;
+		flex: 1;
+		float: none;
+		margin-right: 0;
+		border-radius: 12px;
+
+		.iris-square-inner {
+			border-radius: inherit;
+			box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+		}
+
+		.iris-square-value {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 0px !important;
+			height: 0px !important;
+
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+
+			.iris-square-handle {
+				top: -9px;
+				left: -9px;
+				width: 18px;
+				height: 18px;
+				border-width: 4px;
+				border-color: #fff;
+				opacity: 1;
+				box-sizing: border-box;
+				transition: border-width 0.2s ease;
+				box-shadow: 0 0 3px rgba(0, 0, 0, 0.4), inset 0 0 3px rgba(0, 0, 0, 0.4);
+
+				&:after {
+					display: none;
+				}
+
+				&:hover, &:active {
+					border-width: 6px;
+				}
+			}
+		}
+	}
+
+	.iris-slider {
+		width: $slider-width !important;
+		height: initial !important;
+		float: none;
+		margin-left: 15px;
+		border-radius: 20px;
+		box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+
+		.iris-slider-offset {
+			top: #{$slider-width - 3};
+			bottom: 3px;
+		}
+
+		.ui-slider-handle {			
+			width: #{$slider-width - 6};
+			height: #{$slider-width - 6};
+			left: 3px;
+			right: initial;
+			opacity: 1;
+			border-width: 4px;
+			border-color: #fff;
+			box-sizing: border-box;
+			border-radius: 100%;
+			transition: border-width 0.2s ease;
+			box-shadow: 0 0 3px rgba(0, 0, 0, 0.3), inset 0 0 3px rgba(0, 0, 0, 0.3);
+
+			&:before {
+				display: none;
+			}
+
+			&:focus {
+				box-shadow: none;
+			}
+
+			&:hover, &:active {
+				border-width: 6px;
+			}
+		}
+	}
+}
+
+
+
+
+// color picker bottom
+.ct-color-picker-bottom {
+	padding: 20px 17px 17px 17px;
+
+	.ct-color-picker-input input {
+		--width: 100%;
+	}
+}

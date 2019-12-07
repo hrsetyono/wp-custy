@@ -1,0 +1,84 @@
+$selector: 
+	'.entry-content p > a',
+	'.entry-content h1 > a',
+	'.entry-content h2 > a',
+	'.entry-content h3 > a',
+	'.entry-content h4 > a',
+	'.entry-content h5 > a',
+	'.entry-content h6 > a',
+	'.entry-content li > a',
+	'.entry-content em > a',
+	'.entry-content strong > a',
+
+	'.gdpr-confirm-policy a',
+;
+
+#{$selector} {
+	--color: var(--entryLinkColor);
+	--colorHover: var(--entryLinkColorHover);
+}
+
+// type 1
+[data-link="type-1"] {
+	// #{$selector} {
+	// }
+}
+
+
+// type 2
+[data-link="type-2"] {
+	#{$selector} {
+		text-decoration: underline;
+	}
+}
+
+
+// type 3
+[data-link="type-3"] {
+
+	#{$selector} {
+		background-image: linear-gradient(currentColor, currentColor);
+		background-position: 0% 100%;
+		background-repeat: no-repeat;
+		background-size: 0% 2px;
+
+		&:hover, &:focus {
+			background-size: 100% 2px;
+		}
+	}
+}
+
+
+// type 4
+[data-link="type-4"] {
+
+	#{$selector} {
+		padding: 0 1px;
+		background-image: linear-gradient(var(--entryLinkColor), var(--entryLinkColor));
+		background-position: 0% 100%;
+		background-repeat: no-repeat;
+		background-size: 100% 2px;
+
+		&:hover, &:focus {
+			color: var(--entryLinkTextColor);
+			background-size: 100% 100%;
+			background-image: linear-gradient(var(--entryLinkColorHover), var(--entryLinkColorHover));
+		}
+	}
+}
+
+// type 5
+[data-link="type-5"] {
+
+	#{$selector} {
+		padding: 0 1px;
+		background-image: linear-gradient(var(--entryLinkColorHover), var(--entryLinkColorHover));
+		background-repeat: no-repeat;
+		background-size: 0% 100%;
+
+		&:hover, &:focus {
+			color: var(--entryLinkTextColor);
+			background-size: 100% 100%;
+		}
+	}
+}

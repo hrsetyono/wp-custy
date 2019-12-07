@@ -1,0 +1,91 @@
+.entry-card {
+	display: flex;
+
+	.entry-title {
+		margin: initial;
+	}
+
+	.entry-excerpt {
+		font-size: var(--cardExcerptSize);
+		color: var(--color);
+	}
+
+	.entry-meta {
+		color: var(--color);
+	}
+
+	.avatar-container {
+		width: var(--avatarSize);
+		height: var(--avatarSize);
+	}
+
+	.ct-ghost {
+		margin: 0 !important;
+		flex: 1 0 auto;
+	}
+}
+
+// elements spacing
+[data-layout="grid"],
+[data-layout="classic"],
+[data-layout="enhanced-grid"] {
+	.entry-card {
+		flex-direction: column;
+		
+		> * {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+
+				&.entry-meta {
+					// because the meta li ads margin-bottom 5px
+					margin-bottom: 15px;
+				}
+			}
+
+			+ .ct-image-container {
+				margin-top: 5px;
+			}
+		}
+
+		> .ct-image-container {
+			+ * {
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+[data-layout="simple"] {
+	.card-content {
+		> * {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+
+				&.entry-meta {
+					// because the meta li ads margin-bottom 5px
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+}
+
+
+// Boxed card
+[data-cards="boxed"] .entry-card {
+	padding: var(--cardSpacing);
+	background: var(--cardBackground);
+	border: var(--border, none);
+	box-shadow: var(--boxShadow);
+}
+
+
+// Simple card
+[data-cards="simple"] {
+	overflow: hidden;
+	
+	.entry-card {
+		padding-bottom: var(--cardsGap);
+		border-bottom: var(--border);
+	}
+}

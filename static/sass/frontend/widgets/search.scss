@@ -1,0 +1,168 @@
+.widget_search,
+.widget_product_search {
+	form {
+		position: relative;
+		z-index: 1;
+
+		&.ct-has-dropdown {
+			z-index: 2;
+		}
+
+		ul {
+			position: absolute;
+			z-index: 1;
+			top: -15px;
+			left: -15px;
+			padding-top: calc(var(--formInputHeight) + 14px);
+			width: calc(100% + 30px);
+			min-height: 75px;
+			border-radius: 5px;
+			overflow: hidden;
+			background: #fafafa;
+			box-shadow: 0px 50px 70px 0px rgba(210, 213, 218, 0.4);
+
+			li {
+				margin: 0;
+				padding: 20px;
+
+				&:not(:last-child) {
+					border-bottom: 1px dashed rgba(215, 222, 229, 0.4);
+				}
+
+				a {
+					display: flex;
+					align-items: center;
+					font-size: 14px;
+					font-weight: 500;
+				}
+
+				.ct-image-container {
+					align-self: flex-start;
+					max-width: 45px;
+					margin-right: 15px;
+					border-radius: 3px;
+					overflow: hidden;
+
+					&:before {
+						content: '';
+						top: 0;
+						margin: 0;
+						padding: 0;
+						width: 45px;
+						height: 45px;
+						background-size: 25px;
+					}
+				}
+			}
+
+			> a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 45px;
+				font-size: 14px;
+				font-weight: 600;
+				text-transform: capitalize;
+			}
+		}
+	}
+
+	[data-loader] {
+		--loaderSize: 30px;
+		--loaderColor: rgba(44, 62, 80, 0.5);
+	}
+}
+
+.ct-search-input {
+	position: relative;
+	z-index: 2;
+
+	input[type="search"] {
+		// hide chrome X button
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration {
+			display: none;
+		}
+
+		&:focus + button {
+			opacity: 1;
+		}
+	}
+
+	button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		background: transparent;
+		opacity: 0.5;
+		transition: opacity 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+		i {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// position: relative;
+			// z-index: 2;
+			width: 45px;
+			height: var(--formInputHeight);
+			color: rgba(44, 62, 80, 0.9);
+			transition: color 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+			svg {
+				// opacity: 0.7;
+				fill: currentColor;
+			}
+		}
+
+		[data-loader] {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+}
+
+
+.ct-searching .search-submit {
+	i {
+		opacity: 0;
+	}
+
+	[data-loader] {
+		opacity: 1;
+		visibility: visible;
+		animation-play-state: running;
+	}
+}
+
+
+// results reveal animation
+.ct-search-results {
+	&.ct-slide,
+	&.ct-fade-leave,
+	&.ct-fade-leave-active,
+	&.ct-fade-enter,
+	&.ct-fade-enter-active {
+		transition: all 0.3s ease;
+	}
+
+	&.ct-fade-enter {
+		opacity: 0;
+	}
+
+	&.ct-fade-enter-active {
+		opacity: 1;
+	}
+
+	&.ct-fade-leave {
+		opacity: 1;
+	}
+
+	&.ct-fade-leave-active {
+		opacity: 0;
+	}
+}

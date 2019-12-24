@@ -7,25 +7,51 @@ function blocksy_single_content( $check_for_preview = false ) {
 		$page_structure_output = 'data-page-structure="' . blocksy_get_page_structure() . '"';
 	}
 
-	$has_share_box = get_theme_mod(
-		'has_share_box',
-		'yes'
-	) === 'yes' || $check_for_preview;
+    $post_options = blocksy_get_post_options();
 
-	$has_post_tags = get_theme_mod(
-		'has_post_tags',
-		'yes'
-	) === 'yes' || $check_for_preview;
+	$has_share_box = get_theme_mod('has_share_box', 'yes') === 'yes';
+	$has_post_tags = get_theme_mod('has_post_tags', 'yes') === 'yes';
+	$has_author_box = get_theme_mod('has_author_box', 'no') === 'yes';
+	$has_post_nav = get_theme_mod('has_post_nav', 'yes') === 'yes';
 
-	$has_author_box = get_theme_mod(
-		'has_author_box',
-		'no'
-	) === 'yes' || $check_for_preview;
+	if ($check_for_preview) {
+		$has_share_box = true;
+		$has_post_tags = true;
+		$has_author_box = true;
+		$has_post_nav = true;
+	}
 
-	$has_post_nav = get_theme_mod(
-		'has_post_nav',
-		'yes'
-	) === 'yes' || $check_for_preview;
+	if (
+		blocksy_default_akg(
+			'disable_posts_navigation', $post_options, 'no'
+		) === 'yes'
+	) {
+		$has_post_nav = false;
+	}
+
+	if (
+		blocksy_default_akg(
+			'disable_author_box', $post_options, 'no'
+		) === 'yes'
+	) {
+		$has_author_box = false;
+	}
+
+	if (
+		blocksy_default_akg(
+			'disable_post_tags', $post_options, 'no'
+		) === 'yes'
+	) {
+		$has_post_tags = false;
+	}
+
+	if (
+		blocksy_default_akg(
+			'disable_share_box', $post_options, 'no'
+		) === 'yes'
+	) {
+		$has_share_box = false;
+	}
 
 	$featured_image_location = 'none';
 
@@ -47,6 +73,8 @@ function blocksy_single_content( $check_for_preview = false ) {
 			} else {
 				$featured_image_location = 'below';
 			}
+		} else {
+			$featured_image_location = 'above';
 		}
 	}
 

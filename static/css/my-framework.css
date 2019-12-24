@@ -1,0 +1,4 @@
+/*!
+  EDJE Functional Sass v3.1.0
+  Documentation: https://github.com/hrsetyono/edje/wiki
+*/h1,h2,h3,h4,h5,h6{--fontFamily: var(--hFontFamily);--fontWeight: var(--hFontWeight);--fontStyle: var(--hFontStyle);--lineHeight: var(--hLineHeight);--letterSpacing: var(--hLetterSpacing);--textTransform: var(--hTextTransform);--textDecoration: var(--hTextDecoration)}.entry-content h1,.entry-content h2,.entry-content h3,.entry-content h4,.entry-content h5,.entry-content h6{--color: var(--headingColor)}h1{--fontSize: var(--h1Size)}h2{--fontSize: var(--h2Size)}h3{--fontSize: var(--h3Size)}h4{--fontSize: var(--h4Size)}h5{--fontSize: var(--h5Size)}h6{--fontSize: var(--h6Size)}

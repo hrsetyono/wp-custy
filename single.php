@@ -7,7 +7,14 @@
  * @package Blocksy
  */
 
-$has_related_posts = get_theme_mod( 'has_related_posts', 'yes' ) === 'yes';
+$has_related_posts = get_theme_mod( 'has_related_posts', 'yes' ) === 'yes' && (
+	blocksy_default_akg(
+		'disable_related_posts',
+		blocksy_get_post_options(),
+		'no'
+	) !== 'yes'
+);
+
 $has_post_comments = get_theme_mod( 'has_post_comments', 'yes' ) === 'yes';
 
 if (blocksy_is_page()) {

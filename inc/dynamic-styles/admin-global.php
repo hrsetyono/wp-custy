@@ -12,44 +12,71 @@ $colorPalette = blocksy_get_colors(
 	]
 );
 
+// Alias name for palette
 $css->put(
 	':root',
-	"--paletteColor1: {$colorPalette['color1']}"
+	"--c1: {$colorPalette['color1']}"
 );
 
 $css->put(
 	':root',
-	"--paletteColor2: {$colorPalette['color2']}"
+	"--c2: {$colorPalette['color2']}"
 );
 
 $css->put(
 	':root',
-	"--paletteColor3: {$colorPalette['color3']}"
+	"--c3: {$colorPalette['color3']}"
 );
 
 $css->put(
 	':root',
-	"--paletteColor4: {$colorPalette['color4']}"
+	"--c4: {$colorPalette['color4']}"
 );
 
 $css->put(
 	':root',
-	"--paletteColor5: {$colorPalette['color5']}"
+	"--c5: {$colorPalette['color5']}"
 );
+
+$css->put(
+	':root',
+	"--paletteColor1: var(--c1)"
+);
+
+$css->put(
+	':root',
+	"--paletteColor2: var(--c2)"
+);
+
+$css->put(
+	':root',
+	"--paletteColor3: var(--c3)"
+);
+
+$css->put(
+	':root',
+	"--paletteColor4: var(--c4)"
+);
+
+$css->put(
+	':root',
+	"--paletteColor5: var(--c5)"
+);
+
 
 // font color
-blocksy_output_colors([
-	'value' => get_theme_mod('fontColor'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor3)' ],
-		'hover' => [ 'color' => 'var(--paletteColor1)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => ['variable' => 'color'],
-		'hover' => ['variable' => 'colorHover'],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('fontColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor4)' ],
+// 		'hover' => [ 'color' => 'var(--paletteColor1)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => ['variable' => 'color'],
+// 		'hover' => ['variable' => 'colorHover'],
+// 	],
+// ]);
 
 
 // buttons

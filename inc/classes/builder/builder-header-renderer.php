@@ -91,7 +91,7 @@ class Blocksy_Customizer_Builder_Render_Placements {
 	}
 
 	public function render_offcanvas($has_container = true) {
-		if (! $this->contains_item('search')) {
+		if (! $this->contains_item('trigger')) {
 			return '';
 		}
 

@@ -10,7 +10,7 @@ add_action( 'after_switch_theme', 'blocksy_switch_theme' );
 function blocksy_upgrade_notice() {
 	$message = sprintf(
 		// translators: placeholder here is the actual PHP version.
-		__( 'Blocksy requires at least PHP version 5.7.0. You are running version %s. Please upgrade and try again.', 'blocksy' ),
+		__( 'This theme  requires at least PHP version 5.7.0. You are running version %s. Please upgrade and try again.', 'blocksy' ),
 		PHP_VERSION
 	);
 
@@ -20,7 +20,7 @@ function blocksy_upgrade_notice() {
 function blocksy_customize() {
 	wp_die( sprintf(
 		// translators: placeholder here is the actual PHP version.
-		esc_html(__( 'Blocksy requires at least PHP version 5.7.0. You are running version %s. Please upgrade and try again.', 'blocksy' )),
+		esc_html(__( 'This theme requires at least PHP version 5.7.0. You are running version %s. Please upgrade and try again.', 'blocksy' )),
 		PHP_VERSION 
 	), '', array(
 		'back_link' => true,
@@ -32,7 +32,7 @@ function blocksy_preview() {
 	if ( isset( $_GET['preview'] ) ) {
 		wp_die( sprintf(
 			// translators: placeholder here is the actual PHP version.
-			esc_html(__( 'Blocksy requires at least PHP version 5.7.0. You are running version %s. Please upgrade and try again.', 'blocksy' )),
+			esc_html(__( 'This theme requires at least PHP version 5.7.0. You are running version %s. Please upgrade and try again.', 'blocksy' )),
 			PHP_VERSION
 		) );
 	}

@@ -1,3 +1,3 @@
-wp.customize('content_link_type', val =>
+wp.customize('contentLinkType', val =>
 	val.bind(to => (document.body.dataset.link = to))
 )

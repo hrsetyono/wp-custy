@@ -483,12 +483,6 @@ function blocksy_typography_default_values($values = []) {
 		'family' => 'Default',
 		'variation' => 'Default',
 
-		'size' => '17px',
-		'line-height' => '1.65',
-		'letter-spacing' => '0em',
-		'text-transform' => 'none',
-		'text-decoration' => 'none',
-
 		'size' => 'CT_CSS_SKIP_RULE',
 		'line-height' => 'CT_CSS_SKIP_RULE',
 		'letter-spacing' => 'CT_CSS_SKIP_RULE',

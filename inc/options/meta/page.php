@@ -1,8 +1,22 @@
 <?php
 
 $options = [
+
 	blocksy_rand_md5() => [
-		'title' => __( 'Page', 'blocksy' ),
+		'title' => __( 'Page Title', 'blocksy' ),
+		'type' => 'tab',
+		'options' => [
+
+			blocksy_get_options('general/page-title', [
+				'has_default' => true,
+				'is_single' => true
+			])
+
+		],
+	],
+
+	blocksy_rand_md5() => [
+		'title' => __( 'Page Structure', 'blocksy' ),
 		'type' => 'tab',
 		'options' => [
 
@@ -58,19 +72,6 @@ $options = [
 				'blocksy_extensions_metabox_page_bottom',
 				[]
 			)
-		],
-	],
-
-	blocksy_rand_md5() => [
-		'title' => __( 'Page Title', 'blocksy' ),
-		'type' => 'tab',
-		'options' => [
-
-			blocksy_get_options('general/page-title', [
-				'has_default' => true,
-				'is_single' => true
-			])
-
 		],
 	],
 

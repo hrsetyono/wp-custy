@@ -91,7 +91,7 @@ add_action('admin_print_styles', function () {
 		'name' => 'admin-global',
 		'css' => $css,
 		'context' => 'inline',
-		'chunk' => 'global'
+		'chunk' => 'admin'
 	]);
 
 	/**

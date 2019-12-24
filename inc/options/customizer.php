@@ -156,26 +156,6 @@ $options = [
 
 	] : [],
 
-	[
-		blocksy_rand_md5() => [
-			'type' => 'ct-group-title',
-			'title' => __( 'Visitor Engagement', 'blocksy' ),
-			'priority' => 6,
-		],
-
-		'general_visitor_engagement' => [
-			'title' => __('General', 'blocksy'),
-			'container' => [ 'priority' => 6 ],
-			'options' => blocksy_get_options( 'engagement/general' ),
-		],
-
-		'social_accounts' => [
-			'title' => __( 'Social Networks', 'blocksy' ),
-			'container' => [ 'priority' => 6 ],
-			'options' => blocksy_get_options( 'engagement/social-accounts' ),
-		],
-	],
-
 	apply_filters(
 		'blocksy_misc_end_section_customizer_options',
 		[]

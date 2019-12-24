@@ -310,6 +310,14 @@ function blocksy_get_featured_image_output($check_for_preview = false) {
 		}
 	}
 
+	if (blocksy_default_akg(
+		'disable_featured_image',
+		blocksy_get_post_options(),
+		'no'
+	) === 'yes') {
+		return '';
+	}
+
 	if (! has_post_thumbnail()) {
 		return '';
 	}

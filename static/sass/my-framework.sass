@@ -1,0 +1,28 @@
+// This styling is applied to WP Admin
+$output-framework: false
+@import "settings"
+
+h1, h2, h3, h4, h5, h6
+  --fontFamily: var(--hFontFamily)
+  --fontWeight: var(--hFontWeight)
+  --fontStyle: var(--hFontStyle)
+  --lineHeight: var(--hLineHeight)
+  --letterSpacing: var(--hLetterSpacing)
+  --textTransform: var(--hTextTransform)
+  --textDecoration: var(--hTextDecoration)
+
+  .entry-content &
+    --color: var(--headingColor)
+
+h1
+  --fontSize: var(--h1Size)
+h2
+  --fontSize: var(--h2Size)
+h3
+  --fontSize: var(--h3Size)
+h4
+  --fontSize: var(--h4Size)
+h5
+  --fontSize: var(--h5Size)
+h6
+  --fontSize: var(--h6Size)

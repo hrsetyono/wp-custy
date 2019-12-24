@@ -1,0 +1,9 @@
+.wp-block-audio {
+	audio {
+		min-width: 200px;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}

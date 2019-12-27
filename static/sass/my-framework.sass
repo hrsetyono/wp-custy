@@ -2,6 +2,7 @@
 $output-framework: false
 @import "settings"
 
+// TYPOGRAPHY
 h1, h2, h3, h4, h5, h6
   --fontFamily: var(--hFontFamily)
   --fontWeight: var(--hFontWeight)
@@ -26,3 +27,35 @@ h5
   --fontSize: var(--h5Size)
 h6
   --fontSize: var(--h6Size)
+  
+
+// FORMS
+form textarea
+  --formInputHeight: var(--formTextAreaHeight)
+
+[data-forms='classic']
+  textarea,
+  input[type='url'],
+  input[type='tel'],
+  input[type='text'],
+  input[type='date'],
+  input[type='email'],
+  input[type='number'],
+  input[type='search']:not(.modal-field),
+  input[type='password'],
+  .selectr-selected
+    border: var(--formBorder)
+
+.selectr-container
+  --color: var(--selectDefaultColor)
+  --colorHover: var(--selectHoverColor)
+  --colorActive: var(--selectActiveColor)
+  
+  --selectDropdownItemHoverColor: var(--selectItemHoverColor)
+  --selectDropdownItemActiveColor: var(--selectItemActiveColor)
+  --selectDropdownBackground: var(--selectBackground)
+
+[type="radio"],
+[type="checkbox"]
+  --radioCheckboxInitialColor: var(--radioInitialColor)
+  --radioCheckboxAccentColor: var(--radioAccentColor)

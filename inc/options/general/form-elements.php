@@ -1,4 +1,7 @@
 <?php
+$defaults = my_get_default_mods();
+
+
 /**
  * Forms options
  *
@@ -7,28 +10,30 @@
  * @package   Blocksy
  */
 
-$options = [
-
-	'form_elements_panel' => [
+$options = [ 'form_section_options' => [
 		'label' => __( 'Form Elements', 'blocksy' ),
-		'type' => 'ct-panel',
+		'desc' => 'Asd',
+		'type' => 'ct-options',
 		'setting' => [ 'transport' => 'postMessage' ],
 		'inner-options' => [
+
+			blocksy_rand_md5() => [
+				'type' => 'ct-title',
+				'desc' => '<strong>Note:</strong> All Vars are applied to <code>form</code>',
+			],
 
 			'forms_type' => [
 				'label' => false,
 				'type' => 'ct-image-picker',
-				'value' => 'classic-forms',
+				'value' => $defaults['forms_type'],
 				'attr' => [ 'data-type' => 'background' ],
 				'setting' => [ 'transport' => 'postMessage' ],
 				'switchDeviceOnChange' => 'desktop',
 				'choices' => [
-
 					'classic-forms' => [
 						'src'   => blocksy_image_picker_url( 'forms-type-1.svg' ),
 						'title' => __( 'Classic', 'blocksy' ),
 					],
-
 					'modern-forms' => [
 						'src'   => blocksy_image_picker_url( 'forms-type-2.svg' ),
 						'title' => __( 'Modern', 'blocksy' ),
@@ -39,19 +44,15 @@ $options = [
 
 			'formTextColor' => [
 				'label' => __( 'Font Color', 'blocksy' ),
+				'desc' => my_css_desc( [
+					'--formTextInitialColor',
+					'--formTextFocusColor'
+				]),
 				'type'  => 'ct-color-picker',
+				'skipEditPalette' => true,
 				'design' => 'inline',
 				'setting' => [ 'transport' => 'postMessage' ],
-				'value' => [
-					'default' => [
-						'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT'),
-					],
-
-					'focus' => [
-						'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT'),
-					],
-				],
-
+				'value' => $defaults['formTextColor'],
 				'pickers' => [
 					[
 						'title' => __( 'Initial', 'blocksy' ),
@@ -69,11 +70,15 @@ $options = [
 
 			'formFontSize' => [
 				'label' => __( 'Font Size', 'blocksy' ),
-				'type' => 'ct-number',
-				'design' => 'inline',
-				'value' => 15,
-				'min' => 5,
-				'max' => 50,
+				'desc' => my_css_desc( [
+					'--formFontSize',
+				]),
+				'type' => 'ct-slider',
+				'value' => $defaults['formFontSize'],
+				'units' => [
+					[ 'unit' => 'px', 'min' => '14', 'max' => '24' ],
+					[ 'unit' => 'rem', 'min' => '0', 'max' => '2' ],
+				],
 				'setting' => [ 'transport' => 'postMessage' ],
 			],
 
@@ -82,55 +87,22 @@ $options = [
 				'label' => __( 'Input & Textarea', 'blocksy' ),
 			],
 
-			'formBorderColor' => [
-				'label' => __( 'Border Color', 'blocksy' ),
-				'type'  => 'ct-color-picker',
-				'design' => 'inline',
-				'setting' => [ 'transport' => 'postMessage' ],
-				'value' => [
-					'default' => [
-						'color' => 'rgba(232, 235, 240, 1)',
-					],
-
-					'focus' => [
-						'color' => 'var(--paletteColor1)',
-					],
-				],
-
-				'pickers' => [
-					[
-						'title' => __( 'Initial', 'blocksy' ),
-						'id' => 'default',
-					],
-
-					[
-						'title' => __( 'Focus', 'blocksy' ),
-						'id' => 'focus',
-					],
-				],
-			],
-
 			'formBackgroundColor' => [
 				'label' => __( 'Background Color', 'blocksy' ),
+				'desc' => my_css_desc( [
+					'--formBackgroundInitialColor',
+					'--formBackgroundFocusColor'
+				]),
 				'type'  => 'ct-color-picker',
+				'skipEditPalette' => true,
 				'design' => 'inline',
 				'setting' => [ 'transport' => 'postMessage' ],
-				'value' => [
-					'default' => [
-						'color' => Blocksy_Css_Injector::get_skip_rule_keyword(),
-					],
-
-					'focus' => [
-						'color' => Blocksy_Css_Injector::get_skip_rule_keyword(),
-					],
-				],
-
+				'value' => $defaults['formBackgroundColor'],
 				'pickers' => [
 					[
 						'title' => __( 'Initial', 'blocksy' ),
 						'id' => 'default',
 					],
-
 					[
 						'title' => __( 'Focus', 'blocksy' ),
 						'id' => 'focus',
@@ -138,33 +110,59 @@ $options = [
 				],
 			],
 
-			'formBorderSize' => [
-				'label' => __( 'Border Size', 'blocksy' ),
-				'type' => 'ct-number',
+			'formBorder' => [
+				'label' => __( 'Border' ),
+				'desc' => my_css_desc([
+					'--formBorder',
+				]),
 				'design' => 'inline',
-				'value' => 1,
-				'min' => 1,
-				'max' => 5,
+				'type' => 'ct-border',
 				'setting' => [ 'transport' => 'postMessage' ],
+				'value' => $defaults['formBorder'],
+			],
+
+			'formBorderFocusColor' => [
+				'label' => __( 'Border Focus Color', 'blocksy' ),
+				'desc' => my_css_desc( [
+					'--formBorderFocusColor'
+				]),
+				'type'  => 'ct-color-picker',
+				'design' => 'inline',
+				'setting' => [ 'transport' => 'postMessage' ],
+				'value' => $defaults['formBorderFocusColor'],
+				'pickers' => [
+					[
+						'title' => __( 'Focus', 'blocksy' ),
+						'id' => 'focus',
+					],
+				],
 			],
 
 			'formInputHeight' => [
 				'label' => __( 'Input Height', 'blocksy' ),
-				'type' => 'ct-number',
-				'design' => 'inline',
-				'value' => 45,
-				'min' => 20,
-				'max' => 80,
+				'desc' => my_css_desc( [
+					'--formInputHeight',
+				]),
+				'type' => 'ct-slider',
+				'value' => $defaults['formInputHeight'],
+				'units' => [
+					[ 'unit' => 'px', 'min' => 20, 'max' => 60 ],
+					[ 'unit' => 'rem', 'min' => 1, 'max' => 4 ],
+				],
 				'setting' => [ 'transport' => 'postMessage' ],
 			],
 
 			'formTextAreaHeight' => [
 				'label' => __( 'Textarea Height', 'blocksy' ),
-				'type' => 'ct-number',
-				'design' => 'inline',
-				'value' => 170,
-				'min' => 50,
-				'max' => 250,
+				'desc' => my_css_desc( [
+					'--formTextAreaHeight',
+				]),
+				'type' => 'ct-slider',
+				'value' => $defaults['formTextAreaHeight'],
+				'units' => [
+					[ 'unit' => 'px', 'min' => 75, 'max' => 250 ],
+					[ 'unit' => 'rem', 'min' => 4, 'max' => 15 ],
+				],
 				'setting' => [ 'transport' => 'postMessage' ],
 			],
 
@@ -175,36 +173,27 @@ $options = [
 
 			'selectDropdownTextColor' => [
 				'label' => __( 'Dropdown Text Color', 'blocksy' ),
+				'desc' => my_css_desc( [
+					'--selectDefaultColor',
+					'--selectHoverColor',
+					'--selectActiveColor'
+				]),
 				'type'  => 'ct-color-picker',
 				'design' => 'inline',
+				'skipEditPalette' => true,
 				'setting' => [ 'transport' => 'postMessage' ],
-				'value' => [
-					'default' => [
-						'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT'),
-					],
-
-					'hover' => [
-						'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT'),
-					],
-
-					'active' => [
-						'color' => '#ffffff',
-					],
-				],
-
+				'value' => $defaults['selectDropdownTextColor'],
 				'pickers' => [
 					[
 						'title' => __( 'Initial', 'blocksy' ),
 						'id' => 'default',
 						'inherit' => 'var(--color)'
 					],
-
 					[
 						'title' => __( 'Hover', 'blocksy' ),
 						'id' => 'hover',
 						'inherit' => 'var(--color)'
 					],
-
 					[
 						'title' => __( 'Active', 'blocksy' ),
 						'id' => 'active',
@@ -214,25 +203,19 @@ $options = [
 
 			'selectDropdownItemColor' => [
 				'label' => __( 'Dropdown Items Color', 'blocksy' ),
+				'desc' => my_css_desc( [
+					'--selectItemHoverColor',
+					'--selectItemActiveColor',
+				]),
 				'type'  => 'ct-color-picker',
 				'design' => 'inline',
 				'setting' => [ 'transport' => 'postMessage' ],
-				'value' => [
-					'hover' => [
-						'color' => 'rgba(232, 235, 240, 0.4)',
-					],
-
-					'active' => [
-						'color' => 'var(--paletteColor1)',
-					],
-				],
-
+				'value' => $defaults['selectDropdownItemColor'],
 				'pickers' => [
 					[
 						'title' => __( 'Hover', 'blocksy' ),
 						'id' => 'hover',
 					],
-
 					[
 						'title' => __( 'Active', 'blocksy' ),
 						'id' => 'active',
@@ -242,15 +225,13 @@ $options = [
 
 			'selectDropdownBackground' => [
 				'label' => __( 'Dropdown background', 'blocksy' ),
+				'desc' => my_css_desc( [
+					'--selectBackground',
+				]),
 				'type'  => 'ct-color-picker',
 				'design' => 'inline',
 				'setting' => [ 'transport' => 'postMessage' ],
-				'value' => [
-					'default' => [
-						'color' => '#ffffff',
-					],
-				],
-
+				'value' => $defaults['selectDropdownBackground'],
 				'pickers' => [
 					[
 						'title' => __( 'Initial', 'blocksy' ),
@@ -267,25 +248,19 @@ $options = [
 
 			'radioCheckboxColor' => [
 				'label' => __( 'Colors', 'blocksy' ),
+				'desc' => my_css_desc( [
+					'--radioInitialColor',
+					'--radioAccentColor'
+				] ),
 				'type'  => 'ct-color-picker',
 				'design' => 'inline',
 				'setting' => [ 'transport' => 'postMessage' ],
-				'value' => [
-					'default' => [
-						'color' => '#e8ebf0',
-					],
-
-					'accent' => [
-						'color' => 'var(--paletteColor1)',
-					],
-				],
-
+				'value' => $defaults['radioCheckboxColor'],
 				'pickers' => [
 					[
 						'title' => __( 'Initial', 'blocksy' ),
 						'id' => 'default',
 					],
-
 					[
 						'title' => __( 'Active', 'blocksy' ),
 						'id' => 'accent',

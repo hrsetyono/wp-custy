@@ -109,50 +109,50 @@
 // 	'selector' => 'h6'
 // ]);
 
-blocksy_output_font_css([
-	'font_value' => get_theme_mod(
-		'buttons',
-		blocksy_typography_default_values([
-			'size' => '15px',
-			'variation' => 'n5',
-		])
-	),
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => ':root',
-	'prefix' => 'button'
-]);
+// blocksy_output_font_css([
+// 	'font_value' => get_theme_mod(
+// 		'buttons',
+// 		blocksy_typography_default_values([
+// 			'size' => '15px',
+// 			'variation' => 'n5',
+// 		])
+// 	),
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => ':root',
+// 	'prefix' => 'button'
+// ]);
 
-blocksy_output_font_css([
-	'font_value' => get_theme_mod(
-		'blockquote',
-		blocksy_typography_default_values([
-			'family' => 'Georgia',
-			'size' => '25px',
-			'variation' => 'n6',
-		])
-	),
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => '.entry-content blockquote p, .ct-quote-widget blockquote p'
-]);
+// blocksy_output_font_css([
+// 	'font_value' => get_theme_mod(
+// 		'blockquote',
+// 		blocksy_typography_default_values([
+// 			'family' => 'Georgia',
+// 			'size' => '25px',
+// 			'variation' => 'n6',
+// 		])
+// 	),
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => '.entry-content blockquote p, .ct-quote-widget blockquote p'
+// ]);
 
-blocksy_output_font_css([
-	'font_value' => get_theme_mod(
-		'pre',
-		blocksy_typography_default_values([
-			'family' => 'monospace',
-			'size' => '16px',
-			'variation' => 'n4',
-		])
-	),
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => 'code, kbd, samp, pre'
-]);
+// blocksy_output_font_css([
+// 	'font_value' => get_theme_mod(
+// 		'pre',
+// 		blocksy_typography_default_values([
+// 			'family' => 'monospace',
+// 			'size' => '16px',
+// 			'variation' => 'n4',
+// 		])
+// 	),
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => 'code, kbd, samp, pre'
+// ]);
 
 blocksy_output_font_css([
 	'font_value' => get_theme_mod(

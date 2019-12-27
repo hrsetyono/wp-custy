@@ -101,7 +101,10 @@ $options = [ 'colors_section_options' => [
 
 		'fontColor' => [
 			'label' => __( 'Font Color', 'blocksy' ),
-			'desc' => '<code>--color</code>, <code>--colorHover</code>',
+			'desc' => my_css_desc( [
+				'--color',
+				'--colorHover'
+			] ),
 			'type'  => 'ct-color-picker',
 			'skipEditPalette' => true,
 			'design' => 'inline',
@@ -113,7 +116,6 @@ $options = [ 'colors_section_options' => [
 					'title' => __( 'Initial', 'blocksy' ),
 					'id' => 'default',
 				],
-
 				[
 					'title' => __( 'Hover', 'blocksy' ),
 					'id' => 'hover',
@@ -123,7 +125,9 @@ $options = [ 'colors_section_options' => [
 
 		'headingColor' => [
 			'label' => __( 'Heading Color', 'blocksy' ),
-			'desc' => '<code>--headingColor</code>',
+			'desc' => my_css_desc( [
+				'--headingColor',
+			] ),
 			'type'  => 'ct-color-picker',
 			'skipEditPalette' => true,
 			'design' => 'inline',
@@ -144,7 +148,10 @@ $options = [ 'colors_section_options' => [
 
 		'buttonTextColor' => [
 			'label' => __( 'Button Text Color', 'blocksy' ),
-			'desc' => '<code>--buttonTextInitialColor</code>, <code>--buttonTextHoverColor</code>',
+			'desc' => my_css_desc( [
+				'--buttonTextInitialColor',
+				'--buttonTextHoverColor'
+			] ),
 			'type'  => 'ct-color-picker',
 			'design' => 'inline',
 			'skipEditPalette' => true,
@@ -165,7 +172,10 @@ $options = [ 'colors_section_options' => [
 
 		'buttonColor' => [
 			'label' => __( 'Button Color', 'blocksy' ),
-			'desc' => '<code>--buttonInitialColor</code>, <code>--buttonHoverColor</code>',
+			'desc' => my_css_desc( [
+				'--buttonInitialColor',
+				'--buttonHoverColor'
+			] ),
 			'type'  => 'ct-color-picker',
 			'design' => 'inline',
 			'skipEditPalette' => true,
@@ -191,10 +201,10 @@ $options = [ 'colors_section_options' => [
 			'desc' => __( 'These options will affect only the links that are inside the posts & pages content area.', 'blocksy' ),
 		],
 
-		'contentLinkType' => [
+		'content_link_type' => [
 			'label' => __( 'Content Link Type', 'blocksy' ),
 			'type' => 'ct-select',
-			'value' => $defaults['contentLinkType'],
+			'value' => $defaults['content_link_type'],
 			'view' => 'text',
 			'design' => 'inline',
 			'setting' => [ 'transport' => 'postMessage' ],
@@ -211,7 +221,11 @@ $options = [ 'colors_section_options' => [
 
 		'contentLinksColor' => [
 			'label' => __( 'Content Links Color', 'blocksy' ),
-			'desc' => '<code>--entryLinkColor</code>, <code>--entryLinkColorHover</code> <br> Only for type 4: <code>--entryLinkTextColor</code>',
+			'desc' => my_css_desc( [
+				'--entryLinkColor',
+				'--entryLinkColorHover',
+				'--entryLinkTextColor'
+			], '3rd Var only appears on Type 4' ),
 			'type'  => 'ct-color-picker',
 			'skipEditPalette' => true,
 			'design' => 'inline',
@@ -231,7 +245,7 @@ $options = [ 'colors_section_options' => [
 				[
 					'title' => __( 'Text Alt', 'blocksy' ),
 					'id' => 'text',
-					'condition' => [ 'contentLinkType' => 'type-4|type-5' ]
+					'condition' => [ 'content_link_type' => 'type-4|type-5' ]
 				],
 			],
 		],

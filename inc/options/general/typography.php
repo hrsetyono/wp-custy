@@ -20,16 +20,16 @@ $options = [ 'typography_section_options' => [
 	'inner-options' => [
 		'rootTypography' => [
 			'type' => 'ct-typography',
-			'desc' => "<details>
-				<summary>CSS Vars</summary>
-				<code>--fontSize</code>
-				<code>--fontFamily</code>
-				<code>--fontWeight</code>
-				<code>--fontStyle</code>
-				<code>--lineHeight</code>
-				<code>--letterSpacing</code> <code>--textTransform</code>
-				<code>--textDecoration</code>
-			</details>",
+			'desc' => my_css_desc( [
+				'--fontSize',
+				'--fontFamily',
+				'--fontWeight',
+				'--fontStyle',
+				'--lineHeight',
+				'--letterSpacing',
+				'--textTransform',
+				'--textDecoration'
+			] ),
 			'label' => __( 'Root Typography', 'blocksy' ),
 			'isDefault' => true,
 			'value' => $defaults['rootTypography'],
@@ -38,17 +38,15 @@ $options = [ 'typography_section_options' => [
 
 		'headingTypography' => [
 			'type' => 'ct-typography',
-			'desc' => "<p>Applies to H1-H6. Leave size as 0.</p>
-			<details>
-				<summary>CSS Vars</summary>
-				<code>--hFontFamily</code>
-				<code>--hFontWeight</code>
-				<code>--hFontStyle</code>
-				<code>--hLineHeight</code>
-				<code>--hLetterSpacing</code> <code>--hTextTransform</code>
-				<code>--hTextDecoration</code>
-			</details>
-			",
+			'desc' => "<p>Applies to H1-H6. Leave size as 0.</p>" . my_css_desc( [
+				'--hFontFamily',
+				'--hFontWeight',
+				'--hFontWeight',
+				'--hLineHeight',
+				'--hLetterSpacing',
+				'--hTextTransform',
+				'--hTextDecoration'
+			] ),
 			'label' => __( 'Heading Typography', 'blocksy' ),
 			'isDefault' => true,
 			'value' => $defaults['headingTypography'],
@@ -57,7 +55,9 @@ $options = [ 'typography_section_options' => [
 
 		'h1Size' => [
 			'label' => __( 'H1 Size' ),
-			'desc' => '<code>--h1Size</code>',
+			'desc' => my_css_desc( [
+				'--h1Size',
+			] ),
 			'type' => 'ct-slider',
 			'responsive' => true,
 			'value' => $defaults['h1Size'],
@@ -67,7 +67,9 @@ $options = [ 'typography_section_options' => [
 
 		'h2Size' => [
 			'label' => __( 'H2 Size' ),
-			'desc' => '<code>--h2Size</code>',
+			'desc' => my_css_desc( [
+				'--h2Size',
+			] ),
 			'type' => 'ct-slider',
 			'responsive' => true,
 			'value' => $defaults['h2Size'],
@@ -77,7 +79,9 @@ $options = [ 'typography_section_options' => [
 
 		'h3Size' => [
 			'label' => __( 'H3 Size' ),
-			'desc' => '<code>--h3Size</code>',
+			'desc' => my_css_desc( [
+				'--h3Size',
+			] ),
 			'type' => 'ct-slider',
 			'responsive' => true,
 			'value' => $defaults['h3Size'],
@@ -87,7 +91,9 @@ $options = [ 'typography_section_options' => [
 
 		'h4Size' => [
 			'label' => __( 'H4 Size' ),
-			'desc' => '<code>--h4Size</code>',
+			'desc' => my_css_desc( [
+				'--h4Size',
+			] ),
 			'type' => 'ct-slider',
 			'responsive' => true,
 			'value' => $defaults['h4Size'],
@@ -97,7 +103,9 @@ $options = [ 'typography_section_options' => [
 
 		'h5Size' => [
 			'label' => __( 'H5 Size' ),
-			'desc' => '<code>--h5Size</code>',
+			'desc' => my_css_desc( [
+				'--h5Size',
+			] ),
 			'type' => 'ct-slider',
 			'responsive' => true,
 			'value' => $defaults['h5Size'],
@@ -107,7 +115,9 @@ $options = [ 'typography_section_options' => [
 
 		'h6Size' => [
 			'label' => __( 'H6 Size' ),
-			'desc' => '<code>--h6Size</code>',
+			'desc' => my_css_desc( [
+				'--h6Size',
+			] ),
 			'type' => 'ct-slider',
 			'responsive' => true,
 			'value' => $defaults['h6Size'],
@@ -122,12 +132,16 @@ $options = [ 'typography_section_options' => [
 
 		'buttons' => [
 			'type' => 'ct-typography',
-			'desc' => "<details>
-			  <summary>CSS Vars</summary>
-				<code>--buttonFontFamily</code> <code>--buttonFontWeight</code> <code>--buttonFontStyle</code>
-				<code>--buttonLineHeight</code> <code>--buttonLetterSpacing</code> <code>--buttonTextTransform</code>
-				<code>--buttonTextDecoration</code>
-			</details>",
+			'desc' => my_css_desc( [
+				'--buttonFontSize',
+				'--buttonFontFamily',
+				'--buttonFontWeight',
+				'--buttonFontStyle',
+				'--buttonLineHeight',
+				'--buttonLetterSpacing',
+				'--buttonTextTransform',
+				'--buttonTextDecoration'
+			] ),
 			'label' => __( 'Buttons', 'blocksy' ),
 			'value' => $defaults['buttons'],
 			'setting' => [ 'transport' => 'postMessage' ],
@@ -135,51 +149,22 @@ $options = [ 'typography_section_options' => [
 
 		'blockquote' => [
 			'type' => 'ct-typography',
+			'desc' => my_css_desc( [],
+				'Same vars as Root Typography, but applied to <code>.entry-content blockquote</code>'
+			),
 			'label' => __( 'Blockquote', 'blocksy' ),
 			'value' => $defaults['blockquote'],
 			'setting' => [ 'transport' => 'postMessage' ],
 		],
 
 		'pre' => [
-			'type' => 'ct-typography',
+		  'type' => 'ct-typography',
+			'desc' => my_css_desc( [],
+			  'Same vars as Root Typography, but applied to <code>code, pre, samp</code>'
+		  ),
 			'label' => __( 'Preformatted', 'blocksy' ),
 			'value' => $defaults['pre'],
 			'setting' => [ 'transport' => 'postMessage' ],
 		],
-
-		blocksy_rand_md5() => [
-			'type' => 'ct-divider',
-			'attr' => [ 'data-type' => 'small' ],
-		],
-
-		'font_subset' => [
-			'label' => __( 'Google Fonts Subset', 'blocksy' ),
-			'type' => 'ct-checkboxes',
-			'attr' => [ 'data-columns' => 'no-gap' ],
-			'allow_empty' => true,
-			'choices' => blocksy_ordered_keys(
-				[
-					'latin-ext' => __( 'Latin Ext', 'blocksy' ),
-					'vietnamese' => __( 'Vietnamese', 'blocksy' ),
-					'cyrillic' => __( 'Cyrillic', 'blocksy' ),
-					'cyrillic-ext' => __( 'Cyrillic Extended', 'blocksy' ),
-					'greek' => __( 'Greek', 'blocksy' ),
-					'greek-ext' => __( 'Greek Extended', 'blocksy' ),
-				]
-			),
-
-			'value' => [
-				'latin-ext' => false,
-				'vietnamese' => false,
-				'cyrillic' => false,
-				'cyrillic-ext' => false,
-				'greek' => false,
-				'greek-ext' => false,
-			],
-
-			// 'setting' => [ 'transport' => 'postMessage' ],
-		],
-
-
 	],
 ] ];

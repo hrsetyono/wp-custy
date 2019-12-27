@@ -5,9 +5,19 @@
  */
 function my_get_array_stylesheet() {
   $mods = wp_parse_args( get_theme_mods(), my_get_default_mods() );
-
+  
   $styles = [
+    'html' => [
+      'font-size' => $mods['rootTypography']['size'],
+    ],
     ':root' => [
+      // GENERAL
+      '--maxSiteWidth' => $mods['maxSiteWidth'],
+      '--contentAreaSpacing' => $mods['contentAreaSpacing'],
+      '--narrowContainerWidth' => $mods['narrowContainerWidth'],
+      '--narrowContainerWidthNoUnit' => intval( $mods['narrowContainerWidth'] ),
+      '--wideOffset' => $mods['wideOffset'],
+
       // COLOR
       '--c1' => $mods['colorPalette']['color1']['color'],
       '--c2' => $mods['colorPalette']['color2']['color'],
@@ -29,6 +39,13 @@ function my_get_array_stylesheet() {
       '--buttonInitialColor' => $mods['buttonColor']['default']['color'],
       '--buttonHoverColor' => $mods['buttonColor']['hover']['color'],
 
+      // SHADOWS
+      '--shadow0' => blocksy_compute_box_shadow_var_for( $mods['shadow0'] ),
+      '--shadow1' => blocksy_compute_box_shadow_var_for( $mods['shadow1'] ),
+      '--shadow2' => blocksy_compute_box_shadow_var_for( $mods['shadow2'] ),
+      '--shadow3' => blocksy_compute_box_shadow_var_for( $mods['shadow3'] ),
+      '--shadow4' => blocksy_compute_box_shadow_var_for( $mods['shadow4'] ),
+
       // TYPOGRAPHY
       '--$' => $mods['rootTypography'],
       '--h$' => $mods['headingTypography'],
@@ -42,17 +59,63 @@ function my_get_array_stylesheet() {
       '--h6Size' => $mods['h6Size'],
     ],
 
-    // COLOR
+    // FORM
+    'form' => [
+      '--formTextInitialColor' => $mods['formTextColor']['default']['color'],
+      '--formTextFocusColor' => $mods['formTextColor']['focus']['color'],
+      '--formFontSize' => $mods['formFontSize'],
+      '--formBackgroundInitialColor' => $mods['formBackgroundColor']['default']['color'],
+      '--formBackgroundFocusColor' => $mods['formBackgroundColor']['focus']['color'],
+      
+      '--formInputHeight' => $mods['formInputHeight'],
+      '--formTextAreaHeight' => $mods['formTextAreaHeight'],
+
+      '--formBorder' => $mods['formBorder'],
+      '--formBorderFocusColor' => $mods['formBorderFocusColor']['focus']['color'],
+
+      '--selectDefaultColor' => $mods['selectDropdownTextColor']['default']['color'],
+      '--selectHoverColor' => $mods['selectDropdownTextColor']['hover']['color'],
+      '--selectActiveColor' => $mods['selectDropdownTextColor']['active']['color'],
+      '--selectItemHoverColor' => $mods['selectDropdownItemColor']['hover']['color'],
+      '--selectItemActiveColor' => $mods['selectDropdownItemColor']['active']['color'],
+      '--selectBackground' => $mods['selectDropdownBackground']['default']['color'],
+
+      '--radioInitialColor' => $mods['radioCheckboxColor']['default']['color'],
+      '--radioAccentColor' => $mods['radioCheckboxColor']['accent']['color'],
+    ],
+
+
+    // COLOR > Link
     '.entry-content' => [
       '--entryLinkColor' => $mods['contentLinksColor']['default']['color'],
       '--entryLinkColorHover' => $mods['contentLinksColor']['hover']['color'],
       '--entryLinkTextColor' => $mods['contentLinksColor']['text']['color'],
     ],
 
-    '.entry-content blockquote' => [
+    // TYPOGRAPHY > Blockquote
+    '.entry-content blockquote, .ct-quote-widget blockquote p' => [
       '--$' => $mods['blockquote'],
     ],
-    
+
+    // TYPOGRAPHY > Preformatted
+    'code, kbd, samp, pre' => [
+      '--$' => $mods['pre'],
+    ],
+
+    // GENERAL > Back to Top
+    '.ct-back-to-top' => [
+      '--bottom' => $mods['topButtonOffset'],
+      '--color' => $mods['topButtonIconColor']['default']['color'],
+      '--colorHover' => $mods['topButtonIconColor']['hover']['color'],
+      '--backgroundColor' => $mods['topButtonShapeBackground']['default']['color'],
+      '--backgroundColorHover' => $mods['topButtonShapeBackground']['hover']['color'],
+      '--boxShadow' => $mods['topButtonShadow'],
+    ],
+    // GENERAL > Viewport Frame
+    '.ct-passepartout' => [
+      '--passepartoutSize' => $mods['passepartoutSize'],
+      '--passepartoutColor' => $mods['passepartoutColor']['default']['color'],
+    ],
   ];
 
   return $styles;

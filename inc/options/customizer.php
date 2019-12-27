@@ -15,34 +15,10 @@ $extensions_options = apply_filters(
 // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 $options = [
 	[
-		blocksy_rand_md5() => [
-			'type' => 'ct-group-title',
-			'title' => __( 'General Options', 'blocksy' ),
-			'priority' => 1,
-		],
-
 		'general' => [
 			'title' => __( 'General', 'blocksy' ),
 			'container' => [ 'priority' => 1 ],
 			'options' => blocksy_get_options( 'general/general' ),
-		],
-
-		'header' => [
-			'title' => __( 'Header', 'blocksy' ),
-			'container' => [ 'priority' => 1 ],
-			'options' => blocksy_get_options( 'general/header' ),
-		],
-
-		'footer' => [
-			'title' => __( 'Footer', 'blocksy' ),
-			'container' => [ 'priority' => 1 ],
-			'options' => blocksy_get_options( 'general/footer' ),
-		],
-
-		'sidebar' => [
-			'title' => __( 'Sidebar', 'blocksy' ),
-			'container' => [ 'priority' => 1 ],
-			'options' => blocksy_get_options( 'general/sidebar' ),
 		],
 
 		'color' => [
@@ -50,18 +26,56 @@ $options = [
 			'container' => [ 'priority' => 1 ],
 			'options' => blocksy_get_options( 'general/colors' ),
 		],
+		
+		'shadow' => [
+			'title' => __( 'Shadows', 'blocksy' ),
+			'container' => [ 'priority' => 2 ],
+			'options' => blocksy_get_options( 'general/shadows' ),
+		],
 
 		'typography' => [
 			'title' => __( 'Typography', 'blocksy' ),
-			'container' => [ 'priority' => 1 ],
+			'container' => [ 'priority' => 2 ],
 			'options' => blocksy_get_options( 'general/typography' ),
 		],
 
+	
 		'performance' => [
 			'title' => __( 'Performance', 'blocksy' ),
 			'container' => [ 'priority' => 1 ],
 			'options' => blocksy_get_options( 'general/performance' ),
 		],
+
+		blocksy_rand_md5() => [
+			'type' => 'ct-group-title',
+			'title' => __( 'Elements' ),
+			'priority' => 2,
+		],
+
+		'form' => [
+			'title' => __( 'Form' ),
+			'container' => [ 'priority' => 2 ],
+			'options' => blocksy_get_options( 'general/form-elements' ),
+		],
+
+		'header' => [
+			'title' => __( 'Header', 'blocksy' ),
+			'container' => [ 'priority' => 2 ],
+			'options' => blocksy_get_options( 'general/header' ),
+		],
+
+		'footer' => [
+			'title' => __( 'Footer', 'blocksy' ),
+			'container' => [ 'priority' => 2 ],
+			'options' => blocksy_get_options( 'general/footer' ),
+		],
+
+		'sidebar' => [
+			'title' => __( 'Sidebar', 'blocksy' ),
+			'container' => [ 'priority' => 2 ],
+			'options' => blocksy_get_options( 'general/sidebar' ),
+		],
+
 
 		blocksy_rand_md5() => [
 			'type' => 'ct-group-title',

@@ -37,7 +37,7 @@ function blocksy_body_attr() {
 	);
 
 	return blocksy_attr_to_html(array_merge([
-		'data-link' => get_theme_mod('contentLinkType', 'type-1'),
+		'data-link' => get_theme_mod('content_link_type', 'type-1'),
 	], $attrs, blocksy_schema_org_definitions('single', ['array' => true])));
 }
 

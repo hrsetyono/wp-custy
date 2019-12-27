@@ -27,12 +27,16 @@ class ThemeMods_Formatter {
               $v = $v['desktop'];
             }
           }
-
           // replace the old styles
           $this->array_splice_assoc( $styles, $prop, 1, $typo_styles );
         }
 
-        // RANGE
+        // BORDER
+        elseif( isset( $value['style'] ) && isset( $value['width'] ) ) {
+          $value = $this->_format_border( $value );
+        }
+
+        // SLIDER
         elseif( isset( $value['desktop'] ) ) {
           $this->_set_responsive_size( $selector, $prop, $value );
           $value = $value['desktop'];
@@ -54,10 +58,11 @@ class ThemeMods_Formatter {
   /**
    * Format CT Typography type
    * 
-   * @param $m (array) - The theme_mod value
+   * @param $value (array) - The theme_mod value
    * @param $prefix (string) - The CSS Var prefix. $ sign will be replaced
    */
-  private function _format_typography( $m, $prefix = '--$' ) {
+  private function _format_typography( $value, $prefix = '--$' ) {
+    $m = $value; // shorthand
     $prefix = str_replace( '$', '', $prefix );
 
     $m['size'] = $this->_format_sizes( $m['size'] );
@@ -123,7 +128,7 @@ class ThemeMods_Formatter {
     $prefixed_styles = [];
     foreach( $styles as $prop => $value ) {
       // if basic prefix
-      if( $prefix !== '--' ) {
+      if( $prefix === '--' ) {
         // if empty style, don't include it
         if( is_string( $value) && strpos( $value, 'var(--' ) !== false ) {
           continue;
@@ -138,6 +143,22 @@ class ThemeMods_Formatter {
     return $prefixed_styles;
   }
 
+
+  /**
+   * Format CT Border type
+   */
+  private function _format_border( $value ) {
+    if( $value['style'] === 'none' ) {
+      return 'none';
+    }
+    else {
+      $width = $value['width'] . 'px';
+      $style = $value['style'];
+      $color = $value['color']['color'];
+      
+      return "$width $style $color";
+    }
+  }
   
   /**
    * Format mod that has desktop / tablet / mobile

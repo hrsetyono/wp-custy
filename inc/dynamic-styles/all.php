@@ -1,217 +1,217 @@
 <?php
 
 // Color palette
-blocksy_output_colors([
-	'value' => get_theme_mod('colorPalette'),
-	'default' => [
-		'color1' => [ 'color' => '#3eaf7c' ],
-		'color2' => [ 'color' => '#33a370' ],
-		'color3' => [ 'color' => 'rgba(44, 62, 80, 0.9)' ],
-		'color4' => [ 'color' => 'rgba(44, 62, 80, 1)' ],
-		'color5' => [ 'color' => '#ffffff' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'color1' => ['variable' => 'paletteColor1'],
-		'color2' => ['variable' => 'paletteColor2'],
-		'color3' => ['variable' => 'paletteColor3'],
-		'color4' => ['variable' => 'paletteColor4'],
-		'color5' => ['variable' => 'paletteColor5'],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('colorPalette'),
+// 	'default' => [
+// 		'color1' => [ 'color' => '#3eaf7c' ],
+// 		'color2' => [ 'color' => '#33a370' ],
+// 		'color3' => [ 'color' => 'rgba(44, 62, 80, 0.9)' ],
+// 		'color4' => [ 'color' => 'rgba(44, 62, 80, 1)' ],
+// 		'color5' => [ 'color' => '#ffffff' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'color1' => ['variable' => 'paletteColor1'],
+// 		'color2' => ['variable' => 'paletteColor2'],
+// 		'color3' => ['variable' => 'paletteColor3'],
+// 		'color4' => ['variable' => 'paletteColor4'],
+// 		'color5' => ['variable' => 'paletteColor5'],
+// 	],
+// ]);
 
 
 // Colors
-blocksy_output_colors([
-	'value' => get_theme_mod('fontColor'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor3)' ],
-		'hover' => [ 'color' => 'var(--paletteColor1)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => ['variable' => 'color'],
-		'hover' => ['variable' => 'colorHover'],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('fontColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor3)' ],
+// 		'hover' => [ 'color' => 'var(--paletteColor1)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => ['variable' => 'color'],
+// 		'hover' => ['variable' => 'colorHover'],
+// 	],
+// ]);
 
 
 // Headings
-blocksy_output_colors([
-	'value' => get_theme_mod('h1Color'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor4)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.entry-content h1',
-			'variable' => 'color'
-		],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('h1Color'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor4)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.entry-content h1',
+// 			'variable' => 'color'
+// 		],
+// 	],
+// ]);
 
-blocksy_output_colors([
-	'value' => get_theme_mod('h2Color'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor4)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.entry-content h2',
-			'variable' => 'color'
-		],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('h2Color'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor4)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.entry-content h2',
+// 			'variable' => 'color'
+// 		],
+// 	],
+// ]);
 
-blocksy_output_colors([
-	'value' => get_theme_mod('h3Color'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor4)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.entry-content h3',
-			'variable' => 'color'
-		],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('h3Color'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor4)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.entry-content h3',
+// 			'variable' => 'color'
+// 		],
+// 	],
+// ]);
 
-blocksy_output_colors([
-	'value' => get_theme_mod('h4Color'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor4)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.entry-content h4',
-			'variable' => 'color'
-		],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('h4Color'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor4)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.entry-content h4',
+// 			'variable' => 'color'
+// 		],
+// 	],
+// ]);
 
-blocksy_output_colors([
-	'value' => get_theme_mod('h5Color'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor4)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.entry-content h5',
-			'variable' => 'color'
-		],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('h5Color'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor4)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.entry-content h5',
+// 			'variable' => 'color'
+// 		],
+// 	],
+// ]);
 
-blocksy_output_colors([
-	'value' => get_theme_mod('h6Color'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor4)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.entry-content h6',
-			'variable' => 'color'
-		],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('h6Color'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor4)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.entry-content h6',
+// 			'variable' => 'color'
+// 		],
+// 	],
+// ]);
 
 // Buttons colors
-blocksy_output_colors([
-	'value' => get_theme_mod('buttonTextColor'),
-	'default' => [
-		'default' => [ 'color' => '#ffffff' ],
-		'hover' => [ 'color' => '#ffffff' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => ['variable' => 'buttonTextInitialColor'],
-		'hover' => ['variable' => 'buttonTextHoverColor'],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('buttonTextColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => '#ffffff' ],
+// 		'hover' => [ 'color' => '#ffffff' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => ['variable' => 'buttonTextInitialColor'],
+// 		'hover' => ['variable' => 'buttonTextHoverColor'],
+// 	],
+// ]);
 
-blocksy_output_colors([
-	'value' => get_theme_mod('buttonColor'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor1)' ],
-		'hover' => [ 'color' => 'var(--paletteColor2)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => ['variable' => 'buttonInitialColor'],
-		'hover' => ['variable' => 'buttonHoverColor'],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('buttonColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor1)' ],
+// 		'hover' => [ 'color' => 'var(--paletteColor2)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => ['variable' => 'buttonInitialColor'],
+// 		'hover' => ['variable' => 'buttonHoverColor'],
+// 	],
+// ]);
 
 // Link Colors
-blocksy_output_colors([
-	'value' => get_theme_mod('contentLinksColor'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor1)' ],
-		'hover' => [ 'color' => 'var(--colorHover)' ],
-		'text' => [ 'color' => '#ffffff' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.entry-content',
-			'variable' => 'entryLinkColor'
-		],
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('contentLinksColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor1)' ],
+// 		'hover' => [ 'color' => 'var(--colorHover)' ],
+// 		'text' => [ 'color' => '#ffffff' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.entry-content',
+// 			'variable' => 'entryLinkColor'
+// 		],
 
-		'hover' => [
-			'selector' => '.entry-content',
-			'variable' => 'entryLinkColorHover'
-		],
+// 		'hover' => [
+// 			'selector' => '.entry-content',
+// 			'variable' => 'entryLinkColorHover'
+// 		],
 
-		'text' => [
-			'selector' => '.entry-content',
-			'variable' => 'entryLinkTextColor'
-		],
-	],
-]);
+// 		'text' => [
+// 			'selector' => '.entry-content',
+// 			'variable' => 'entryLinkTextColor'
+// 		],
+// 	],
+// ]);
 
 // Layout
-$max_site_width = get_theme_mod( 'maxSiteWidth', 1290 );
-$css->put(
-	'body',
-	'--maxSiteWidth: ' . $max_site_width . 'px'
-);
+// $max_site_width = get_theme_mod( 'maxSiteWidth', 1290 );
+// $css->put(
+// 	'body',
+// 	'--maxSiteWidth: ' . $max_site_width . 'px'
+// );
 
-blocksy_output_responsive([
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => '.content-area',
-	'variableName' => 'contentAreaSpacing',
-	'unit' => '',
-	'value' => get_theme_mod('contentAreaSpacing', [
-		'mobile' => '50px',
-		'tablet' => '60px',
-		'desktop' => '80px',
-	])
-]);
+// blocksy_output_responsive([
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => '.content-area',
+// 	'variableName' => 'contentAreaSpacing',
+// 	'unit' => '',
+// 	'value' => get_theme_mod('contentAreaSpacing', [
+// 		'mobile' => '50px',
+// 		'tablet' => '60px',
+// 		'desktop' => '80px',
+// 	])
+// ]);
 
-$narrowContainerWidth = get_theme_mod( 'narrowContainerWidth', 60 );
-$css->put(
-	'[data-page-structure="narrow"]',
-	'--narrowContainerWidth: ' . $narrowContainerWidth . '%'
-);
+// $narrowContainerWidth = get_theme_mod( 'narrowContainerWidth', 60 );
+// $css->put(
+// 	'[data-page-structure="narrow"]',
+// 	'--narrowContainerWidth: ' . $narrowContainerWidth . '%'
+// );
 
-$css->put(
-	'[data-page-structure="narrow"]',
-	'--narrowContainerWidthNoUnit: ' . intval($narrowContainerWidth)
-);
+// $css->put(
+// 	'[data-page-structure="narrow"]',
+// 	'--narrowContainerWidthNoUnit: ' . intval($narrowContainerWidth)
+// );
 
-$wideOffset = get_theme_mod( 'wideOffset', 130 );
-$css->put(
-	'[data-page-structure="narrow"]',
-	'--wideOffset: ' . $wideOffset . 'px'
-);
+// $wideOffset = get_theme_mod( 'wideOffset', 130 );
+// $css->put(
+// 	'[data-page-structure="narrow"]',
+// 	'--wideOffset: ' . $wideOffset . 'px'
+// );
 
 
 // Sidebar
@@ -949,93 +949,93 @@ blocksy_output_responsive([
 
 
 // To top button
-$topButtonOffset = get_theme_mod( 'topButtonOffset', 25 );
-$css->put( '.ct-back-to-top', '--bottom: ' . $topButtonOffset . 'px' );
+// $topButtonOffset = get_theme_mod( 'topButtonOffset', 25 );
+// $css->put( '.ct-back-to-top', '--bottom: ' . $topButtonOffset . 'px' );
 
-blocksy_output_colors([
-	'value' => get_theme_mod('topButtonIconColor'),
-	'default' => [
-		'default' => [ 'color' => '#ffffff' ],
-		'hover' => [ 'color' => '#ffffff' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.ct-back-to-top',
-			'variable' => 'color'
-		],
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('topButtonIconColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => '#ffffff' ],
+// 		'hover' => [ 'color' => '#ffffff' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.ct-back-to-top',
+// 			'variable' => 'color'
+// 		],
 
-		'hover' => [
-			'selector' => '.ct-back-to-top',
-			'variable' => 'colorHover'
-		]
-	],
-]);
+// 		'hover' => [
+// 			'selector' => '.ct-back-to-top',
+// 			'variable' => 'colorHover'
+// 		]
+// 	],
+// ]);
 
-blocksy_output_colors([
-	'value' => get_theme_mod('topButtonShapeBackground'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor3)' ],
-		'hover' => [ 'color' => 'var(--paletteColor4)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.ct-back-to-top',
-			'variable' => 'backgroundColor'
-		],
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('topButtonShapeBackground'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor3)' ],
+// 		'hover' => [ 'color' => 'var(--paletteColor4)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.ct-back-to-top',
+// 			'variable' => 'backgroundColor'
+// 		],
 
-		'hover' => [
-			'selector' => '.ct-back-to-top',
-			'variable' => 'backgroundColorHover'
-		]
-	],
-]);
+// 		'hover' => [
+// 			'selector' => '.ct-back-to-top',
+// 			'variable' => 'backgroundColorHover'
+// 		]
+// 	],
+// ]);
 
-blocksy_output_box_shadow([
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => '.ct-back-to-top',
-	'value' => get_theme_mod('topButtonShadow', blocksy_box_shadow_value([
-		'enable' => false,
-		'h_offset' => 0,
-		'v_offset' => 5,
-		'blur' => 20,
-		'spread' => 0,
-		'inset' => false,
-		'color' => [
-			'color' => 'rgba(210, 213, 218, 0.2)',
-		],
-	])),
-	'responsive' => true
-]);
+// blocksy_output_box_shadow([
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => '.ct-back-to-top',
+// 	'value' => get_theme_mod('topButtonShadow', blocksy_box_shadow_value([
+// 		'enable' => false,
+// 		'h_offset' => 0,
+// 		'v_offset' => 5,
+// 		'blur' => 20,
+// 		'spread' => 0,
+// 		'inset' => false,
+// 		'color' => [
+// 			'color' => 'rgba(210, 213, 218, 0.2)',
+// 		],
+// 	])),
+// 	'responsive' => true
+// ]);
 
 // Passepartout
-blocksy_output_responsive([
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => '.ct-passepartout',
-	'variableName' => 'passepartoutSize',
-	'value' => get_theme_mod('passepartoutSize', [
-		'mobile' => 0,
-		'tablet' => 10,
-		'desktop' => 10,
-	])
-]);
+// blocksy_output_responsive([
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => '.ct-passepartout',
+// 	'variableName' => 'passepartoutSize',
+// 	'value' => get_theme_mod('passepartoutSize', [
+// 		'mobile' => 0,
+// 		'tablet' => 10,
+// 		'desktop' => 10,
+// 	])
+// ]);
 
-blocksy_output_colors([
-	'value' => get_theme_mod('passepartoutColor'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor1)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.ct-passepartout',
-			'variable' => 'passepartoutColor'
-		],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('passepartoutColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor1)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.ct-passepartout',
+// 			'variable' => 'passepartoutColor'
+// 		],
+// 	],
+// ]);
 

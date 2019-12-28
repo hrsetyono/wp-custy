@@ -176,6 +176,7 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
     'color' => [ 'color' => 'rgba(0, 0, 0, 0.22)' ],
   ]),// 0 15px 12px rgba(0,0,0,0.22)
 
+
   // TYPOGRAPHY
   'rootTypography' => blocksy_typography_default_values([
     'family' => 'System Default',
@@ -187,6 +188,9 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
     'text-transform' => 'none',
     'text-decoration' => 'none',
   ]),
+  'smallFontSize' => '14px',
+  'mediumFontSize' => '18px',
+  'largeFontSize' => '22px',
 
   'headingTypography' => blocksy_typography_default_values([
     'family' => 'System Default',
@@ -195,7 +199,6 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
     'line-height' => '1.25',
     'letter-spacing' => '0.05em',
   ] ),
-
   'h1Size' => [
     'mobile' => '32px',
     'tablet' => '40px',
@@ -242,6 +245,48 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
     'size' => '14px',
     'variation' => 'n4'
   ]),
+
+  // SIDEBAR
+  'sidebar_type' => 'type-1',
+  'sidebarWidth' => '25%',
+  'sidebarGap' => '3rem',
+  'sidebarInnerSpacing' => [
+    'mobile' => '0.5rem',
+    'tablet' => '0.75rem',
+    'desktop' => '1rem',
+  ],
+  'separated_widgets' => 'no',
+  'has_sticky_sidebar' => 'no',
+  'sidebarOffset' => '1rem',
+  'sidebarBackgroundColor' => [
+    'default' => [ 'color' => 'var(--c5)' ],
+  ],
+  'sidebarBorder' => [
+    'width' => 1,
+    'style' => 'solid',
+    'color' => [ 'color' => 'rgba(224, 229, 235, 0.8)' ],
+  ],
+  'sidebarShadow' => 'none',
+  'sidebar_visibility' => [
+    'desktop' => true,
+    'tablet' => true,
+    'mobile' => false,
+  ],
+  // SIDEBAR > Content
+  'sidebarTitleSize' => 'var(--h4Size)',
+  'sidebarTitleColor' => [
+    'default' => [ 'color' => 'var(--c4)' ],
+  ],
+  'sidebarWidgetsSpacing' => [
+    'mobile' => '1rem',
+    'tablet' => '1.5rem',
+    'desktop' => '2rem',
+  ],
+  'sidebarFontSize' => 'var(--smallFontSize)',
+  'sidebarFontColor' => [
+    'default' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
+    'hover' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
+  ],
 
 
 ] );

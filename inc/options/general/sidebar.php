@@ -1,4 +1,6 @@
 <?php
+$defaults = my_get_default_mods();
+
 /**
  * Colors options
  *
@@ -13,121 +15,154 @@ $options = [ 'sidebar_section_options' => [
 	'inner-options' => [
 
 		blocksy_rand_md5() => [
-			'title' => __( 'General', 'blocksy' ),
+			'title' => __( 'Layout', 'blocksy' ),
 			'type' => 'tab',
 			'options' => [
+
+				blocksy_rand_md5() => [
+					'type' => 'ct-title',
+					'desc' => '<div class="notice"> <p>CSS is applied to <code>[data-sidebar]</code></p>	</div>',
+				],
 
 				'sidebar_type' => [
 					'label' => false,
 					'type' => 'ct-image-picker',
-					'value' => 'type-1',
+					'value' => $defaults['sidebar_type'],
 					'attr' => [ 'data-type' => 'background' ],
 					'setting' => [ 'transport' => 'postMessage' ],
 					'choices' => [
-
 						'type-1' => [
 							'src' => blocksy_image_picker_url( 'sidebar-type-1.svg' ),
 						],
-
 						'type-2' => [
 							'src' => blocksy_image_picker_url( 'sidebar-type-2.svg' ),
 						],
-
 						'type-3' => [
 							'src' => blocksy_image_picker_url( 'sidebar-type-3.svg' ),
 						],
-
-
 						'type-4' => [
 							'src' => blocksy_image_picker_url( 'sidebar-type-4.svg' ),
 						],
 
 					],
 				],
+
 				'sidebarWidth' => [
 					'label' => __( 'Sidebar Width', 'blocksy' ),
+					'desc' => my_css_desc([
+						'--sidebarWidth'
+					]),
 					'type' => 'ct-slider',
-					'value' => 27,
-					'min' => 10,
-					'max' => 70,
-					'defaultUnit' => '%',
+					'value' => $defaults['sidebarWidth'],
+					'units' => [
+						[ 'unit' => '%', 'min' => 10, 'max' => 30 ],
+						[ 'unit' => 'px', 'min' => 100, 'max' => 300 ]
+					],
 					'setting' => [ 'transport' => 'postMessage' ],
 				],
+					
 				'sidebarGap' => [
 					'label' => __( 'Sidebar Gap', 'blocksy' ),
 					'type' => 'ct-slider',
-					'value' => '4%',
-					'units' => blocksy_units_config([
-						[ 'unit' => '%', 'min' => 0, 'max' => 50 ],
-						[ 'unit' => 'px', 'min' => 0, 'max' => 600 ],
-						[ 'unit' => 'pt', 'min' => 0, 'max' => 500 ],
-						[ 'unit' => 'em', 'min' => 0, 'max' => 100 ],
-						[ 'unit' => 'rem', 'min' => 0, 'max' => 100 ],
-						[ 'unit' => 'vw', 'min' => 0, 'max' => 50 ],
-						[ 'unit' => 'vh', 'min' => 0, 'max' => 50 ],
+					'desc' => my_css_desc([
+						'--sidebarGap'
 					]),
+					'value' => $defaults['sidebarGap'],
+					'units' => [
+						[ 'unit' => '%', 'min' => 0, 'max' => 10 ],
+						[ 'unit' => 'px', 'min' => 0, 'max' => 100 ],
+						[ 'unit' => 'rem', 'min' => 0, 'max' => 6 ],
+					],
 					'setting' => [ 'transport' => 'postMessage' ],
 				],
 
-				blocksy_rand_md5() => [
-					'type' => 'ct-divider',
-				],
-
+				// Type Options
 				blocksy_rand_md5() => [
 					'type' => 'ct-condition',
 					'condition' => [ 'sidebar_type' => 'type-2 | type-3 | type-4' ],
 					'options' => [
-
-						'sidebarInnerSpacing' => [
-							'label' => __( 'Cotainer Inner Spacing', 'blocksy' ),
-							'type' => 'ct-slider',
-							'min' => 5,
-							'max' => 80,
-							'responsive' => true,
-							'value' => [
-								'mobile' => 35,
-								'tablet' => 35,
-								'desktop' => 35,
-							],
-							'setting' => [ 'transport' => 'postMessage' ],
-						],
-
 						blocksy_rand_md5() => [
 							'type' => 'ct-divider',
 						],
-
+						'sidebarInnerSpacing' => [
+							'label' => __( 'Inner Spacing', 'blocksy' ),
+							'type' => 'ct-slider',
+							'desc' => my_css_desc([
+								'--sidebarInnerSpacing'
+							]),
+							'responsive' => true,
+							'value' => $defaults['sidebarInnerSpacing'],
+							'units' => [
+								[ 'unit' => 'px', 'min' => 5, 'max' => 50 ],
+								[ 'unit' => 'rem', 'min' => 0, 'max' => 3 ],
+							],
+							'setting' => [ 'transport' => 'postMessage' ],
+						],
 					],
-				],
-
-				'sidebarWidgetsSpacing' => [
-					'label' => __( 'Widgets Vertical Spacing', 'blocksy' ),
-					'type' => 'ct-slider',
-					'min' => 0,
-					'max' => 100,
-					'responsive' => true,
-					'value' => [
-						'mobile' => 30,
-						'tablet' => 40,
-						'desktop' => 60,
-					],
-					'setting' => [ 'transport' => 'postMessage' ],
 				],
 
 				blocksy_rand_md5() => [
 					'type' => 'ct-condition',
 					'condition' => [ 'sidebar_type' => 'type-2' ],
 					'options' => [
-
-						'separated_widgets' => [
-							'label' => __( 'Separate Widgets', 'blocksy' ),
-							'type' => 'ct-switch',
-							'value' => 'no',
+						'sidebarShadow' => [
+							'label' => __( 'Shadow', 'blocksy' ),
+							'type' => 'ct-select',
+							'divider' => 'top',
+							'design' => 'inline',
 							'setting' => [ 'transport' => 'postMessage' ],
+							'value' => $defaults['sidebarShadow'],
+							'choices' => my_shadow_choices(),
 						],
-
 					],
 				],
 
+				blocksy_rand_md5() => [
+					'type' => 'ct-condition',
+					'condition' => [ 'sidebar_type' => 'type-2 | type-3' ],
+					'options' => [
+						'sidebarBorder' => [
+							'label' => __( 'Border', 'blocksy' ),
+							'type' => 'ct-border',
+							'design' => 'inline',
+							'setting' => [ 'transport' => 'postMessage' ],
+							'value' => $defaults['sidebarBorder'],
+						],
+					],
+				],
+				
+				blocksy_rand_md5() => [
+					'type' => 'ct-condition',
+					'condition' => [ 'sidebar_type' => 'type-2 | type-4' ],
+					'options' => [
+						'sidebarBackgroundColor' => [
+							'label' => __( 'Background Color', 'blocksy' ),
+							'type'  => 'ct-color-picker',
+							'design' => 'inline',
+							'setting' => [ 'transport' => 'postMessage' ],
+							'value' => $defaults['sidebarBackgroundColor'],
+							'pickers' => [
+								[
+									'title' => __( 'Initial', 'blocksy' ),
+									'id' => 'default',
+								],
+							],
+						],
+					],
+				],
+				
+				blocksy_rand_md5() => [
+					'type' => 'ct-condition',
+					'condition' => [ 'sidebar_type' => 'type-2' ],
+					'options' => [
+						'separated_widgets' => [
+							'label' => __( 'Separate Widgets', 'blocksy' ),
+							'type' => 'ct-switch',
+							'value' => $defaults['separated_widgets'],
+							'setting' => [ 'transport' => 'postMessage' ],
+						],
+					],
+				],
 
 				blocksy_rand_md5() => [
 					'type' => 'ct-divider',
@@ -136,7 +171,7 @@ $options = [ 'sidebar_section_options' => [
 				'has_sticky_sidebar' => [
 					'label' => __( 'Sticky Sidebar', 'blocksy' ),
 					'type' => 'ct-switch',
-					'value' => 'no',
+					'value' => $defaults['has_sticky_sidebar'],
 					'setting' => [ 'transport' => 'postMessage' ],
 				],
 
@@ -144,18 +179,20 @@ $options = [ 'sidebar_section_options' => [
 					'type' => 'ct-condition',
 					'condition' => [ 'has_sticky_sidebar' => 'yes' ],
 					'options' => [
-
 						'sidebarOffset' => [
 							'label' => __( 'Top Offset', 'blocksy' ),
+							'desc' => my_css_desc([
+								'--sidebarOffset'
+							]),
 							'type' => 'ct-slider',
-							'value' => 50,
-							'min' => 0,
-							'max' => 200,
-							'defaultUnit' => 'px',
+							'units' => [
+								[ 'unit' => 'px', 'min' => 0, 'max' => 50 ],
+								[ 'unit' => 'rem', 'min' => 0, 'max' => 3 ]
+							],
+							'value' => $defaults['sidebarOffset'],
 							'divider' => 'top',
 							'setting' => [ 'transport' => 'postMessage' ],
 						],
-
 					],
 				],
 
@@ -168,13 +205,7 @@ $options = [ 'sidebar_section_options' => [
 					'type' => 'ct-visibility',
 					'design' => 'block',
 					'setting' => [ 'transport' => 'postMessage' ],
-
-					'value' => [
-						'desktop' => true,
-						'tablet' => false,
-						'mobile' => false,
-					],
-
+					'value' => $defaults['sidebar_visibility'],
 					'choices' => blocksy_ordered_keys([
 						'desktop' => __( 'Desktop', 'blocksy' ),
 						'tablet' => __( 'Tablet', 'blocksy' ),
@@ -186,31 +217,56 @@ $options = [ 'sidebar_section_options' => [
 		],
 
 		blocksy_rand_md5() => [
-			'title' => __( 'Design', 'blocksy' ),
+			'title' => __( 'Content', 'blocksy' ),
 			'type' => 'tab',
 			'options' => [
 
-				'sidebarWidgetsTitleFont' => [
-					'type' => 'ct-typography',
-					'label' => __( 'Widget Title Font', 'blocksy' ),
-					'value' => blocksy_typography_default_values([
-						'size' => '18px',
+				blocksy_rand_md5() => [
+					'type' => 'ct-title',
+					'desc' => '<div class="notice"> <p>CSS is applied to <code>.ct-sidebar</code></p> </div>',
+				],
+
+				'sidebarWidgetsSpacing' => [
+					'label' => __( 'Widgets Spacing' ),
+					'type' => 'ct-slider',
+					'desc' => my_css_desc([
+						'--sidebarWidgetsSpacing'
 					]),
+					'responsive' => true,
+					'value' => $defaults['sidebarWidgetsSpacing'],
+					'units' => [
+						[ 'unit' => 'px', 'min' => 0, 'max' => 80 ],
+						[ 'unit' => 'rem', 'min' => 0, 'max' => 5 ], 
+					],
 					'setting' => [ 'transport' => 'postMessage' ],
 				],
 
-				'sidebarWidgetsTitleColor' => [
-					'label' => __( 'Title Font Color', 'blocksy' ),
+				blocksy_rand_md5() => [
+					'type' => 'ct-title',
+					'label' => __( 'Sidebar Text' ),
+				],
+
+				'sidebarTitleSize' => [
+					'type' => 'ct-select',
+					'desc' => my_css_desc([
+						'--sidebarTitleSize'
+					]),
+					'design' => 'inline',
+					'label' => __( 'Title Size' ),
+					'value' => $defaults['sidebarTitleSize'],
+					'choices' => my_heading_size_choices(),
+					'setting' => [ 'transport' => 'postMessage' ],
+				],
+
+				'sidebarTitleColor' => [
+					'label' => __( 'Title Color', 'blocksy' ),
+					'desc' => my_css_desc([
+						'--sidebarTitleColor'
+					]),
 					'type'  => 'ct-color-picker',
 					'design' => 'inline',
 					'setting' => [ 'transport' => 'postMessage' ],
-
-					'value' => [
-						'default' => [
-							'color' => 'var(--paletteColor4)',
-						],
-					],
-
+					'value' => $defaults['sidebarTitleColor'],
 					'pickers' => [
 						[
 							'title' => __( 'Initial', 'blocksy' ),
@@ -219,141 +275,42 @@ $options = [ 'sidebar_section_options' => [
 					],
 				],
 
+				'sidebarFontSize' => [
+					'type' => 'ct-select',
+					'desc' => my_css_desc([
+						'--sidebarFontSize'
+					]),
+					'design' => 'inline',
+					'label' => __( 'Font Size' ),
+					'value' => $defaults['sidebarFontSize'],
+					'choices' => my_font_size_choices(),
+					'setting' => [ 'transport' => 'postMessage' ],
+				],
 
-				'sidebarWidgetsFontColor' => [
-					'label' => __( 'Text Color', 'blocksy' ),
+				'sidebarFontColor' => [
+					'label' => __( 'Font Color', 'blocksy' ),
+					'desc' => my_css_desc([
+						'--color',
+						'--colorHover'
+					]),
 					'type'  => 'ct-color-picker',
 					'design' => 'inline',
-					'divider' => 'top',
 					'setting' => [ 'transport' => 'postMessage' ],
-					'value' => [
-						'default' => [
-							'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT'),
-						],
-
-						'hover' => [
-							'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT'),
-						],
-					],
-
+					'value' => $defaults['sidebarFontColor'],
 					'pickers' => [
 						[
 							'title' => __( 'Initial', 'blocksy' ),
 							'id' => 'default',
-							'inherit' => 'var(--color)'
 						],
-
 						[
 							'title' => __( 'Hover', 'blocksy' ),
 							'id' => 'hover',
-							'inherit' => 'var(--colorHover)'
 						],
 					],
 				],
 
 				blocksy_rand_md5() => [
 					'type' => 'ct-divider',
-				],
-
-				blocksy_rand_md5() => [
-					'type' => 'ct-condition',
-					'condition' => [ 'sidebar_type' => 'type-2 | type-4' ],
-					'options' => [
-
-						'sidebarBackgroundColor' => [
-							'label' => __( 'Background Color', 'blocksy' ),
-							'type'  => 'ct-color-picker',
-							'design' => 'inline',
-							'setting' => [ 'transport' => 'postMessage' ],
-							'value' => [
-								'default' => [
-									'color' => 'var(--paletteColor5)',
-								],
-							],
-
-							'pickers' => [
-								[
-									'title' => __( 'Initial', 'blocksy' ),
-									'id' => 'default',
-								],
-							],
-						],
-
-					],
-				],
-
-				blocksy_rand_md5() => [
-					'type' => 'ct-condition',
-					'condition' => [ 'sidebar_type' => 'type-2' ],
-					'options' => [
-
-						'sidebarBorder' => [
-							'label' => __( 'Border', 'blocksy' ),
-							'type' => 'ct-border',
-							'design' => 'block',
-							'divider' => 'top',
-							'responsive' => true,
-							'setting' => [ 'transport' => 'postMessage' ],
-							'value' => [
-								'width' => 1,
-								'style' => 'none',
-								'color' => [
-									'color' => 'rgba(224, 229, 235, 0.8)',
-								],
-							]
-						],
-
-					],
-				],
-
-				blocksy_rand_md5() => [
-					'type' => 'ct-condition',
-					'condition' => [ 'sidebar_type' => 'type-3' ],
-					'options' => [
-
-						'sidebarDivider' => [
-							'label' => __( 'Divider', 'blocksy' ),
-							'type' => 'ct-border',
-							'design' => 'block',
-							'responsive' => true,
-							'setting' => [ 'transport' => 'postMessage' ],
-							'value' => [
-								'width' => 1,
-								'style' => 'solid',
-								'color' => [
-									'color' => 'rgba(224, 229, 235, 0.8)',
-								],
-							]
-						],
-
-					],
-				],
-
-				blocksy_rand_md5() => [
-					'type' => 'ct-condition',
-					'condition' => [ 'sidebar_type' => 'type-2' ],
-					'options' => [
-
-						'sidebarShadow' => [
-							'label' => __( 'Shadow', 'blocksy' ),
-							'type' => 'ct-box-shadow',
-							'responsive' => true,
-							'divider' => 'top',
-							'setting' => [ 'transport' => 'postMessage' ],
-							'value' => blocksy_box_shadow_value([
-								'enable' => true,
-								'h_offset' => 0,
-								'v_offset' => 12,
-								'blur' => 18,
-								'spread' => -6,
-								'inset' => false,
-								'color' => [
-									'color' => 'rgba(34, 56, 101, 0.04)',
-								],
-							])
-						],
-
-					],
 				],
 
 			],

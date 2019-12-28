@@ -215,125 +215,124 @@
 
 
 // Sidebar
-$sidebar_width = get_theme_mod( 'sidebarWidth', '27' );
-$css->put( '[data-sidebar]', '--sidebarWidth: ' . $sidebar_width . '%' );
-$css->put( '[data-sidebar]', '--sidebarWidthNoUnit: ' . intval($sidebar_width) );
+// $sidebar_width = get_theme_mod( 'sidebarWidth', '27' );
+// $css->put( '[data-sidebar]', '--sidebarWidth: ' . $sidebar_width . '%' );
+// $css->put( '[data-sidebar]', '--sidebarWidthNoUnit: ' . intval($sidebar_width) );
 
 
-$sidebarGap = blocksy_get_with_percentage( 'sidebarGap', '4%' );
-$css->put( '[data-sidebar]', '--sidebarGap: ' . $sidebarGap );
+// $sidebarGap = blocksy_get_with_percentage( 'sidebarGap', '4%' );
+// $css->put( '[data-sidebar]', '--sidebarGap: ' . $sidebarGap );
 
-$sidebarOffset = get_theme_mod( 'sidebarOffset', '50' );
-$css->put( '[data-sidebar]', '--sidebarOffset: ' . $sidebarOffset . 'px' );
+// $sidebarOffset = get_theme_mod( 'sidebarOffset', '50' );
+// $css->put( '[data-sidebar]', '--sidebarOffset: ' . $sidebarOffset . 'px' );
 
 
-blocksy_output_colors([
-	'value' => get_theme_mod('sidebarWidgetsTitleColor'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor4)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.ct-sidebar .widget-title',
-			'variable' => 'color'
-		],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('sidebarWidgetsTitleColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor4)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.ct-sidebar .widget-title',
+// 			'variable' => 'color'
+// 		],
+// 	],
+// ]);
 
-blocksy_output_colors([
-	'value' => get_theme_mod('sidebarWidgetsFontColor'),
-	'default' => [
-		'default' => [ 'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT') ],
-		'hover' => [ 'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT') ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '.ct-sidebar',
-			'variable' => 'color'
-		],
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('sidebarWidgetsFontColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT') ],
+// 		'hover' => [ 'color' => Blocksy_Css_Injector::get_skip_rule_keyword('DEFAULT') ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '.ct-sidebar',
+// 			'variable' => 'color'
+// 		],
+// 		'hover' => [
+// 			'selector' => '.ct-sidebar',
+// 			'variable' => 'colorHover'
+// 		],
+// 	],
+// ]);
 
-		'hover' => [
-			'selector' => '.ct-sidebar',
-			'variable' => 'colorHover'
-		],
-	],
-]);
-
-blocksy_output_colors([
-	'value' => get_theme_mod('sidebarBackgroundColor'),
-	'default' => [
-		'default' => [ 'color' => 'var(--paletteColor5)' ],
-	],
-	'css' => $css,
-	'variables' => [
-		'default' => [
-			'selector' => '[data-sidebar] > aside',
-			'variable' => 'sidebarBackgroundColor'
-		],
-	],
-]);
+// blocksy_output_colors([
+// 	'value' => get_theme_mod('sidebarBackgroundColor'),
+// 	'default' => [
+// 		'default' => [ 'color' => 'var(--paletteColor5)' ],
+// 	],
+// 	'css' => $css,
+// 	'variables' => [
+// 		'default' => [
+// 			'selector' => '[data-sidebar] > aside',
+// 			'variable' => 'sidebarBackgroundColor'
+// 		],
+// 	],
+// ]);
 
 // Sidebar border
-blocksy_output_border([
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => 'aside[data-type="type-2"]',
-	'variableName' => 'border',
-	'value' => get_theme_mod('sidebarBorder', [
-		'width' => 1,
-		'style' => 'none',
-		'color' => [
-			'color' => 'rgba(224, 229, 235, 0.8)',
-		],
-	]),
-	'responsive' => true
-]);
+// blocksy_output_border([
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => 'aside[data-type="type-2"]',
+// 	'variableName' => 'border',
+// 	'value' => get_theme_mod('sidebarBorder', [
+// 		'width' => 1,
+// 		'style' => 'none',
+// 		'color' => [
+// 			'color' => 'rgba(224, 229, 235, 0.8)',
+// 		],
+// 	]),
+// 	'responsive' => true
+// ]);
 
 
-blocksy_output_border([
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => 'aside[data-type="type-3"]',
-	'variableName' => 'border',
-	'value' => get_theme_mod('sidebarDivider', [
-		'width' => 1,
-		'style' => 'solid',
-		'color' => [
-			'color' => 'rgba(224, 229, 235, 0.8)',
-		],
-	]),
-	'responsive' => true
-]);
+// blocksy_output_border([
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => 'aside[data-type="type-3"]',
+// 	'variableName' => 'border',
+// 	'value' => get_theme_mod('sidebarDivider', [
+// 		'width' => 1,
+// 		'style' => 'solid',
+// 		'color' => [
+// 			'color' => 'rgba(224, 229, 235, 0.8)',
+// 		],
+// 	]),
+// 	'responsive' => true
+// ]);
 
-blocksy_output_responsive([
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => '.ct-sidebar',
-	'variableName' => 'sidebarWidgetsSpacing',
-	'value' => get_theme_mod('sidebarWidgetsSpacing', [
-		'mobile' => 30,
-		'tablet' => 40,
-		'desktop' => 60,
-	])
-]);
+// blocksy_output_responsive([
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => '.ct-sidebar',
+// 	'variableName' => 'sidebarWidgetsSpacing',
+// 	'value' => get_theme_mod('sidebarWidgetsSpacing', [
+// 		'mobile' => 30,
+// 		'tablet' => 40,
+// 		'desktop' => 60,
+// 	])
+// ]);
 
-blocksy_output_responsive([
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => "[data-sidebar] > aside",
-	'variableName' => 'sidebarInnerSpacing',
-	'value' => get_theme_mod('sidebarInnerSpacing', [
-		'mobile' => 35,
-		'tablet' => 35,
-		'desktop' => 35,
-	])
-]);
+// blocksy_output_responsive([
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => "[data-sidebar] > aside",
+// 	'variableName' => 'sidebarInnerSpacing',
+// 	'value' => get_theme_mod('sidebarInnerSpacing', [
+// 		'mobile' => 35,
+// 		'tablet' => 35,
+// 		'desktop' => 35,
+// 	])
+// ]);
 
 
 // Sidebar shadow

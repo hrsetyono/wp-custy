@@ -1,8 +1,14 @@
 <?php
 $defaults = my_get_default_mods();
 
+$textUnits = [
+	[ 'unit' => 'px', 'min' => 12, 'max' => 32, ],
+	[	'unit' => 'rem', 'min' => 0, 'max' => 2 ],
+	[	'unit' => 'em', 'min' => 0, 'max' => 2 ],
+];
+
 $headingUnits = [
-	[ 'unit' => 'px', 'min' => 14, 'max' => 50, ],
+	[ 'unit' => 'px', 'min' => 14, 'max' => 64, ],
 	[	'unit' => 'rem', 'min' => 0, 'max' => 4 ],
 	[	'unit' => 'em', 'min' => 0, 'max' => 4 ],
 ];
@@ -34,6 +40,45 @@ $options = [ 'typography_section_options' => [
 			'isDefault' => true,
 			'value' => $defaults['rootTypography'],
 			'setting' => [ 'transport' => 'postMessage' ],
+		],
+
+		'smallFontSize' => [
+			'label' => __( 'Small Font Size' ),
+			'desc' => my_css_desc( [
+				'--smallFontSize',
+			] ),
+			'type' => 'ct-slider',
+			'value' => $defaults['smallFontSize'],
+			'units' => $textUnits,
+			'setting' => [ 'transport' => 'postMessage' ],
+		],
+
+		'mediumFontSize' => [
+			'label' => __( 'Medium Font Size' ),
+			'desc' => my_css_desc( [
+				'--mediumFontSize',
+			] ),
+			'type' => 'ct-slider',
+			'responsive' => true,
+			'value' => $defaults['mediumFontSize'],
+			'units' => $textUnits,
+			'setting' => [ 'transport' => 'postMessage' ],
+		],
+
+		'largeFontSize' => [
+			'label' => __( 'Large Font Size' ),
+			'desc' => my_css_desc( [
+				'--largeFontSize',
+			] ),
+			'type' => 'ct-slider',
+			'responsive' => true,
+			'value' => $defaults['largeFontSize'],
+			'units' => $textUnits,
+			'setting' => [ 'transport' => 'postMessage' ],
+		],
+
+		blocksy_rand_md5() => [
+			'type' => 'ct-divider',
 		],
 
 		'headingTypography' => [
@@ -127,7 +172,6 @@ $options = [ 'typography_section_options' => [
 
 		blocksy_rand_md5() => [
 			'type' => 'ct-divider',
-			'attr' => [ 'data-type' => 'small' ],
 		],
 
 		'buttons' => [

@@ -5,13 +5,25 @@ $output-framework: false
 .CodeMirror
 	margin: 0 -26px
 
-.ct-option-description
+.ct-option-description,
+.ct-title
+	p
+		margin-top: 0
+		font-style: normal
 	ul
 		padding-left: 1rem
 		list-style-type: disc
 	code
 		display: inline-block
 		margin-bottom: 0.5rem
-		font-style: normal
 		font-size: 12px
 		border-radius: 4px
+
+.ct-title .notice
+	padding: 0.5rem
+	border: 0
+	border-left: 4px solid var(--c1)
+	
+	code
+		padding: 0 4px
+		margin-bottom: 0

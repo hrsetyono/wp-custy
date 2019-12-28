@@ -20,26 +20,21 @@ $options = [
 			'container' => [ 'priority' => 1 ],
 			'options' => blocksy_get_options( 'general/general' ),
 		],
-
 		'color' => [
 			'title' => __( 'Colors', 'blocksy' ),
 			'container' => [ 'priority' => 1 ],
 			'options' => blocksy_get_options( 'general/colors' ),
 		],
-		
-		'shadow' => [
-			'title' => __( 'Shadows', 'blocksy' ),
-			'container' => [ 'priority' => 2 ],
-			'options' => blocksy_get_options( 'general/shadows' ),
-		],
-
 		'typography' => [
 			'title' => __( 'Typography', 'blocksy' ),
-			'container' => [ 'priority' => 2 ],
+			'container' => [ 'priority' => 1 ],
 			'options' => blocksy_get_options( 'general/typography' ),
 		],
-
-	
+		'shadow' => [
+			'title' => __( 'Shadows', 'blocksy' ),
+			'container' => [ 'priority' => 1 ],
+			'options' => blocksy_get_options( 'general/shadows' ),
+		],
 		'performance' => [
 			'title' => __( 'Performance', 'blocksy' ),
 			'container' => [ 'priority' => 1 ],
@@ -52,30 +47,26 @@ $options = [
 			'priority' => 2,
 		],
 
-		'form' => [
-			'title' => __( 'Form' ),
-			'container' => [ 'priority' => 2 ],
-			'options' => blocksy_get_options( 'general/form-elements' ),
-		],
-
 		'header' => [
 			'title' => __( 'Header', 'blocksy' ),
 			'container' => [ 'priority' => 2 ],
 			'options' => blocksy_get_options( 'general/header' ),
 		],
-
 		'footer' => [
 			'title' => __( 'Footer', 'blocksy' ),
 			'container' => [ 'priority' => 2 ],
 			'options' => blocksy_get_options( 'general/footer' ),
 		],
-
 		'sidebar' => [
 			'title' => __( 'Sidebar', 'blocksy' ),
 			'container' => [ 'priority' => 2 ],
 			'options' => blocksy_get_options( 'general/sidebar' ),
 		],
-
+		'form' => [
+			'title' => __( 'Form' ),
+			'container' => [ 'priority' => 2 ],
+			'options' => blocksy_get_options( 'general/form-elements' ),
+		],
 
 		blocksy_rand_md5() => [
 			'type' => 'ct-group-title',

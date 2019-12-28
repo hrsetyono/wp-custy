@@ -19,7 +19,7 @@ $options = [ 'form_section_options' => [
 
 			blocksy_rand_md5() => [
 				'type' => 'ct-title',
-				'desc' => '<strong>Note:</strong> All Vars are applied to <code>form</code>',
+				'desc' => '<div class="notice"> <p>CSS is applied to <code>form</code></p> </div>',
 			],
 
 			'forms_type' => [

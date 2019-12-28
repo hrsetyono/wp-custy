@@ -20,16 +20,3 @@ function my_render_theme_mods() {
 
 	Timber::render( 'partials/theme-mods.twig', $formatted_css );
 }
-
-/**
- * Return array for shadow selection
- */
-function my_shadow_choices() {
-  return blocksy_ordered_keys( [
-    'none' => __( 'None' ),
-    'var(--shadow0)' => __( 'Depth 0' ),
-    'var(--shadow1)' => __( 'Depth 1' ),
-    'var(--shadow2)' => __( 'Depth 2' ),
-    'var(--shadow3)' => __( 'Depth 3' ),
-  ] );
-}

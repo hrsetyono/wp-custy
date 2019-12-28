@@ -7,9 +7,6 @@ function my_get_array_stylesheet() {
   $mods = wp_parse_args( get_theme_mods(), my_get_default_mods() );
   
   $styles = [
-    'html' => [
-      'font-size' => $mods['rootTypography']['size'],
-    ],
     ':root' => [
       // GENERAL
       '--maxSiteWidth' => $mods['maxSiteWidth'],
@@ -48,15 +45,19 @@ function my_get_array_stylesheet() {
 
       // TYPOGRAPHY
       '--$' => $mods['rootTypography'],
+      '--smallFontSize' => $mods['smallFontSize'],
+      '--mediumFontSize' => $mods['mediumFontSize'],
+      '--largeFontSize' => $mods['largeFontSize'],
+      
       '--h$' => $mods['headingTypography'],
-      '--button$' => $mods['buttons'],
-
       '--h1Size' => $mods['h1Size'],
       '--h2Size' => $mods['h2Size'],
       '--h3Size' => $mods['h3Size'],
       '--h4Size' => $mods['h4Size'],
       '--h5Size' => $mods['h5Size'],
       '--h6Size' => $mods['h6Size'],
+
+      '--button$' => $mods['buttons'],
     ],
 
     // FORM
@@ -83,7 +84,6 @@ function my_get_array_stylesheet() {
       '--radioInitialColor' => $mods['radioCheckboxColor']['default']['color'],
       '--radioAccentColor' => $mods['radioCheckboxColor']['accent']['color'],
     ],
-
 
     // COLOR > Link
     '.entry-content' => [
@@ -115,6 +115,30 @@ function my_get_array_stylesheet() {
     '.ct-passepartout' => [
       '--passepartoutSize' => $mods['passepartoutSize'],
       '--passepartoutColor' => $mods['passepartoutColor']['default']['color'],
+    ],
+
+    // SIDEBAR
+    '[data-sidebar]' => [
+      '--sidebarWidth' => $mods['sidebarWidth'],
+      '--sidebarWidthNoUnit' => intval( $mods['sidebarWidth'] ),
+      '--sidebarGap' => $mods['sidebarGap'],
+      
+      '--sidebarOffset' => $mods['sidebarOffset'],
+      '--sidebarInnerSpacing' => $mods['sidebarInnerSpacing'],
+      '--sidebarBackgroundColor' => $mods['sidebarBackgroundColor']['default']['color'],
+      '--sidebarBorder' => $mods['sidebarBorder'],
+      '--sidebarShadow' => $mods['sidebarShadow'],
+    ],
+
+    '.ct-sidebar' => [
+      '--sidebarWidgetsSpacing' => $mods['sidebarWidgetsSpacing'],
+
+      '--sidebarTitleSize' => $mods['sidebarTitleSize'],
+      '--sidebarTitleColor' => $mods['sidebarTitleColor']['default']['color'],
+
+      '--fontSize' => $mods['sidebarFontSize'],
+      '--color' => $mods['sidebarFontColor']['default']['color'],
+      '--colorHover' => $mods['sidebarFontColor']['hover']['color'],
     ],
   ];
 

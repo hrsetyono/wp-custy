@@ -154,18 +154,18 @@
 // 	'selector' => 'code, kbd, samp, pre'
 // ]);
 
-blocksy_output_font_css([
-	'font_value' => get_theme_mod(
-		'sidebarWidgetsTitleFont',
-		blocksy_typography_default_values([
-			'size' => '18px',
-		])
-	),
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => '.ct-sidebar .widget-title'
-]);
+// blocksy_output_font_css([
+// 	'font_value' => get_theme_mod(
+// 		'sidebarWidgetsTitleFont',
+// 		blocksy_typography_default_values([
+// 			'size' => '18px',
+// 		])
+// 	),
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => '.ct-sidebar .widget-title'
+// ]);
 
 blocksy_output_font_css([
 	'font_value' => get_theme_mod(

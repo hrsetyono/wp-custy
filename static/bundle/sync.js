@@ -778,7 +778,7 @@
           if ("image" === t) return r.url ? "url(".concat(r.url, ")") : "CT_CSS_SKIP_RULE";
           var s = 1,
             l = n.default.color;
-          if (l.indexOf("c1") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--c1")), l.indexOf("c2") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--c2")), l.indexOf("c3") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--c3")), l.indexOf("c4") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--c4")), l.indexOf("c5") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--c5")), l.indexOf("rgb") > -1) {
+          if (l.indexOf("main") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--main")), l.indexOf("mainDark") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--mainDark")), l.indexOf("mainLight") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--mainLight")), l.indexOf("sub") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--sub")), l.indexOf("subLight") > -1 && (l = getComputedStyle(document.body).getPropertyValue("--subLight")), l.indexOf("rgb") > -1) {
             var u = i("rgb(", "", i(")", "", i("rgba(", "", i(" ", "", l)))).split(",");
             l = "#".concat(a(parseInt(u[0], 10))).concat(a(parseInt(u[1], 10))).concat(a(parseInt(u[2], 10))), u.length > 3 && (s = u[3])
           }
@@ -4394,25 +4394,26 @@
     return e
   }({
     colorPalette: [{
-      variable: "c1",
+      variable: "main",
       type: "color:color1"
     }, {
-      variable: "c2",
+      variable: "mainDark",
       type: "color:color2"
     }, {
-      variable: "c3",
+      variable: "mainLight",
       type: "color:color3"
     }, {
-      variable: "c4",
+      variable: "sub",
       type: "color:color4"
     }, {
-      variable: "c5",
+      variable: "subLight",
       type: "color:color5"
     }],
     background_pattern: [{
       variable: "backgroundPattern"
     }]
   }, Object(o.getHeroVariables)(), {}, Object(n.getPostListingVariables)(), {}, Object(s.getPaginationVariables)(), {}, Object(a.getTypographyVariablesFor)(), {}, Object(c.getBackgroundVariablesFor)(), {}, Object(i.getFormsVariablesFor)(), {
+    // TYPOGRAPHY
     fontColor: [{
       selector: ":root",
       variable: "color",
@@ -4434,11 +4435,43 @@
       selector: ':root',
       variable: 'largeFontSize',
     },
+    // TYPOGRAPHY > Heading
     headingColor: {
       variable: "headingColor",
       type: "color:default",
       selector: ":root"
     },
+    h1Size: {
+      variable: 'h1Size',
+      selector: ":root",
+      responsive: !0,
+    },
+    h2Size: {
+      variable: 'h2Size',
+      selector: ":root",
+      responsive: !0,
+    },
+    h3Size: {
+      variable: 'h3Size',
+      selector: ":root",
+      responsive: !0,
+    },
+    h4Size: {
+      variable: 'h4Size',
+      selector: ":root",
+      responsive: !0,
+    },
+    h5Size: {
+      variable: 'h5Size',
+      selector: ":root",
+      responsive: !0,
+    },
+    h6Size: {
+      variable: 'h6Size',
+      selector: ":root",
+      responsive: !0,
+    },
+    // TYPOGRAPHY > Button
     buttonTextColor: [{
       selector: ":root",
       variable: "buttonTextInitialColor",

@@ -62,6 +62,13 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
     'color4' => [ 'color' => '#2c3e50' ],
     'color5' => [ 'color' => '#ffffff' ],
   ],
+  'extraEditorColors' => [
+    'color6' => [ 'color' => '#43a047' ],
+    'color7' => [ 'color' => '#c8e6c9' ],
+    'color8' => [ 'color' => '' ],
+    'color9' => [ 'color' => '' ],
+    'color10' => [ 'color' => '' ],
+  ],
   'fontColor' => [
     'default' => [ 'color' => 'var(--c4)' ],
     'hover' => [ 'color' => 'var(--c1)' ],

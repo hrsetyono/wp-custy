@@ -16,81 +16,28 @@ $options = [ 'colors_section_options' => [
 
 		'colorPalette' => [
 			'label' => __( 'Color Palettes', 'blocksy' ),
-			'desc' => "<code>--c1</code> to <code>--c5</code>
-			<ul>
-			<li>Color 1 is main color </li>
-			<li>Color 2 is darker main color </li>
-			<li>Color 3 is lighter main color </li>
-			<li>Color 4 is text color</li>
-			<li>Color 5 is panel color</li>
-			</ul>",
+			'desc' => my_css_desc([
+				'--main',
+				'--mainDark',
+				'--mainLight',
+				'--sub',
+				'--subLight'
+			]),
 			'type'  => 'ct-color-palettes-picker',
 			'design' => 'block',
 			'setting' => [ 'transport' => 'postMessage' ],
 			'predefined' => true,
 
-
 			'value' => wp_parse_args( $defaults['colorPalette'], [
 				'current_palette' => 'palette-1',
-				'palettes' => [
-					[
-						'id' => 'palette-1',
-
-						'color1' => [
-							'color' => '#1976d2',
-						],
-						'color2' => [
-							'color' => '#0d47a1',
-						],
-						'color3' => [
-							'color' => '#bbdefb',
-						],
-						'color4' => [
-							'color' => '#2c3e50',
-						],
-						'color5' => [
-							'color' => '#ffffff',
-						],
-					],
-					[
-						'id' => 'palette-2',
-
-						'color1' => [
-							'color' => '#d32f2f',
-						],
-						'color2' => [
-							'color' => '#b71c1c',
-						],
-						'color3' => [
-							'color' => '#ffcdd2',
-						],
-						'color4' => [
-							'color' => '#2c3e50',
-						],
-						'color5' => [
-							'color' => '#ffffff',
-						],
-					],
-					[
-						'id' => 'palette-3',
-
-						'color1' => [
-							'color' => '#43a047',
-						],
-						'color2' => [
-							'color' =>  '#2E7D32',
-						],
-						'color3' => [
-							'color' => '#c8E6c9',
-						],
-						'color4' => [
-							'color' => '#2c3e50',
-						],
-						'color5' => [
-							'color' => '#ffffff',
-						],
-					]
-				]
+				'palettes' => [ [
+					'id' => 'palette-1',
+					'color1' => [ 'color' => '#1976d2' ],
+					'color2' => [	'color' => '#0d47a1' ],
+					'color3' => [	'color' => '#bbdefb' ],
+					'color4' => [	'color' => '#2c3e50' ],
+					'color5' => [	'color' => '#ffffff' ]
+				] ]
 			] ),
 		],
 
@@ -98,6 +45,41 @@ $options = [ 'colors_section_options' => [
 			'type' => 'ct-title',
 			'label' => __( 'Global Colors', 'blocksy' ),
 		],
+
+		// 'extraEditorColors' => [
+		// 	'label' => __( 'Extra Editor Colors', 'blocksy' ),
+		// 	'desc' => 'Available colors in Gutenberg editor (in addition from Palette)' .
+		// 	my_css_desc( [],
+		// 		'<code>--c6</code> to <code>--c10</code>'
+		// 	),
+		// 	'type'  => 'ct-color-picker',
+		// 	'skipEditPalette' => true,
+		// 	'design' => 'inline',
+		// 	'setting' => [ 'transport' => 'postMessage' ],
+		// 	'value' => $defaults['extraEditorColors'],
+		// 	'pickers' => [
+		// 		[
+		// 			'title' => __( 'Blue', 'blocksy' ),
+		// 			'id' => 'blue',
+		// 		],
+		// 		[
+		// 			'title' => __( 'Blue Light', 'blocksy' ),
+		// 			'id' => 'blue-light',
+		// 		],
+		// 		[
+		// 			'title' => __( 'Red', 'blocksy' ),
+		// 			'id' => 'red',
+		// 		],
+		// 		[
+		// 			'title' => __( 'Red Light', 'blocksy' ),
+		// 			'id' => 'red-light',
+		// 		],
+		// 		[
+		// 			'title' => __( 'Green', 'blocksy' ),
+		// 			'id' => 'green',
+		// 		],
+		// 	],
+		// ],
 
 		'fontColor' => [
 			'label' => __( 'Font Color', 'blocksy' ),

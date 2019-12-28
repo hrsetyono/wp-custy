@@ -16,16 +16,11 @@ function my_get_array_stylesheet() {
       '--wideOffset' => $mods['wideOffset'],
 
       // COLOR
-      '--c1' => $mods['colorPalette']['color1']['color'],
-      '--c2' => $mods['colorPalette']['color2']['color'],
-      '--c3' => $mods['colorPalette']['color3']['color'],
-      '--c4' => $mods['colorPalette']['color4']['color'],
-      '--c5' => $mods['colorPalette']['color5']['color'],
-      '--paletteColor1' => 'var(--c1)',
-      '--paletteColor2' => 'var(--c2)',
-      '--paletteColor3' => 'var(--c3)',
-      '--paletteColor4' => 'var(--c4)',
-      '--paletteColor5' => 'var(--c5)',
+      '--main' => $mods['colorPalette']['color1']['color'],
+      '--mainDark' => $mods['colorPalette']['color2']['color'],
+      '--mainLight' => $mods['colorPalette']['color3']['color'],
+      '--sub' => $mods['colorPalette']['color4']['color'],
+      '--subLight' => $mods['colorPalette']['color5']['color'],
 
       '--color' => $mods['fontColor']['default']['color'],
       '--colorHover' => $mods['fontColor']['hover']['color'],

@@ -15,52 +15,27 @@ $colorPalette = blocksy_get_colors(
 // Alias name for palette
 $css->put(
 	':root',
-	"--c1: {$colorPalette['color1']}"
+	"--main: {$colorPalette['color1']}"
 );
 
 $css->put(
 	':root',
-	"--c2: {$colorPalette['color2']}"
+	"--mainDark: {$colorPalette['color2']}"
 );
 
 $css->put(
 	':root',
-	"--c3: {$colorPalette['color3']}"
+	"--mainLight: {$colorPalette['color3']}"
 );
 
 $css->put(
 	':root',
-	"--c4: {$colorPalette['color4']}"
+	"--sub: {$colorPalette['color4']}"
 );
 
 $css->put(
 	':root',
-	"--c5: {$colorPalette['color5']}"
-);
-
-$css->put(
-	':root',
-	"--paletteColor1: var(--c1)"
-);
-
-$css->put(
-	':root',
-	"--paletteColor2: var(--c2)"
-);
-
-$css->put(
-	':root',
-	"--paletteColor3: var(--c3)"
-);
-
-$css->put(
-	':root',
-	"--paletteColor4: var(--c4)"
-);
-
-$css->put(
-	':root',
-	"--paletteColor5: var(--c5)"
+	"--subLight: {$colorPalette['color5']}"
 );
 
 

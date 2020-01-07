@@ -10,32 +10,56 @@ $output-framework: false
   --paletteColor5: var(--panelColor)
 
 .CodeMirror
-	margin: 0 -26px
-
-// Colorpicker
-.ct-color-picker-skins li:not(:last-child)
-	margin-right: 10px
+  margin: 0 -26px
 
 // Description
 .ct-option-description,
 .ct-title
-	p
-		margin-top: 0
-		font-style: normal
-	ul
-		padding-left: 1rem
-		list-style-type: disc
-	code
-		display: inline-block
-		margin-bottom: 0.5rem
-		font-size: 12px
-		border-radius: 4px
+  p
+    margin-top: 0
+    font-style: normal
+  ul
+    padding-left: 1rem
+    list-style-type: disc
+  code
+    display: inline-block
+    margin-bottom: 0.5rem
+    font-size: 12px
+    border-radius: 4px
 
 .ct-title .notice
-	padding: 0.5rem
-	border: 0
-	border-left: 4px solid var(--c1)
-	
-	code
-		padding: 0 4px
-		margin-bottom: 0
+  padding: 0.5rem
+  border: 0
+  border-left: 4px solid var(--c1)
+  
+  code
+    padding: 0 4px
+    margin-bottom: 0
+
+// COLOR PALETTE
+.ct-color-palettes
+  input[type="radio"]
+    display: none
+
+.ct-color-picker-skins
+  li.active::after
+    text-shadow: 0 1px 2px rgba(black, .5)
+
+// COLOR PICKER
+.ct-color-picker-skins li:not(:last-child),
+.ct-background-modal .ct-color-picker-modal .ct-color-picker-skins li:not(:last-child)
+  margin-right: 10px
+
+.ct-color-picker-top
+  .ct-edit-palette
+    display: none
+
+.ct-control[data-design*="no-palette"]
+  .ct-color-picker-top
+    display: none
+
+  > section
+    background-color: white
+    padding: 10px 15px
+    margin: 0 -15px
+    border-radius: 100px

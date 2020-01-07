@@ -21,7 +21,7 @@ $options = [ 'sidebar_section_options' => [
 
 				blocksy_rand_md5() => [
 					'type' => 'ct-title',
-					'desc' => '<div class="notice"> <p>CSS is applied to <code>[data-sidebar]</code></p>	</div>',
+					'desc' => my_css_notice('CSS is applied to <code>[data-sidebar]</code>'),
 				],
 
 				'sidebar_type' => [
@@ -223,7 +223,7 @@ $options = [ 'sidebar_section_options' => [
 
 				blocksy_rand_md5() => [
 					'type' => 'ct-title',
-					'desc' => '<div class="notice"> <p>CSS is applied to <code>.ct-sidebar</code></p> </div>',
+					'desc' => my_css_notice('CSS is applied to <code>.ct-sidebar</code>'),
 				],
 
 				'sidebarWidgetsSpacing' => [
@@ -263,6 +263,7 @@ $options = [ 'sidebar_section_options' => [
 					'desc' => my_css_desc([
 						'--sidebarTitleColor'
 					]),
+					'skipEditPalette' => true,
 					'type'  => 'ct-color-picker',
 					'design' => 'inline',
 					'setting' => [ 'transport' => 'postMessage' ],
@@ -293,6 +294,7 @@ $options = [ 'sidebar_section_options' => [
 						'--color',
 						'--colorHover'
 					]),
+					'skipEditPalette' => true,
 					'type'  => 'ct-color-picker',
 					'design' => 'inline',
 					'setting' => [ 'transport' => 'postMessage' ],

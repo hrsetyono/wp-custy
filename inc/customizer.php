@@ -29,6 +29,8 @@ function blocksy_get_options( $path, $pass_inside = [], $relative = true ) {
 add_action('customize_register', function ($wp_customize) {
 	require get_template_directory() . '/inc/classes/class-ct-group-title.php';
 
+	var_dump( $wp_customize->get_setting('blogname') );
+
 	$wp_customize->get_setting('blogname')->transport = 'postMessage';
 	$wp_customize->get_setting('blogdescription')->transport = 'postMessage';
 

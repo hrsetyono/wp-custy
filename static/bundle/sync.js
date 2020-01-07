@@ -4414,14 +4414,14 @@
     }]
   }, Object(o.getHeroVariables)(), {}, Object(n.getPostListingVariables)(), {}, Object(s.getPaginationVariables)(), {}, Object(a.getTypographyVariablesFor)(), {}, Object(c.getBackgroundVariablesFor)(), {}, Object(i.getFormsVariablesFor)(), {
     // TYPOGRAPHY
-    fontColor: [{
+    textColor: [{
       selector: ":root",
-      variable: "color",
+      variable: "text",
       type: "color:default"
     }, {
       selector: ":root",
-      variable: "colorHover",
-      type: "color:hover"
+      variable: "textInvert",
+      type: "color:invert"
     }],
     smallFontSize: {
       selector: ':root',
@@ -4490,18 +4490,14 @@
       variable: "buttonHoverColor",
       type: "color:hover"
     }],
-    contentLinksColor: [{
-      selector: ".entry-content",
-      variable: "entryLinkColor",
+    linkColor: [{
+      selector: ":root",
+      variable: "linkColor",
       type: "color:default"
     }, {
-      selector: ".entry-content",
-      variable: "entryLinkColorHover",
+      selector: ":root",
+      variable: "linkColorHover",
       type: "color:hover"
-    }, {
-      selector: ".entry-content",
-      variable: "entryLinkTextColor",
-      type: "color:text"
     }],
     siteBackground: {
       variable: "siteBackground",
@@ -4998,17 +4994,6 @@
       variable: "boxShadow",
       responsive: !0
     },
-    passepartoutSize: {
-      selector: ".ct-passepartout",
-      variable: "passepartoutSize",
-      responsive: !0,
-      unit: ""
-    },
-    passepartoutColor: {
-      selector: ".ct-passepartout",
-      variable: "passepartoutColor",
-      type: "color"
-    }
   }))
 }, function(e, t, r) {
   "use strict";

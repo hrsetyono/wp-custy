@@ -1,0 +1,6 @@
+<?php
+
+/**
+ * Reusable Page Title
+ */
+

@@ -3,12 +3,13 @@
 /**
  * Get the dynamic styles in array format
  */
-function my_get_array_stylesheet() {
+function my_get_stylesheet() {
   $mods = wp_parse_args( get_theme_mods(), my_get_default_mods() );
-  
+
   $styles = [
     ':root' => [
-      // GENERAL
+      // WRAPPER
+      '--site$' => $mods['site_background'],
       '--maxSiteWidth' => $mods['maxSiteWidth'],
       '--contentAreaSpacing' => $mods['contentAreaSpacing'],
       '--narrowContainerWidth' => $mods['narrowContainerWidth'],
@@ -21,10 +22,11 @@ function my_get_array_stylesheet() {
       '--mainLight' => $mods['colorPalette']['color3']['color'],
       '--sub' => $mods['colorPalette']['color4']['color'],
       '--subLight' => $mods['colorPalette']['color5']['color'],
-
-      '--color' => $mods['fontColor']['default']['color'],
-      '--colorHover' => $mods['fontColor']['hover']['color'],
+      '--text' => $mods['textColor']['default']['color'],
+      '--textInvert' => $mods['textColor']['invert']['color'],
       '--headingColor' => $mods['headingColor']['default']['color'],
+      '--linkColor' => $mods['linkColor']['default']['color'],
+      '--linkColorHover' => $mods['linkColor']['hover']['color'],
 
       '--buttonTextInitialColor' => $mods['buttonTextColor']['default']['color'],
       '--buttonTextHoverColor' => $mods['buttonTextColor']['hover']['color'],
@@ -80,13 +82,6 @@ function my_get_array_stylesheet() {
       '--radioAccentColor' => $mods['radioCheckboxColor']['accent']['color'],
     ],
 
-    // COLOR > Link
-    '.entry-content' => [
-      '--entryLinkColor' => $mods['contentLinksColor']['default']['color'],
-      '--entryLinkColorHover' => $mods['contentLinksColor']['hover']['color'],
-      '--entryLinkTextColor' => $mods['contentLinksColor']['text']['color'],
-    ],
-
     // TYPOGRAPHY > Blockquote
     '.entry-content blockquote, .ct-quote-widget blockquote p' => [
       '--$' => $mods['blockquote'],
@@ -105,11 +100,6 @@ function my_get_array_stylesheet() {
       '--backgroundColor' => $mods['topButtonShapeBackground']['default']['color'],
       '--backgroundColorHover' => $mods['topButtonShapeBackground']['hover']['color'],
       '--boxShadow' => $mods['topButtonShadow'],
-    ],
-    // GENERAL > Viewport Frame
-    '.ct-passepartout' => [
-      '--passepartoutSize' => $mods['passepartoutSize'],
-      '--passepartoutColor' => $mods['passepartoutColor']['default']['color'],
     ],
 
     // SIDEBAR

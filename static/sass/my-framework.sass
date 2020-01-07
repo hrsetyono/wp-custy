@@ -2,12 +2,24 @@
 $output-framework: false
 @import "settings"
 
+// @deprecated - these variables are only for backward compatibility
 \:root
   --paletteColor1: var(--main)
   --paletteColor2: var(--mainDark)
   --paletteColor3: var(--mainLight)
   --paletteColor4: var(--color)
   --paletteColor5: var(--panelColor)
+
+// WRAPPER
+.site-main
+  background: var(--siteBackground)
+  background-size: var(--siteBackgroundSize)  
+
+// COLOR
+.entry-content a
+  --color: var(--linkColor)
+  --colorHover: var(--linkColorHover)
+
 
 // TYPOGRAPHY
 html
@@ -83,6 +95,7 @@ form textarea
   input[type="checkbox"]
     border: var(--formBorder)
 
+  
 // SIDEBAR
 aside[data-type="type-2"]
   --border: var(--sidebarBorder)

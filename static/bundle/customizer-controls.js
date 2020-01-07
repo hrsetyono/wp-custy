@@ -4220,7 +4220,7 @@
             className: "ct-color-picker-top"
           }, Object(r.createElement)("ul", {
             className: "ct-color-picker-skins"
-          },  ['main', 'mainDark', 'mainLight', 'sub', 'subLight', 'color', 'panelColor'].map((function(t) {
+          },  ['main', 'mainDark', 'mainLight', 'sub', 'subLight', 'text', 'textInvert'].map((function(t) {
             return Object(r.createElement)("li", {
               key: t,
               style: {
@@ -4242,8 +4242,8 @@
               mainLight: 'Main Light',
               sub: 'Sub',
               subLight: 'Sub Light',
-              color: 'Text',
-              panelColor: 'Panel',
+              text: 'Text',
+              textInvert: 'Text Invert',
             } [t]))
           })), !this.props.option.skipNoColorPill && Object(r.createElement)("li", {
             onClick: function() {
@@ -16405,14 +16405,14 @@
       variable: "subLight",
       type: "color:color5"
     }],
-    fontColor: [{
+    textColor: [{
       selector: ":root",
-      variable: "color",
+      variable: "text",
       type: "color:default"
     }, {
       selector: ":root",
-      variable: "colorHover",
-      type: "color:hover"
+      variable: "textInvert",
+      type: "color:invert"
     }],
     buttonTextColor: [{
       selector: ":root",

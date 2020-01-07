@@ -1,20 +1,20 @@
 <?php
 
 // Site background
-blocksy_output_background_css([
-	'selector' => '.site-main',
-	'css' => $css,
-	'value' => get_theme_mod(
-		'site_background',
-		blocksy_background_default_value([
-			'backgroundColor' => [
-				'default' => [
-					'color' => '#f8f9fb'
-				],
-			],
-		])
-	)
-]);
+// blocksy_output_background_css([
+// 	'selector' => '.site-main',
+// 	'css' => $css,
+// 	'value' => get_theme_mod(
+// 		'site_background',
+// 		blocksy_background_default_value([
+// 			'backgroundColor' => [
+// 				'default' => [
+// 					'color' => '#f8f9fb'
+// 				],
+// 			],
+// 		])
+// 	)
+// ]);
 
 // Post
 blocksy_output_background_css([

@@ -16,9 +16,9 @@ $extensions_options = apply_filters(
 $options = [
 	[
 		'general' => [
-			'title' => __( 'General', 'blocksy' ),
+			'title' => __( 'Wrapper', 'blocksy' ),
 			'container' => [ 'priority' => 1 ],
-			'options' => blocksy_get_options( 'general/general' ),
+			'options' => blocksy_get_options( 'general/wrapper' ),
 		],
 		'color' => [
 			'title' => __( 'Colors', 'blocksy' ),
@@ -34,11 +34,6 @@ $options = [
 			'title' => __( 'Shadows', 'blocksy' ),
 			'container' => [ 'priority' => 1 ],
 			'options' => blocksy_get_options( 'general/shadows' ),
-		],
-		'performance' => [
-			'title' => __( 'Performance', 'blocksy' ),
-			'container' => [ 'priority' => 1 ],
-			'options' => blocksy_get_options( 'general/performance' ),
 		],
 
 		blocksy_rand_md5() => [
@@ -66,6 +61,11 @@ $options = [
 			'title' => __( 'Form' ),
 			'container' => [ 'priority' => 2 ],
 			'options' => blocksy_get_options( 'general/form-elements' ),
+		],
+		'others' => [
+			'title' => __( 'Others', 'blocksy' ),
+			'container' => [ 'priority' => 2 ],
+			'options' => blocksy_get_options( 'general/others' ),
 		],
 
 		blocksy_rand_md5() => [

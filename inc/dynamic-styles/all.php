@@ -336,24 +336,24 @@
 
 
 // Sidebar shadow
-blocksy_output_box_shadow([
-	'css' => $css,
-	'tablet_css' => $tablet_css,
-	'mobile_css' => $mobile_css,
-	'selector' => 'aside[data-type="type-2"]',
-	'value' => get_theme_mod('sidebarShadow', blocksy_box_shadow_value([
-		'enable' => true,
-		'h_offset' => 0,
-		'v_offset' => 12,
-		'blur' => 18,
-		'spread' => -6,
-		'inset' => false,
-		'color' => [
-			'color' => 'rgba(34, 56, 101, 0.04)',
-		],
-	])),
-	'responsive' => true
-]);
+// blocksy_output_box_shadow([
+// 	'css' => $css,
+// 	'tablet_css' => $tablet_css,
+// 	'mobile_css' => $mobile_css,
+// 	'selector' => 'aside[data-type="type-2"]',
+// 	'value' => get_theme_mod('sidebarShadow', blocksy_box_shadow_value([
+// 		'enable' => true,
+// 		'h_offset' => 0,
+// 		'v_offset' => 12,
+// 		'blur' => 18,
+// 		'spread' => -6,
+// 		'inset' => false,
+// 		'color' => [
+// 			'color' => 'rgba(34, 56, 101, 0.04)',
+// 		],
+// 	])),
+// 	'responsive' => true
+// ]);
 
 // Related Posts
 blocksy_output_responsive([

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Format the value of theme mods before outputted
+ */
 class ThemeMods_Formatter {
   public $css;
   public $tablet_css;
@@ -7,49 +9,62 @@ class ThemeMods_Formatter {
 
   function __construct( $css) {
     $this->css = $css;
+    $this->format();
   }
 
   /**
-   * 
+   * Format the raw theme mods value
    */
   function format() {
     foreach( $this->css as $selector => &$styles ) {
-      foreach( $styles as $prop => &$value ) {
+    foreach( $styles as $prop => &$value ) {
 
-        // TYPOGRAPHY
-        if( isset( $value['family'] ) ) {
-          $typo_styles = $this->_format_typography( $value, $prop );
+      // TYPOGRAPHY
+      if( isset( $value['family'] ) ) {
+        $typo_styles = $this->_format_typography( $value, $prop );
 
-          // set responsive size
-          foreach( $typo_styles as $p => &$v ) {
-            if( isset( $v['desktop'] ) ) {
-              $this->_set_responsive_size( $selector, $p, $v );
-              $v = $v['desktop'];
-            }
+        // set responsive size
+        foreach( $typo_styles as $p => &$v ) {
+          if( isset( $v['desktop'] ) ) {
+            $this->_set_responsive_size( $selector, $p, $v );
+            $v = $v['desktop'];
           }
-          // replace the old styles
-          $this->array_splice_assoc( $styles, $prop, 1, $typo_styles );
         }
-
-        // BORDER
-        elseif( isset( $value['style'] ) && isset( $value['width'] ) ) {
-          $value = $this->_format_border( $value );
-        }
-
-        // SLIDER
-        elseif( isset( $value['desktop'] ) ) {
-          $this->_set_responsive_size( $selector, $prop, $value );
-          $value = $value['desktop'];
-        }
-
+        // replace the old styles
+        $this->array_splice_assoc( $styles, $prop, 1, $typo_styles );
       }
-    }
 
-    return [
+      // BORDER
+      elseif( isset( $value['style'] ) && isset( $value['width'] ) ) {
+        $value = $this->_format_border( $value );
+      }
+
+      // SLIDER
+      elseif( isset( $value['desktop'] ) ) {
+        $this->_set_responsive_size( $selector, $prop, $value );
+        $value = $value['desktop'];
+      }
+
+      // BACKGROUND
+      elseif( isset( $value['background_type'] ) ) {
+        $bg_styles = $this->_format_background( $value, $prop );
+        $this->array_splice_assoc( $styles, $prop, 1, $bg_styles );
+      }
+
+    }
+    }
+  }
+
+  /**
+   * Echo the theme mods
+   */
+  function render() {
+    $context = [
       'desktop_css' => $this->css,
       'tablet_css' => $this->tablet_css,
       'mobile_css' => $this->mobile_css
     ];
+	  Timber::render( 'partials/theme-mods.twig', $context );
   }
 
 
@@ -62,8 +77,7 @@ class ThemeMods_Formatter {
    * @param $prefix (string) - The CSS Var prefix. $ sign will be replaced
    */
   private function _format_typography( $value, $prefix = '--$' ) {
-    $m = $value; // shorthand
-    $prefix = str_replace( '$', '', $prefix );
+    $m = $value;
 
     $m['size'] = $this->_format_sizes( $m['size'] );
     $m['line-height'] = $this->_format_sizes( $m['line-height'], 'var(--lineHeight)' );
@@ -125,22 +139,8 @@ class ThemeMods_Formatter {
     ];
 
     // Add prefix
-    $prefixed_styles = [];
-    foreach( $styles as $prop => $value ) {
-      // if basic prefix
-      if( $prefix === '--' ) {
-        // if empty style, don't include it
-        if( is_string( $value) && strpos( $value, 'var(--' ) !== false ) {
-          continue;
-        }
-      } else {
-        $prop = ucfirst( $prop );
-      }
-
-      $prefixed_styles[ "{$prefix}{$prop}" ] = $value;
-    }
-
-    return $prefixed_styles;
+    $styles = $this->_prefix_styles( $styles, $prefix );
+    return $styles;
   }
 
 
@@ -163,29 +163,100 @@ class ThemeMods_Formatter {
   /**
    * Format mod that has desktop / tablet / mobile
    */
-  private function _format_sizes( $sizes, $default = 'var(--fontSize)' ) {
+  private function _format_sizes( $value, $default = 'var(--fontSize)' ) {
     // set default value if empty
-    if( $sizes === 'CT_CSS_SKIP_RULE' ) {
-      $sizes = $default;
+    if( $value === 'CT_CSS_SKIP_RULE' ) {
+      $value = $default;
     }
     // if responsive, return desktop
-    elseif( isset( $sizes['desktop'] ) ) {
-      if( $sizes['desktop'] === 'CT_CSS_SKIP_RULE' ) {
-        $sizes = $default;
+    elseif( isset( $value['desktop'] ) ) {
+      if( $value['desktop'] === 'CT_CSS_SKIP_RULE' ) {
+        $value = $default;
       }
 
-      if( $sizes['tablet'] === 'CT_CSS_SKIP_RULE' ) {
-        unset( $sizes['tablet'] );
+      if( $value['tablet'] === 'CT_CSS_SKIP_RULE' ) {
+        unset( $value['tablet'] );
       }
 
-      if( $sizes['mobile'] === 'CT_CSS_SKIP_RULE' ) {
-        unset( $sizes['mobile'] );
+      if( $value['mobile'] === 'CT_CSS_SKIP_RULE' ) {
+        unset( $value['mobile'] );
       }
     }
 
-    return $sizes;
+    return $value;
   }
 
+  /**
+   * Format CT Background type
+   */
+  private function _format_background( $value, $prefix = '--$' ) {
+    $styles = [];
+    $background_color = $value['backgroundColor']['default']['color'];
+    $styles['backgroundColor'] = $background_color;
+
+    switch( $value['background_type'] ) {
+      case 'color':
+        $styles['background'] = $background_color;
+        break;
+
+      
+      case 'pattern':
+        $image_src = blocksy_get_svg_pattern(
+          $value['background_pattern'],
+          $value['patternColor']['default']['color']
+        );
+        $image_url = 'url("' . $image_src . '")';
+
+        $styles['background'] = "$background_color $image_url";
+        break;
+
+
+      case 'image':
+        $image_src = wp_get_attachment_url( $value['background_image']['attachment_id'] );
+        $image_url = 'url("' . $image_src . '")';
+
+        $x = ( $value['background_image']['x'] * 100 ) . '%';
+        $y = ( $value['background_image']['y'] * 100 ) . '%';
+        $position = "$x/$y";
+        $repeat = $value['background_repeat'];
+        $attachment = $value['background_attachment'];
+        $size = $value['background_size'];
+
+        $styles['backgroundSize'] = $size;
+        $styles['background'] = "$background_color $image_url $position $repeat $attachment";
+        break;
+    }
+
+    $styles = $this->_prefix_styles( $styles, $prefix );
+    return $styles;
+  }
+
+  /////
+
+  /**
+   * Prefix the styles, capitalize first letter if necessary
+   */
+  private function _prefix_styles( $styles, $prefix = '--$' ) {
+  
+    $prefix = str_replace( '$', '', $prefix );
+    $prefixed_styles = [];
+    
+    foreach( $styles as $prop => $value ) {
+      // if basic prefix
+      if( $prefix === '--' ) {
+        // if empty style, don't include it
+        if( is_string( $value) && strpos( $value, 'var(--' ) !== false ) {
+          continue;
+        }
+      } else {
+        $prop = ucfirst( $prop );
+      }
+
+      $prefixed_styles[ "{$prefix}{$prop}" ] = $value;
+    }
+
+    return $prefixed_styles;
+  }
 
   /**
    * Populate the CSS for tablet and mobile

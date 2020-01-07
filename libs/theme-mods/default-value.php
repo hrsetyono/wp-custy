@@ -24,7 +24,7 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
   'narrowContainerWidth' => '60%',
   'wideOffset' => '100px',
 
-  // GENERAL > Back to Top
+  // OTHER > Back to Top
   'has_back_top' => 'yes',
   'top_button_type' => 'type-1',
   'top_button_shape' => 'square',
@@ -37,66 +37,62 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
     'hover' => [ 'color' => '#ffffff' ],
   ],
   'topButtonShapeBackground' => [
-    'default' => [ 'color' => 'var(--c4)' ],
-    'hover' => [ 'color' => 'var(--c1)' ],
+    'default' => [ 'color' => 'var(--text)' ],
+    'hover' => [ 'color' => 'var(--textInvert)' ],
   ],
   'topButtonShadow' => 'var(--shadow1)',
 
-  // GENERAL > Border Frame
-  'has_passepartout' => 'no',
-  'passepartoutSize' => [
-    'mobile' => 0,
-    'tablet' => '10px',
-    'desktop' => '10px',
-  ],
-  'passepartoutColor' => [
-    'default' => [ 'color' => 'var(--c1)' ],
-  ],
-  
+  // OTHER > Performance
+  'emoji_scripts' => 'no',
+  'has_lazy_load' => 'yes',
+  'lazy_load_type' => 'fade',
+
 
   // COLOR
   'colorPalette' => [
     'color1' => [ 'color' => '#1976d2' ],
     'color2' => [ 'color' => '#0d47a1' ],
     'color3' => [ 'color' => '#bbdefb' ],
-    'color4' => [ 'color' => '#2c3e50' ],
-    'color5' => [ 'color' => '#ffffff' ],
+    'color4' => [ 'color' => '#546e7a' ],
+    'color5' => [ 'color' => '#cfd8dc' ],
+
+    'current_palette' => 'palette-1',
+    'palettes' => [ [
+      'id' => 'palette-1',
+      'color1' => [ 'color' => '#1976d2' ],
+      'color2' => [	'color' => '#0d47a1' ],
+      'color3' => [	'color' => '#bbdefb' ],
+      'color4' => [	'color' => '#546e7a' ],
+      'color5' => [	'color' => '#cfd8dc' ]
+    ] ],
   ],
-  'extraEditorColors' => [
-    'color6' => [ 'color' => '#43a047' ],
-    'color7' => [ 'color' => '#c8e6c9' ],
-    'color8' => [ 'color' => '' ],
-    'color9' => [ 'color' => '' ],
-    'color10' => [ 'color' => '' ],
-  ],
-  'fontColor' => [
-    'default' => [ 'color' => 'var(--c4)' ],
-    'hover' => [ 'color' => 'var(--c1)' ],
+  'textColor' => [
+    'default' => [ 'color' => '#2c3e50' ],
+    'invert' => [ 'color' => '#ffffff' ],
   ],
   'headingColor' => [
-    'default' => [ 'color' => 'var(--c4)' ],
+    'default' => [ 'color' => 'var(--text)' ],
+  ],
+  'content_link_type' => 'type-2', // @deprecated
+  'linkColor' => [
+    'default' => [ 'color' => 'var(--text)', ],
+    'hover' => [ 'color' => 'var(--main)', ],
   ],
   'buttonTextColor' => [
-    'default' => [ 'color' => '#ffffff', ],
-    'hover' => [ 'color' => '#ffffff', ],
+    'default' => [ 'color' => 'var(--textInvert)', ],
+    'hover' => [ 'color' => 'var(--textInvert)', ],
   ],
   'buttonColor' => [
-    'default' => [ 'color' => 'var(--c1)', ],
-    'hover' => [ 'color' => 'var(--c2)', ],
+    'default' => [ 'color' => 'var(--main)', ],
+    'hover' => [ 'color' => 'var(--mainDark)', ],
   ],
-
-  'content_link_type' => 'type-2',
-  'contentLinksColor' => [
-    'default' => [ 'color' => 'var(--c4)', ],
-    'hover' => [ 'color' => 'var(--c1)', ],
-    'text' => [ 'color' => '#ffffff', ],
-  ],
+  
 
   // FORMS
-  'forms_type' => 'classic-forms',
+  'forms_type' => 'classic-forms', // @deprecated
   'formTextColor' => [
-    'default' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
-    'focus' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
+    'default' => [ 'color' => 'var(--text)' ],
+    'focus' => [ 'color' => 'var(--text)' ],
   ],
   'formFontSize' => '1rem',
   'formBorder' => [
@@ -105,7 +101,7 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
     'color' => [ 'color' => 'rgba(232, 235, 240, 1)' ],
   ],
   'formBorderFocusColor' => [
-    'focus' => [ 'color' => 'var(--c1)' ],
+    'focus' => [ 'color' => 'var(--main)' ],
   ],
   'formBackgroundColor' => [
     'default' => [ 'color' => '#ffffff' ],
@@ -156,7 +152,7 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
   'shadow2' => blocksy_box_shadow_value([
     'enable' => true,
     'h_offset' => 0,
-    'v_offset' => 3,
+    'v_offset' => 6,
     'blur' => 6,
     'spread' => 0,
     'inset' => false,
@@ -266,7 +262,7 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
   'has_sticky_sidebar' => 'no',
   'sidebarOffset' => '1rem',
   'sidebarBackgroundColor' => [
-    'default' => [ 'color' => 'var(--c5)' ],
+    'default' => [ 'color' => 'var(--textInvert)' ],
   ],
   'sidebarBorder' => [
     'width' => 1,
@@ -282,7 +278,7 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
   // SIDEBAR > Content
   'sidebarTitleSize' => 'var(--h4Size)',
   'sidebarTitleColor' => [
-    'default' => [ 'color' => 'var(--c4)' ],
+    'default' => [ 'color' => 'var(--text)' ],
   ],
   'sidebarWidgetsSpacing' => [
     'mobile' => '1rem',
@@ -293,6 +289,13 @@ $default_mods = apply_filters( 'my_default_theme_mods', [
   'sidebarFontColor' => [
     'default' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
     'hover' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
+  ],
+
+
+  // BLOG POSTS
+  'blogTitleSize' => 'var(--h1Size)',
+  'blogTitleColor' => [
+    'default' => [ 'color' => 'var(--text)' ]
   ],
 
 

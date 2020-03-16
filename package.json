@@ -1,15 +1,14 @@
 {
-  "name": "my-theme",
-  "private": true,
-  "edje": true,
+  "name": "wp-custy",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/username/my-theme.git"
+    "url": "git+https://github.com/hrsetyono/wp-custy.git"
   },
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "sass": "node-sass -w static/sass -o static/css --output-style compressed",
-    "bsync": "browser-sync start --proxy \"demo.test/blocksy\" --files \"static/css/*.css\""
+    "sass": "node-sass -w sass -o css --output-style compressed",
+    "bsync": "browser-sync start --proxy \"demo.test/basic-theme\" --files \"css/*.css\""
   }
 }

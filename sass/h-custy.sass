@@ -1,0 +1,134 @@
+.CodeMirror
+  // margin: 0 -26px
+
+// Remove the Weird placement
+.ct-builder-items[data-id*="start-middle"],
+.ct-builder-items[data-id*="end-middle"]
+  display: none
+
+
+// Description
+.ct-option-description,
+.ct-title
+  p
+    margin-top: 0
+    font-style: normal
+  ul
+    padding-left: 1rem
+    list-style-type: disc
+  details
+    font-style: normal
+  code
+    display: inline-block
+    font-size: 12px
+    border-radius: 4px
+  details code
+    margin-bottom: 0.25rem
+
+.ct-title
+  p
+    font-style: normal
+
+
+// CSS NOTICE
+.ct-title[data-type="notice"]
+  margin: -22px -12px 0
+
+  // if header or footer
+  .ct-tmp-panel-wrapper &
+    margin-top: -10px
+
+  .notice
+    padding: 0.25rem 0.5rem
+    margin: 0
+    border: 0
+    border-left: 4px solid var(--main)
+
+  .notice p
+    margin-top: 0
+    font-style: normal
+
+  .ct-current-tab &
+    margin: 0
+
+  code
+    font-size: 90%
+    letter-spacing: -0.025rem
+
+
+
+// COLOR PALETTE
+.ct-color-palettes
+  input[type="radio"]
+    display: none
+
+.ct-color-picker-skins
+  li.active::after
+    text-shadow: 0 1px 2px rgba(black, .5)
+
+.ct-single-palette.active label
+  font-size: 0
+
+  &::before
+    content: "PALETTE"
+    font-size: 0.75rem
+
+
+// COLOR PICKER
+.ct-color-picker-skins li:not(:last-child),
+.ct-background-modal .ct-color-picker-modal .ct-color-picker-skins li:not(:last-child)
+  margin-right: 6px
+
+.ct-color-picker-top
+  .ct-edit-palette
+    display: none
+
+.ct-control[data-design*="no-palette"]
+  .ct-color-picker-top
+    display: none
+
+  > section
+    background-color: white
+    padding: 10px 15px
+    margin: 0 -15px
+    border-radius: 100px
+
+
+// RESPONSIVE
+
+.ct-responsive-controls
+  .ct-disabled
+    display: none
+
+
+// HEADER & FOOTER
+
+.ct-available-items .ct-select-input
+  > input
+    background-color: var(--main)
+    color: var(--textInvert)
+    font-weight: 700
+    text-transform: uppercase
+    letter-spacing: 0.025rem
+
+  &::before
+    display: none
+  &::after
+    color: white
+
+.ct-footer-builder-options div.ct-builder-items
+  padding: 0
+
+
+// WP EDITOR
+
+.mce-container
+  iframe
+    min-height: 200px
+
+
+// IMAGE PICKER
+
+.ct-image-picker[data-padding="medium"]
+  li span
+    padding: 1rem

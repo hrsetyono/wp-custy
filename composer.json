@@ -1,0 +1,19 @@
+{
+  "name": "pixelstudio/wp-custy",
+  "description": "Add more variety of options such as Typography and Color Picker to WP Customizer.",
+  "keywords": ["wordpress", "plugin", "library", "customizer"],
+  "type": "wordpress-plugin",
+  "homepage": "https://github.com/hrsetyono/wp-custy/",
+  "authors": [
+    {
+      "name": "Pixel Studio",
+      "email": "info@pixelstudio.id",
+      "homepage": "https://pixelstudio.id"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.0.0",
+    "composer/installers": "~1.0"
+  }
+}

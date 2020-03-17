@@ -42,7 +42,7 @@ require_once __DIR__ . '/typography.php';
 require_once __DIR__ . '/customizer.php';
 
 if ( is_admin() ) {
-	require_once CUSTY_DIR . '/admin/init.php';
+	require_once BLOCKSY_DIR . '/admin/init.php';
 }
 
 // if (!is_admin()) {

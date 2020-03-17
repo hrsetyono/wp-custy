@@ -9,12 +9,12 @@
 // require_once get_template_directory() . '/admin/dashboard/plugins/ct-plugin-manager.php';
 
 if (is_admin() && defined('DOING_AJAX') && DOING_AJAX) {
-	require_once CUSTY_DIR . '/admin/dashboard/api.php';
+	require_once BLOCKSY_DIR . '/admin/dashboard/api.php';
 	// require_once get_template_directory() . '/admin/dashboard/plugins/ct-plugin-manager.php';
-	// require_once CUSTY_DIR . '/admin/dashboard/plugins/plugins-api.php';
+	// require_once BLOCKSY_DIR . '/admin/dashboard/plugins/plugins-api.php';
 }
 
-// require CUSTY_DIR . '/admin/dashboard/core.php';
+// require BLOCKSY_DIR . '/admin/dashboard/core.php';
 
 function blocksy_get_jed_locale_data( $domain ) {
 	$translations = get_translations_for_domain( $domain );

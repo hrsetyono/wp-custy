@@ -15,16 +15,17 @@ if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
 
 // Constant
 define( 'CUSTY_VERSION', '1.0.0' );
-define( 'CUSTY_DIR', __DIR__ );
+define( 'CUSTY_DIR', __DIR__ . '/lib' );
+define( 'CUSTY_URL', plugin_dir_url( __FILE__ ) );
 
-define( 'BLOCKSY_DIR', __DIR__ . '/blocksy' );
-define( 'BLOCKSY_URL', plugin_dir_url( __FILE__ ) );
-define( 'BLOCKSY_CSS_URL', BLOCKSY_URL . '/blocksy/css' );
-define( 'BLOCKSY_JS_URL', BLOCKSY_URL . '/blocksy/js' );
+define( 'BLOCKSY_DIR', __DIR__ . '/blocksy-lib' );
+define( 'BLOCKSY_URL', plugin_dir_url( __FILE__ ) . '/blocksy-lib' );
+define( 'BLOCKSY_IMAGES_URL', BLOCKSY_URL . '/images' );
+define( 'BLOCKSY_CSS_URL', BLOCKSY_URL . '/css' );
+define( 'BLOCKSY_JS_URL', BLOCKSY_URL . '/js' );
 
 
-require_once __DIR__ . '/custy-helper.php';
-
+require_once CUSTY_DIR . '/custy-helper.php';
 
 add_action( 'plugins_loaded', '_custy_loaded' );
 add_action( 'after_setup_theme' , '_custy_after_theme', 9999 );
@@ -45,9 +46,9 @@ function _custy_loaded() {
   require_once BLOCKSY_DIR . '/_index.php';
   
   // DEFAULT VALUES
-  require_once CUSTY_DIR . '/core-sections/_core-defaults.php';
-  require_once CUSTY_DIR . '/header-items/_header-defaults.php';
-  require_once CUSTY_DIR . '/footer-items/_footer-defaults.php';
+  require_once __DIR__ . '/core-sections/_core-defaults.php';
+  require_once __DIR__ . '/header-items/_header-defaults.php';
+  require_once __DIR__ . '/footer-items/_footer-defaults.php';
   
   add_filter( 'custy_default_values', '_custy_core_default_values' );
   add_filter( 'custy_default_values', '_custy_header_default_values' );
@@ -61,13 +62,13 @@ function _custy_loaded() {
  * @action after_setup_theme 9999
  */
 function _custy_after_theme() {
-  require_once __DIR__ . '/enqueue.php';
-  require_once __DIR__ . '/shortcode.php';
+  require_once CUSTY_DIR . '/enqueue.php';
+  require_once CUSTY_DIR . '/shortcode.php';
 
-  require_once __DIR__ . '/format-options.php';
-  require_once __DIR__ . '/format-values.php';
+  require_once CUSTY_DIR . '/format-options.php';
+  require_once CUSTY_DIR . '/format-values.php';
 
-  require_once __DIR__ . '/sync-preview.php';
+  require_once CUSTY_DIR . '/sync-preview.php';
 
   // Populate options
   require_once __DIR__ . '/core-sections/_index.php';
@@ -75,13 +76,13 @@ function _custy_after_theme() {
   require_once __DIR__ . '/footer-items/_index.php';
 
   // Output <style> tags
-  require_once __DIR__ . '/stylesheet.php';
-  require_once __DIR__ . '/stylesheet-compile.php';
-  require_once __DIR__ . '/stylesheet-output.php';
+  require_once CUSTY_DIR . '/stylesheet.php';
+  require_once CUSTY_DIR . '/stylesheet-compile.php';
+  require_once CUSTY_DIR . '/stylesheet-output.php';
   
   // BUILDER
-  require_once __DIR__ . '/builder.php';
-  require_once __DIR__ . '/builder-values.php';
+  require_once CUSTY_DIR . '/builder.php';
+  require_once CUSTY_DIR . '/builder-values.php';
 }
 
 /**

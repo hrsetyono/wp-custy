@@ -733,7 +733,7 @@ function blocksy_akg_or_customizer($key, $source, $default = null) {
  * @param string $path image name.
  */
 function blocksy_image_picker_url( $path ) {
-	return BLOCKSY_URL . '/images/' . $path;
+	return BLOCKSY_IMAGES_URL . '/' . $path;
 }
 
 function blocksy_collect_and_return($cb) {

@@ -14,6 +14,8 @@ It also comes with drag-n-drop builder for Header and Footer:
 
 Download this repo, put it in your `/plugins` folder, install it, and activate this plugin.
 
+If you use [Composer to install plugin](https://wptips.dev/composer-to-manage-plugins/), this plugin is available with the name `pixelstudio/wp-custy`.
+
 Then go to Appearance > Customizer and you will see these default sections:
 
 1. **General** - Contains options for color palette, shadow, and site width.

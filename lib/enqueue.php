@@ -35,7 +35,7 @@ function _custy_enqueue_gutenberg() {
 function _custy_enqueue_customizer_preview() {
   $builder = new Blocksy_Customizer_Builder();
 
-  wp_enqueue_style( 'h-preview', plugin_dir_url(__FILE__) . 'css/h-preview.css', [], CUSTY_VERSION );
+  wp_enqueue_style( 'h-preview', CUSTY_URL . 'css/h-preview.css', [], CUSTY_VERSION );
 
   wp_enqueue_script( 'ct-customizer', BLOCKSY_JS_URL . '/sync.js',
     ['customize-preview', 'wp-date', 'ct-events'], CUSTY_VERSION, true
@@ -78,7 +78,7 @@ function _custy_enqueue_customizer_preview() {
  * @action customize_controls_enqueue_scripts
  */
 function _custy_enqueue_customizer_control() {
-  wp_enqueue_style( 'h-custy', plugin_dir_url(__FILE__) . 'css/h-custy.css', [], CUSTY_VERSION );
+  wp_enqueue_style( 'h-custy', CUSTY_URL . 'css/h-custy.css', [], CUSTY_VERSION );
 
   wp_enqueue_style( 'ct-customizer-controls-styles',
     BLOCKSY_CSS_URL . '/customizer-controls.css', [], CUSTY_VERSION

@@ -8,7 +8,7 @@
  * License: MIT
  * Author: Pixel Studio
  * Author URI: https://pixelstudio.id
- * Version: 1.0.0-beta
+ * Version: 1.0.1
  */
 
 if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
@@ -128,7 +128,7 @@ class Custy {
       $index++;
     }
 
-    return H::color_palette( $palette );
+    return _custy_color_palette( $palette );
   }
 
 

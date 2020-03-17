@@ -36,7 +36,7 @@ Across the options, you might notice this CSS toggle:
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocksy/doc-css-var.jpg)
 
-That means the value of that options is automatically outputted into `:root` using that variable name. You can override the CSS selector.
+That means the value of that options is automatically outputted into `:root` (by default) using that variable name.
 
 Then implement that variable in your theme wherever it fits.
 

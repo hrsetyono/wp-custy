@@ -72,7 +72,6 @@ $button_options = [
     'style' => [
       'label' => __( 'Style' ),
       'type' => 'ct-radio',
-      'attr' => [ 'data-type' => 'background' ],
       'choices' => [
         'solid' => __( 'Solid' ),
         'outline' => __( 'Outline' ),

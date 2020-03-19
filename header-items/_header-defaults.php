@@ -82,26 +82,26 @@ function _custy_header_default_values( $defaults ) {
 
   $social_values = [
     'links' => [
-      [ 'id' => 'location', 'enabled' => true ],
-      [ 'id' => 'email', 'enabled' => true ],
-      [ 'id' => 'phone', 'enabled' => true ],
+      [ 'id' => 'location', 'enabled' => true, 'label' => '' ],
+      [ 'id' => 'email', 'enabled' => true, 'label' => '' ],
+      [ 'id' => 'phone', 'enabled' => true, 'label' => '+123-456-789' ],
     ],
-    'color_style' => 'custom',
-    'shape_style' => 'icon-only',
-    'customColor' => [
-      'icon' => [ 'color' => 'var(--textInvert)' ],
-      'background' => [ 'color' => 'var(--main)' ]
-    ],
-    
+        
     'has_label' => 'yes',
     'label_visibility' => [
       'desktop' => true,
       'tablet' => true,
       'mobile' => true
     ],
-    'phone_label' => '+123-456-789',
-    'location_label' => '',
-    'email_label' => '',
+    
+    'color_style' => 'custom',
+    'shape_style' => 'icon-only',
+    'customColor' => [
+      'icon' => [ 'color' => 'var(--textInvert)' ],
+      'background' => [ 'color' => 'var(--main)' ]
+    ],
+
+    'alignment' => 'left',
   ];
 
 

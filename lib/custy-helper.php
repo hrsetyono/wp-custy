@@ -154,12 +154,10 @@ function custy_get_social_list( $id = null ) {
       'svg' => custy_get_svg( 'whatsapp' ),
     ],
 
-    custy_rand_id() => [ 'divider' => '' ],
-
     'phone' => [
       'label' => __( 'Phone' ),
       'color' => 'var(--main)',
-      'placeholder' => 'tel:+6224-1234-567',
+      'placeholder' => 'tel:+12-3456-789',
       'svg' => custy_get_svg( 'phone' ),
     ],
 
@@ -176,8 +174,6 @@ function custy_get_social_list( $id = null ) {
       'placeholder' => 'https://goo.gl/maps/abcdefghij',
       'svg' => custy_get_svg( 'location' ),
     ],
-
-    custy_rand_id() => [ 'divider' => '' ],
 
 		'linkedin' => [
       'label' => __( 'LinkedIn' ),
@@ -227,132 +223,103 @@ function custy_get_social_list( $id = null ) {
 function _custy_get_social_options( $type = 'header' ) {
   $list = custy_get_social_list();
 
-  // Remove the divider in list
-  $clean_list = array_filter( $list, function( $item ) {
-    return !isset( $item['divider'] );
-  } );
+  // Parse each item into Social Link layer
+  $social_links = [];
+  foreach( $list as $id => $args ) {
+    $social_links[ $id ] = [
+      'label' => $args['label'],
+      'options' => [
 
-  // Parse each item into Social Link option
-  $social_links = array_map( function( $item ) {
-    if( isset( $item['divider'] ) ) {
-      return $item;
-    }
+        'link' => [
+          'label' => __( 'URL' ),
+          'type' => 'text',
+          'attr' => [ 'placeholder' => $args['placeholder'] ],
+          'value' => '',
+        ],
 
-    return [
-      'label' => $item['label'],
-      'type' => 'text',
-      'value' => '',
-      'attr' => [ 'placeholder' => $item['placeholder'] ],
-      'disableRevertButton' => true,
-    ];
-  }, $list );
+        'label' => [
+          'label' => __( 'Label' ),
+          'type' => 'text',
+          'design' => 'inline',
+          'value' => $args['label'],
+        ],
 
-  // Parse each item into Social Label option
-  $social_labels = array_reduce( array_keys( $list ), function( $result, $key ) use ( $list ) {
-    
-    if( isset( $list[ $key ]['divider'] ) ) {
-      $result[ custy_rand_id() ] = [ 'divider' => '' ];
-    }
-    else {
-      $item = $list[ $key ];
-
-      $result[ $key . '_label' ] = [
-        'label' => $item['label'],
-        'design' => 'inline',
-        'type' => 'text',
-        'value' => $item['label'],
-      ];  
-    }
-
-    return $result;
-  }, [] );
-
-  // Add extra option depending on the type
-  $extra_design_options = [];
-  if( $type === 'footer' ) {
-    $extra_design_options = [
-      'alignment' => [
-        'label' => __( 'Alignment' ),
-        'type' => 'ct-radio/alignment',
-      ],
-
-      custy_rand_id() => [ 'divider' => '' ],
+      ]
     ];
   }
 
-
   return [
-    custy_rand_id() => [ 'tab' => 'Links', 'options' => array_merge( [
+    'links' => [
+      'label' => __( 'Links' ),
+      'type' => 'ct-layers',
+      'manageable' => true,
+      'desc' => __( 'Fill in the links below' ),
+      'settings' => $social_links,
+    ],
 
-      'links' => [
-        'label' => __( 'Links' ),
-        'type' => 'ct-layers',
-        'manageable' => true,
-        'desc' => __( 'Fill in the links below' ),
-        'settings' => $clean_list,
+    custy_rand_id() => [ 'divider' => '' ],
+
+    // LABELS
+    'has_label' => [
+      'label' => __( 'Has Label?' ),
+      'type' => 'ct-switch',
+    ],
+
+    custy_rand_id() => [ 'condition' => [ 'has_label' => 'yes' ], 'options' => [
+
+      'label_visibility' => [
+        'label' => __( 'Label Visibility' ),
+        'type' => 'ct-visibility',
       ],
 
-    ], $social_links ) ],
+    ] ],
 
-    custy_rand_id() => [ 'tab' => 'Design', 'options' => array_merge( $extra_design_options, [
+    custy_rand_id() => [ 'divider' => '' ],      
 
-      'color_style' => [
-        'label' => __( 'Color Style' ),
-        'type' => 'ct-radio',
-        'choices' => [
-          'custom' => __( 'Custom' ),
-          'official' => __( 'Official' ),
-        ],
+    'color_style' => [
+      'label' => __( 'Color Style' ),
+      'type' => 'ct-radio',
+      'choices' => [
+        'custom' => __( 'Custom' ),
+        'official' => __( 'Official' ),
       ],
+    ],
 
-      'shape_style' => [
-        'label' => __( 'Shape Style' ),
-        'type' => 'ct-radio',
-        'choices' => [
-          'icon-only' => __( 'Icon Only' ),
-          'circle' => __( 'Circle' ),
-          'square' => __( 'Square' ),
-        ],
+    'shape_style' => [
+      'label' => __( 'Shape Style' ),
+      'type' => 'ct-radio',
+      'choices' => [
+        'icon-only' => __( 'Icon Only' ),
+        'circle' => __( 'Circle' ),
+        'square' => __( 'Square' ),
       ],
+    ],
 
-      custy_rand_id() => [ 'condition' => [ 'color_style' => 'custom' ], 'options' => [
-        'customColor' => [
-          'label' => __( 'Custom Color' ),
-          'type'  => 'ct-color-picker',
-          'pickers' => [
-            'icon' => __( 'Icon' ),
-            'background' => [
-              'title' => __( 'Background' ),
-              'condition' => [ 'icon_style' => '!none' ]
-            ],
+    custy_rand_id() => [ 'condition' => [ 'color_style' => 'custom' ], 'options' => [
+      'customColor' => [
+        'label' => __( 'Custom Color' ),
+        'type'  => 'ct-color-picker',
+        'pickers' => [
+          'icon' => __( 'Icon' ),
+          'background' => [
+            'title' => __( 'Background' ),
+            'condition' => [ 'icon_style' => '!none' ]
           ],
-          'css' => [
-            '--iconColor' => 'icon',
-            '--iconBackground' => 'background'
-          ],
         ],
-      ] ],
-
-      custy_rand_id() => [ 'divider' => '' ],
-
-      // LABELS
-      'has_label' => [
-        'label' => __( 'Has Label?' ),
-        'type' => 'ct-switch',
+        'css' => [
+          '--iconColor' => 'icon',
+          '--iconBackground' => 'background'
+        ],
       ],
+    ] ],
 
-      custy_rand_id() => [ 'condition' => [ 'has_label' => 'yes' ], 'options' => array_merge( [
+    custy_rand_id() => [ 'divider' => '' ],
 
-        'label_visibility' => [
-          'label' => __( 'Label Visibility' ),
-          'type' => 'ct-visibility',
-        ],
-        
-        custy_rand_id() => [ 'divider' => '' ],
+    'alignment' => [
+      'label' => __( 'Alignment' ),
+      'type' => 'ct-radio/alignment',
+    ],
 
-      ], $social_labels ) ],
-
-    ] ) ],
   ];
 }
 
@@ -365,16 +332,6 @@ function _custy_get_social_options( $type = 'header' ) {
  */
 function custy_get_svg( $id ) {
 	$list = apply_filters( 'custy_svg_list', [
-		'cart-1' => '<svg viewBox="0 0 100 70"><path d="M62.5,44.8l-0.9-19.8c0-1.3-1.1-2.6-2.6-2.6H41c-1.5,0-2.7,1.2-2.7,2.6l-0.8,19.8l0,0c0,1.5,1.1,2.7,2.7,2.7h19.8C61.4,47.5,62.5,46.4,62.5,44.8L62.5,44.8z M59.8,45.2H40.2c-0.2,0-0.4-0.2-0.4-0.4l0.8-19.8l0,0c0-0.2,0.2-0.3,0.4-0.3h18.1c0.2,0,0.4,0.1,0.4,0.3l0,0l0.8,19.8C60.2,45.2,60.2,45.2,59.8,45.2z M53.8,26.8c-0.7,0-1.1,0.5-1.1,1.2v3.2c0,1.4-1.1,2.7-2.7,2.7c-1.4,0-2.7-1.2-2.7-2.7v-3.3c0-0.7-0.5-1.2-1.1-1.2s-1.1,0.5-1.1,1.2v3.3c0,2.7,2.1,4.8,4.8,4.8s4.8-2.1,4.8-4.8v-3.3C54.8,27.4,54.3,26.8,53.8,26.8z"/></svg>
-		',
-
-		'cart-2' => '<svg viewBox="0 0 100 70"><path d="M38.4,23.5c-0.5,0-0.9,0.4-0.9,0.9s0.4,0.9,0.9,0.9l0,0h1.7c0.2,0,0.4,0.2,0.4,0.3L44.5,39c0.3,1.2,1.4,2,2.7,2h10.1c1.2,0,2.3-0.8,2.7-2.1l2.5-8.7c0.2-0.5-0.2-1-0.7-1.2c-0.1,0-0.2,0-0.2,0H43.5l-1.2-3.9l0,0c-0.2-1-1.2-1.7-2.2-1.7C40.1,23.5,38.4,23.5,38.4,23.5z M47.6,42.9c-1,0-1.8,0.8-1.8,1.8c0,1,0.8,1.8,1.8,1.8s1.8-0.8,1.8-1.8C49.6,43.7,48.7,42.9,47.6,42.9zM56.9,42.9c-1,0-1.8,0.8-1.8,1.8c0,1,0.8,1.8,1.8,1.8s1.8-0.8,1.8-1.8C58.8,43.7,58,42.9,56.9,42.9z"/></svg>
-		',
-
-		'cart-3' => '<svg viewBox="0 0 100 70"><path d="M45.1,24.2c-0.9,0-1.7,0.5-2.1,1.4l-2.8,6.6h-1.5c-0.4,0-0.7,0.2-0.9,0.4c-0.2,0.3-0.3,0.6-0.2,1l2.9,10.5c0.3,1,1.2,1.7,2.2,1.7h14.7c1,0,1.9-0.7,2.2-1.7l2.9-10.5c0.1-0.3,0-0.7-0.2-1c-0.2-0.3-0.6-0.4-0.9-0.4h-1.5L57,25.6h0c-0.4-0.8-1.2-1.4-2.1-1.4H45.1z M45.1,26.5h9.9l2.4,5.7H42.6L45.1,26.5zM45.5,35.6c0.6,0,1.1,0.5,1.1,1.1v4.5c0,0.6-0.5,1.1-1.1,1.1c-0.6,0-1.1-0.5-1.1-1.1v-4.5C44.3,36.1,44.8,35.6,45.5,35.6z M50,35.6c0.6,0,1.1,0.5,1.1,1.1v4.5c0,0.6-0.5,1.1-1.1,1.1c-0.6,0-1.1-0.5-1.1-1.1v-4.5C48.9,36.1,49.4,35.6,50,35.6zM54.5,35.6c0.6,0,1.1,0.5,1.1,1.1v4.5c0,0.6-0.5,1.1-1.1,1.1c-0.6,0-1.1-0.5-1.1-1.1v-4.5C53.4,36.1,53.9,35.6,54.5,35.6z"/></svg>
-    ',
-
-
 
 		'norepeat' => '<svg viewBox="0 0 16 16"><rect x="6" y="6" width="4" height="4"/></svg>
 		',

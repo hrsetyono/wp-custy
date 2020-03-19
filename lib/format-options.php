@@ -165,10 +165,8 @@ class Custy_Options {
         continue;
       }
 
-      // set default value if 'value' args is empty
-      if( !isset( $args['value']) ) {
-        $args['value'] = $defaults[ $id ] ?? null;
-      }
+      // set default value, if not defined, then use the 'value' args, if still not defined, use null
+      $args['value'] = $defaults[ $id ] ?? $args['value'] ?? null;
 
       switch( $args['type'] ):
         case 'tab':
@@ -186,6 +184,18 @@ class Custy_Options {
           if( isset($args['css_selector']) ) {
             $args['inner-options'] = $this->create_css_notice( $args['css_selector'] ) + $args['inner-options'];
             
+          }
+          continue;
+
+        case 'ct-layers':
+          foreach( $args['settings'] as $layer_id => &$layer_args ) {
+            // if the layer has options, format each of them
+            if( isset( $layer_args['options'] ) ) {
+              $key = array_keys( array_column( $args['value'], 'id'), $layer_id );
+              $layer_value = !empty( $key ) ? $args['value'][ $key[0] ] : [];
+
+              $layer_args['options'] = $this->format( $layer_args['options'], $layer_value );
+            }
           }
           continue;
         
@@ -247,6 +257,12 @@ class Custy_Options {
 						'tablet' => __( 'Tablet' ),
 						'mobile' => __( 'Mobile' ),
           ]);
+          break;
+        
+        case 'ct-number':
+          if( isset($args[ 'responsive' ]) && $args['responsive'] ) {
+            $args['design'] = 'block';
+          }
           break;
 
       endswitch;

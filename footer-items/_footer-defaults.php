@@ -69,20 +69,22 @@ function _custy_footer_default_values( $defaults ) {
       [ 'id' => 'twitter', 'enabled' => true ],
       [ 'id' => 'instagram', 'enabled' => true ],
     ],
-    'alignment' => 'right',
-    'color_style' => 'official',
-    'shape_style' => 'circle',
 
-    'customColor' => [
-      'icon' => [ 'color' => 'var(--textInvert)' ],
-      'background' => [ 'color' => 'var(--main)' ]
-    ],
     'has_label' => 'no',
     'label_visibility' => [
       'desktop' => true,
       'tablet' => false,
       'mobile' => false
     ],
+
+    'color_style' => 'official',
+    'shape_style' => 'circle',
+    'customColor' => [
+      'icon' => [ 'color' => 'var(--textInvert)' ],
+      'background' => [ 'color' => 'var(--main)' ]
+    ],
+
+    'alignment' => 'right',
   ];
 
   

@@ -125,8 +125,8 @@ function _custy_core_default_values( $defaults ) {
     ] ),
 
     'h1Size' => [
-      'desktop' => '46px',
-      'tablet' => '40px',
+      'desktop' => '42px',
+      'tablet' => '38px',
       'mobile' => '32px',
     ],
     'h2Size' => [

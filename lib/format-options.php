@@ -258,12 +258,6 @@ class Custy_Options {
 						'mobile' => __( 'Mobile' ),
           ]);
           break;
-        
-        case 'ct-number':
-          if( isset($args[ 'responsive' ]) && $args['responsive'] ) {
-            $args['design'] = 'block';
-          }
-          break;
 
       endswitch;
 
@@ -272,14 +266,15 @@ class Custy_Options {
       $type_disallow_responsive = [
         'ct-border',
         'ct-box-shadow',
-        'ct-background'
+        'ct-background',
+        'ct-color-picker'
       ];
       if( $is_responsive && in_array( $args['type'], $type_disallow_responsive ) ) {
         unset( $args['responsive'] );
       }
 
       $args['setting'] = $args['setting'] ?? [ 'transport' => 'postMessage' ];
-      $args['design'] = $args['design'] ?? $this->get_default_design( $args['type'] );
+      $args['design'] = $args['design'] ?? $this->get_default_design( $args );
 
       // add css variable
       if( isset( $args['css'] ) ) {
@@ -507,15 +502,17 @@ class Custy_Options {
   /**
    * Get either "inline" or "block" depending on the type
    */
-  private function get_default_design( $type ) {
-    switch( $type ) {
+  private function get_default_design( $args ) {
+    switch( $args['type'] ) {
       case 'ct-color-picker':
       case 'ct-background':
       case 'ct-select':
       case 'ct-border':
-      case 'ct-number':
       case 'ct-text':
         return 'inline';
+
+      case 'ct-number':
+        return ( isset($args['responsive']) && $args['responsive'] ) ? 'block' : 'inline';
 
       case 'ct-color-palettes-picker':
       case 'ct-radio':

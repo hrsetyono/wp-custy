@@ -5,7 +5,7 @@
  */
 class Custy_CompileStyles {
   private $mod_values = [];
-  private $current_values = [];
+  private $values = [];
   private $styles = [];
 
   function __construct() {
@@ -27,7 +27,7 @@ class Custy_CompileStyles {
 
       $options = $args['options'][ $section_id . '_options' ]['inner-options'];
 
-      $this->current_values = $this->mod_values;
+      $this->values = $this->mod_values;
       $this->compile_from_options( $options, $selector );
     }
   }
@@ -62,7 +62,7 @@ class Custy_CompileStyles {
 
       $selector = $item['css_selector'] ?? ':root';
 
-      $this->current_values = wp_parse_args( $values, $default_values[ $item_id ] );
+      $this->values = wp_parse_args( $values, $default_values[ $item_id ] );
       $this->compile_from_options( $options, $selector );
     }
   }
@@ -78,14 +78,21 @@ class Custy_CompileStyles {
    *     '--cssVar2' => 'value2',
    *   ]
    */
-  private function compile_from_options( $options, $parent_selector = ':root' ) {
+  private function compile_from_options( $options, $parent_selector = ':root', $values = [] ) {
+    $values = empty( $values ) ? $this->values : $values;
+
     // loop all options to find "css" arg
     foreach( $options as $option_id => $args ) {
       $selector = $args['css_selector'] ?? $parent_selector;
 
       // skip if has inner options
       if( isset( $args['options'] ) || isset( $args['inner-options'] ) ) {
-        $this->compile_from_inner_options( $args, $selector );
+        $this->compile_from_inner_options( $args, $selector, $values );
+        continue;
+      }
+      // skip if ct-layers
+      elseif( isset( $args['type'] ) && $args['type'] == 'ct-layers' ) {
+        $this->compile_from_layers( $option_id, $args, $selector );
         continue;
       }
       // skip if doesn't have css args
@@ -94,8 +101,8 @@ class Custy_CompileStyles {
       }
 
       $this->styles[ $selector ] = $this->styles[ $selector ] ?? []; // initiate empty selector
-      
-      $value = $this->current_values[ $option_id ] ?? null;
+
+      $value = $values[ $option_id ] ?? null;
 
       // if single value
       if( is_string( $args['css'] ) ) {
@@ -110,14 +117,37 @@ class Custy_CompileStyles {
   }
 
   /**
-   * Get inner options
+   * Check all inner options
    */
-  private function compile_from_inner_options( $args, $parent_selector = ':root' ) {
+  private function compile_from_inner_options( $args, $parent_selector = ':root', $values = [] ) {
     $selector = $args['css_selector'] ?? $parent_selector;
 
     $inner_options = $args['options'] ?? $args['inner-options'] ?? [];
     if( !empty( $inner_options ) ) {
-      $this->compile_from_options( $inner_options, $selector );
+      $this->compile_from_options( $inner_options, $selector, $values );
+    }
+  }
+
+  /**
+   * Check all options inside each layer
+   */
+  private function compile_from_layers( $option_id, $args, $parent_selector = ':root' ) {
+
+    foreach( $args['settings'] as $layer_id => $layer_args ) {
+      // skip if has no options
+      if( !isset( $layer_args['options'] ) ) {
+        continue;
+      }
+
+      // find the values, skip if not found
+      $key = array_keys( array_column( $this->values[ $option_id ], 'id'), $layer_id );
+      if( !$key ) { continue; }
+
+    
+      $values = $this->values[ $option_id ][ $key[0] ] ?? [];
+      $selector = $layer_args['css_selector'] ?? $parent_selector;
+
+      $this->compile_from_options( $layer_args['options'], $selector, $values );
     }
   }
 

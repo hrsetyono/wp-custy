@@ -13,8 +13,8 @@ function _custy_set_core_sections( $sections ) {
   // Add divider
   $all_sections[ custy_rand_id() ] = [
     'type' => 'ct-group-title',
-    'title' => __( 'Custom' ),
-    'priority' => 5,
+    'title' => __( 'Content' ),
+    'priority' => 7,
   ];
 
   return $all_sections;

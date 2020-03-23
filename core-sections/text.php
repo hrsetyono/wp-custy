@@ -13,7 +13,7 @@ $headingUnits = [
 
 $section = [
   'title' => __( 'Text' ), 
-  'container' => [ 'priority' => 1 ],
+  'container' => [ 'priority' => 2 ],
   'css_selector' => ':root',
   'options' => [
 

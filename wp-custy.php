@@ -8,7 +8,7 @@
  * License: MIT
  * Author: Pixel Studio
  * Author URI: https://pixelstudio.id
- * Version: 1.0.4
+ * Version: 1.1.0
  */
 
 if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
@@ -26,6 +26,7 @@ define( 'BLOCKSY_JS_URL', BLOCKSY_URL . '/js' );
 
 
 require_once CUSTY_DIR . '/custy-helper.php';
+require_once CUSTY_DIR . '/svg-list.php';
 
 add_action( 'plugins_loaded', '_custy_loaded' );
 add_action( 'after_setup_theme' , '_custy_after_theme', 9999 );

@@ -63,6 +63,12 @@ $section = [
         'type' => 'ct-background',
         'css' => '--site$',
       ],
+
+      'headerCode' => [
+        'label' => 'Head Code',
+        'type' => 'code_editor',
+        'value' => ''
+      ],
     ] ],
 
     custy_rand_id() => [ 'tab' => __( 'Shadow' ), 'options' => [

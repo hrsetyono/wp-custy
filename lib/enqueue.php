@@ -109,7 +109,7 @@ function _custy_enqueue_customizer_control() {
 
   wp_localize_script( 'ct-customizer-controls', 'ct_customizer_localizations', [
     'customizer_reset_none' => wp_create_nonce( 'ct-customizer-reset' ),
-    'static_public_url' => BLOCKSY_URL . '/',
+    'static_public_url' => BLOCKSY_DIR_URL . '/',
     'header_builder_data' => $builder->get_data_for_customizer(),
     'header_defaults' => Custy::get_default_values( 'header' ),
     'footer_defaults' => Custy::get_default_values( 'footer' ),

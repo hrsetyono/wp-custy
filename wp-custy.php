@@ -14,15 +14,15 @@
 if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
 
 // Constant
-define( 'CUSTY_VERSION', '1.0.0' );
+define( 'CUSTY_VERSION', '1.1.1' );
 define( 'CUSTY_DIR', __DIR__ . '/lib' );
 define( 'CUSTY_URL', plugin_dir_url( __FILE__ ) );
 
 define( 'BLOCKSY_DIR', __DIR__ . '/blocksy-lib' );
-define( 'BLOCKSY_URL', plugin_dir_url( __FILE__ ) . '/blocksy-lib' );
-define( 'BLOCKSY_IMAGES_URL', BLOCKSY_URL . '/images' );
-define( 'BLOCKSY_CSS_URL', BLOCKSY_URL . '/css' );
-define( 'BLOCKSY_JS_URL', BLOCKSY_URL . '/js' );
+define( 'BLOCKSY_DIR_URL', plugin_dir_url( __FILE__ ) . '/blocksy-lib' );
+define( 'BLOCKSY_IMAGES_URL', BLOCKSY_DIR_URL . '/images' );
+define( 'BLOCKSY_CSS_URL', BLOCKSY_DIR_URL . '/css' );
+define( 'BLOCKSY_JS_URL', BLOCKSY_DIR_URL . '/js' );
 
 
 require_once CUSTY_DIR . '/custy-helper.php';

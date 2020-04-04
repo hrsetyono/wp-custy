@@ -8,7 +8,7 @@
  * License: MIT
  * Author: Pixel Studio
  * Author URI: https://pixelstudio.id
- * Version: 1.1.0
+ * Version: 1.2.0
  */
 
 if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
@@ -84,6 +84,9 @@ function _custy_after_theme() {
   // BUILDER
   require_once CUSTY_DIR . '/builder.php';
   require_once CUSTY_DIR . '/builder-values.php';
+
+  // FONTS
+  require_once CUSTY_DIR . '/font-faces.php';
 }
 
 /**

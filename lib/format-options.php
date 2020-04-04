@@ -176,7 +176,7 @@ class Custy_Options {
           if( isset($args['css_selector']) ) {
             $args['options'] = $this->add_css_selector_notice( $args['css_selector'], $args['options'] );
           }
-          continue;
+          continue 2;
        
         case 'ct-panel':
           $args['inner-options'] = $this->format( $args['inner-options'], $defaults );
@@ -185,7 +185,7 @@ class Custy_Options {
             $args['inner-options'] = $this->create_css_notice( $args['css_selector'] ) + $args['inner-options'];
             
           }
-          continue;
+          continue 2;
 
         case 'ct-layers':
           foreach( $args['settings'] as $layer_id => &$layer_args ) {
@@ -197,7 +197,7 @@ class Custy_Options {
               $layer_args['options'] = $this->format( $layer_args['options'], $layer_value );
             }
           }
-          continue;
+          continue 2;
         
         case 'ct-color-palettes-picker':
           $args['predefined'] = true;

@@ -7,10 +7,11 @@ class Blocksy_Fonts_Manager {
 				'type' => 'system',
 				'families' => $this->get_system_fonts(),
 			],
-			'google' => [
-				'type' => 'google',
-				'families' => $this->get_googgle_fonts()
-			]
+			// @changed - remove google fonts
+			// 'google' => [
+			// 	'type' => 'google',
+			// 	'families' => $this->get_googgle_fonts()
+			// ]
 		];
 	}
 
@@ -170,13 +171,19 @@ class Blocksy_Fonts_Manager {
 		return false;
 	}
 
+	// @changed - Simply font list and add filter
 	public function get_system_fonts() {
-		$system = [
+		$system = apply_filters( 'custy_fonts', [
 			'System Default',
-			'Arial', 'Verdana', 'Trebuchet', 'Georgia', 'Times New Roman',
-			'Palatino', 'Helvetica', 'Calibri', 'Myriad Pro',
-			'Lucida', 'Gill Sans', 'Impact', 'Serif', 'monospace'
-		];
+			'serif',
+			'monospace',
+		] );
+		// $system = [
+		// 	'System Default',
+		// 	'Arial', 'Verdana', 'Trebuchet', 'Georgia', 'Times New Roman',
+		// 	'Palatino', 'Helvetica', 'Calibri', 'Myriad Pro',
+		// 	'Lucida', 'Gill Sans', 'Impact', 'Serif', 'monospace'
+		// ];
 
 		$result = [];
 

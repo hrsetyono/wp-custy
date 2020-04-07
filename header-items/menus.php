@@ -18,13 +18,13 @@ $items = [
   'menu' => [
     'title' => __( 'Menu 1' ),
     'devices' => [ 'desktop' ],
-    'css_selector' => '[data-id="menu"]',
-    'options' => $menu_options
+    'css_selector' => '[data-header="menu"]',
+    'options' => apply_filters( 'custy_header_menu_options', $menu_options )
   ],
   'menu2' => [
     'title' => __( 'Menu 2' ),
     'devices' => [ 'desktop' ],
-    'css_selector' => '[data-id="menu2"]',
-    'options' => $menu_options
+    'css_selector' => '[data-header="menu2"]',
+    'options' => apply_filters( 'custy_header_menu2_options', $menu_options )
   ],
 ];

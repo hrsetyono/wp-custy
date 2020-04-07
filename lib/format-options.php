@@ -138,6 +138,11 @@ class Custy_Options {
           $args['options'] = $this->add_css_selector_notice( $args['css_selector'], $args['options'] );
         }
 
+        if( !isset( $defaults[ $item_id ] ) ) {
+          trigger_error( 'Default value not set for builder item: ' . $item_id, E_USER_NOTICE );
+          continue;
+        }
+
         $new_args['options'] = $this->format( $args['options'], $defaults[ $item_id ] );
       }
 

@@ -146,19 +146,19 @@ $items = [
   'top-row' => [
     'title' => __( 'Top Row' ),
     'is_primary' => true,
-    'css_selector' => '[data-id="footer-top-row"]',
+    'css_selector' => '[data-footer="top-row"]',
     'options' => $row_options,
   ],
   'middle-row' => [
     'title' => __( 'Middle Row' ),
     'is_primary' => true,
-    'css_selector' => '[data-id="footer-middle-row"]',
+    'css_selector' => '[data-footer="middle-row"]',
     'options' => $row_options,
   ],
   'bottom-row' => [
     'title' => __( 'Bottom Row' ),
     'is_primary' => true,
-    'css_selector' => '[data-id="footer-bottom-row"]',
+    'css_selector' => '[data-footer="bottom-row"]',
     'options' => $row_options,
   ],
 ];

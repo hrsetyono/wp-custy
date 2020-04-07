@@ -16,12 +16,13 @@ function _custy_header_default_values( $defaults ) {
         'default' => [ 'color' => 'var(--textInvert)' ],
       ],
     ]),
+    'style' => 'fixed-height',
     'rowHeight' => [
       'desktop' => '60px',
       'tablet' => '50px',
       'mobile' => '50px',
     ],
-    'is_sticky' => 'no',
+    'width_style' => 'centered',
   ];
 
   $logo_values = [
@@ -119,7 +120,7 @@ function _custy_header_default_values( $defaults ) {
     ], $row_values ),
     
     'middle-row' => wp_parse_args([
-      'is_sticky' => 'yes'
+      'style' => 'sticky'
     ], $row_values ),
 
     'bottom-row' => $row_values,

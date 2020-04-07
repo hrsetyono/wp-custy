@@ -2,7 +2,7 @@
 
 $item = [
   'title' => __( 'Copyright' ),
-  'css_selector' => '[data-id="copyright"]',
+  'css_selector' => '[data-footer="copyright"]',
   'options' => [
     
     'copyright_text' => [

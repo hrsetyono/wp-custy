@@ -4,7 +4,7 @@ $item = [
   'title' => __( 'Trigger' ),
   'devices' => [ 'mobile' ],
   'excluded_from' => [ 'offcanvas' ],
-  'css_selector' => '[data-id="trigger"]',
+  'css_selector' => '[data-header="trigger"]',
   'options' => [
 
     'style' => [

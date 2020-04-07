@@ -5,7 +5,7 @@ $items = [];
 for( $i = 1; $i <= 4; $i++ ) {
   $items[ "widget-area-$i" ] = [
     'title' => __( 'Widget Area ' ) . $i,
-    'css_selector' => "[data-id='widget{$i}']",
+    'css_selector' => "[data-footer='widget{$i}']",
     'options' => [
 
       custy_rand_id() => [ 'tab' => __( 'Widgets' ), 'options' => [

@@ -28,14 +28,14 @@ $items = [
   'mobile-menu' => [
     'title' => __( 'Mobile Menu 1' ),
     'devices' => [ 'mobile' ],
-    'css_selector' => '[data-id="mobile-menu"]',
+    'css_selector' => '[data-header="mobile-menu"]',
     'allowed_in' => [ 'offcanvas' ],
     'options' => $menu_options
   ],
   'mobile-menu2' => [
     'title' => __( 'Mobile Menu 2' ),
     'devices' => [ 'mobile' ],
-    'css_selector' => '[data-id="mobile-menu2"]',
+    'css_selector' => '[data-header="mobile-menu2"]',
     'allowed_in' => [ 'offcanvas' ],
     'options' => $menu_options
   ]

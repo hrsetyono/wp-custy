@@ -78,22 +78,21 @@ $button_options = [
         'transparent' => __( 'Transparent' ),
       ],
     ],
-    
-    'buttonBackground' => [
-      'label' => __( 'Button Background' ),
-      'type'  => 'ct-color-picker',
-      'pickers' => [
-        'default' => [
-          'title' => __( 'Default' ),
-          'condition' => [ 'style' => 'solid' ]
+
+    custy_rand_id() => [ 'condition' => [ 'style' => 'solid' ], 'options' => [
+      'buttonBackground' => [
+        'label' => __( 'Button Background' ),
+        'type'  => 'ct-color-picker',
+        'pickers' => [
+          'default' => __( 'Default' ),
+          'hover' => __( 'Hover' ),
         ],
-        'hover' => __( 'Hover' ),
+        'css' => [
+          '--buttonBg' => 'default',
+          '--buttonBgHover' => 'hover',
+        ],
       ],
-      'css' => [
-        '--buttonBg' => 'default',
-        '--buttonBgHover' => 'hover',
-      ],
-    ],
+    ] ],
 
     'buttonColor' => [
       'label' => __( 'Button Color' ),
@@ -114,12 +113,12 @@ $button_options = [
 $items = [
   'button' => [
     'title' => __( 'Button 1' ),
-    'css_selector' => '[data-id="button"]',
+    'css_selector' => '[data-header="button"]',
     'options' => $button_options,
   ],
   'button2' => [
     'title' => __( 'Button 2' ),
-    'css_selector' => '[data-id="button2"]',
+    'css_selector' => '[data-header="button2"]',
     'options' => $button_options,
   ],
 ];

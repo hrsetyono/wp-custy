@@ -2,7 +2,7 @@
  
 $item = [
   'title' => __( 'Search' ),
-  'css_selector' => '[data-id="search"]',
+  'css_selector' => '[data-header="search"]',
   'options' => [
 
     'search_icon' => [

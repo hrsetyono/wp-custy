@@ -3,7 +3,7 @@
 $item = [
   'title' => __( 'Offcanvas' ),
   'is_primary' => true,
-  'css_selector' => '[data-id="offcanvas"]',
+  'css_selector' => '[data-header="offcanvas"]',
   'options' => [
 
     

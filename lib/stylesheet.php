@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'wp_head', '_custy_render_stylesheet', 0 );
+add_action( 'wp_head', '_custy_render_stylesheet', 100 );
 add_action( 'admin_print_styles', '_custy_render_admin_stylesheet', 0 );
 
 

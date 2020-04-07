@@ -2,7 +2,7 @@
 
 $item = [
   'title' => __( 'Footer Menu' ),
-  'css_selector' => '[data-id="footer-menu"]',
+  'css_selector' => '[data-footer="menu"]',
   'options' => [
 
     'menu_id' => [

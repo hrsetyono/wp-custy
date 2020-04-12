@@ -44,6 +44,9 @@ function _custy_footer_default_values( $defaults ) {
 
   $widget_values = [
     'widget' => 'footer-widget-1',
+
+    'alignment' => 'vertical',
+    'widgetColumns' => 4,
     'widgetBackground' => [
       'default' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
     ],

@@ -11,6 +11,80 @@ function custy_rand_id() {
 
 
 /**
+ * Get all theme mods
+ */
+function custy_get_mods() {
+  global $custy_mods;
+
+  if( empty( $custy_mods ) ) {
+    $defaults = custy_get_default_values();
+    $custy_mods = wp_parse_args( get_theme_mods(), $defaults );
+  }
+  return $custy_mods;
+}
+
+
+/**
+ * Get theme mod that is generated with Blocksy
+ * 
+ * @param $id (string) - The option ID
+ * @return mixed - The mod value or "false" if not found
+ */
+function custy_get_mod( $id ) {
+  $mods = custy_get_mods();
+  return $mods[ $id ] ?? null;
+}
+
+
+/**
+ * Get the default value of theme mods
+ * 
+ * @param $type (string) - Either 'footer', 'header', or 'all'
+ */
+function custy_get_default_values( $type = 'all' ) {
+  global $custy_default_values;
+  $custy_default_values = $custy_default_values ?? apply_filters( 'custy_default_values', [] );
+
+  if( $type == 'all' ) {
+    return $custy_default_values;
+  } else {
+    return $custy_default_values[ $type ] ?? null;
+  }
+}
+
+/**
+ * Get a single default value
+ */
+function custy_get_default_value( $option_id ) {
+  $defaults = custy_get_default_values();
+  return $defaults[ $option_id ] ?? null;
+}
+
+
+/**
+ * Get the list of sections for theme mods
+ */
+function custy_get_sections( $filter = null ) {
+  global $custy_sections;
+
+  if( empty( $custy_sections ) ) {
+    $custy_sections = apply_filters( 'custy_sections', [] );
+  }
+
+  if( $filter == 'palette' ) {
+    $palette_sections = [
+      'general' => $custy_sections['general']
+    ];
+    return $palette_sections;
+  }
+
+  return $custy_sections;
+}
+
+
+
+
+/**
  * Format array for Gutenberg's palette theme_suport. Also output CSS classes at HEAD.
  * 
  * @return array - Formatted colors array suitable for theme_support.
@@ -67,6 +141,36 @@ function _custy_color_palette( $raw_colors ) {
   }
 
   return $parsed_colors;
+}
+
+/**
+ * Get color palette for Gutenberg
+ */
+function custy_get_editor_color_palette() {
+  $palette = [
+    'Main'         => 'var(--main)',
+    'Main Dark'    => 'var(--mainDark)',
+    'Main Light'   => 'var(--mainLight)',
+    'Sub'          => 'var(--sub)',
+    'Sub Light'    => 'var(--subLight)',
+    'Text'         => 'var(--text)',
+    'Text Dim'     => 'var(--textDim)',
+    'Text Invert'  => 'var(--textInvert)',
+  ];
+
+  // check for extra colors
+  $extra_colors = custy_get_mod( 'extraColor' );
+
+  $index = 1;
+  foreach( $extra_colors as $c ) {
+    if( $c['color'] !== 'CT_CSS_SKIP_RULE' ) {
+      $palette[ "Extra {$index}" ] = "var(--extra{$index})";
+    }
+    
+    $index++;
+  }
+
+  return _custy_color_palette( $palette );
 }
 
 

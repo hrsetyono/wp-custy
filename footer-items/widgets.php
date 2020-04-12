@@ -16,6 +16,35 @@ for( $i = 1; $i <= 4; $i++ ) {
       ] ],
 
       custy_rand_id() => [ 'tab' => __( 'Design' ), 'options' => [
+        
+        'alignment' => [
+          'label' => __( 'Alignment' ),
+          'type' => 'ct-radio',
+          'choices' => [
+            'vertical' => __( 'Vertical' ),
+            'horizontal' => __( 'Horizontal' ),
+          ],
+        ],
+
+        custy_rand_id() => [ 'condition' => [], 'options' => [
+
+          'widgetColumns' => [
+            'label' => __( 'Widget Columns' ),
+            'type' => 'ct-radio',
+            'disableRevertButton' => true,
+            'css' => '--widgetColumns',
+            'choices' => [
+              '2' => 2,
+              '3' => 3,
+              '4' => 4,
+              '5' => 5,
+            ],
+          ]
+
+        ] ],
+
+        custy_rand_id() => [ 'divider' => '' ],
+
         'widgetBackground' => [
           'label' => __( 'Widget Background' ),
           'type'  => 'ct-color-picker',

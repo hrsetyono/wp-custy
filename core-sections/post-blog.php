@@ -4,7 +4,7 @@ $section = [
 'title' => __( 'Blog Posts' ),
 'container' => [ 'priority' => 8 ],
 'css_selector' => ':root',
-'options' => [
+'options' => apply_filters( 'custy_post-blog_options', [
 
   'archive_style' => [
 		'label' => __( 'Archive Style' ),
@@ -145,4 +145,5 @@ $section = [
     ],
   ],
   
-] ];
+] )
+];

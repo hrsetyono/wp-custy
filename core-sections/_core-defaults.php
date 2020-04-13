@@ -23,9 +23,9 @@ function _custy_core_default_values( $defaults ) {
     ],
     'extraColor' => [
       'extra1' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
+      'extraLight1' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
       'extra2' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
-      'extra3' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
-      'extra4' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
+      'extraLight2' => [ 'color' => 'CT_CSS_SKIP_RULE' ],
     ],
     
     'siteBackground' => blocksy_background_default_value( [

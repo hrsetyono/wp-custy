@@ -162,9 +162,11 @@ function custy_get_editor_color_palette() {
   $extra_colors = custy_get_mod( 'extraColor' );
 
   $index = 1;
-  foreach( $extra_colors as $c ) {
-    if( $c['color'] !== 'CT_CSS_SKIP_RULE' ) {
-      $palette[ "Extra {$index}" ] = "var(--extra{$index})";
+  foreach( $extra_colors as $slug => $color ) {
+    if( $color['color'] !== 'CT_CSS_SKIP_RULE' ) {
+      // format the title
+      $title = preg_split( '/((?:^|[A-Z])[a-z]+)/', $slug, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+      $palette[ ucfirst( implode( ' ', $title ) ) ] = "var(--{$slug})";
     }
     
     $index++;

@@ -4,7 +4,7 @@ $section = [
 'title' => __( 'Single Post' ),
 'container' => [ 'priority' => 10, 'type' => 'child' ],
 'css_selector' => ':root',
-'options' => [
+'options' => apply_filters( 'custy_post-single_options', [
 
   'post_style' => [
 		'label' => __( 'Post Style' ),
@@ -162,4 +162,5 @@ $section = [
   ],
 
   
-] ];
+] ) // apply filters
+];

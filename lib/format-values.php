@@ -41,8 +41,7 @@ class Custy_Values {
       // IF PALETTE
       elseif( in_array( $prop, [
         '--main', '--mainDark', '--mainLight', '--sub', '--subLight',
-        '--text', '--textDim', '--textInvert',
-        '--extra1', '--extra2', '--extra3', '--extra4'
+        '--text', '--textDim', '--textInvert'
       ] ) ) {
 
         $value_rgb = '';

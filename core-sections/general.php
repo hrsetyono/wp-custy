@@ -40,19 +40,19 @@ $section = [
 
       'extraColor' => [
         'label' => __( 'Extra Color' ),
-        'desc' => __( 'Additional colors for Editor on top of Palettes.' ),
+        'desc' => __( 'Additional colors for Editor' ),
         'type'  => 'ct-color-picker',
         'pickers' => [
           'extra1' => __( 'Extra 1' ),
+          'extraLight1' => __( 'Extra Light 1' ),
           'extra2' => __( 'Extra 2' ),
-          'extra3' => __( 'Extra 3' ),
-          'extra4' => __( 'Extra 4' ),
+          'extraLight2' => __( 'Extra Light 2' ),
         ],
         'css' => [
           '--extra1' => 'extra1',
+          '--extraLight1' => 'extraLight1',
           '--extra2' => 'extra2',
-          '--extra3' => 'extra3',
-          '--extra4' => 'extra4',
+          '--extraLight2' => 'extraLight2',
         ],
       ],
 
@@ -64,11 +64,6 @@ $section = [
         'css' => '--site$',
       ],
 
-      'headerCode' => [
-        'label' => 'Head Code',
-        'type' => 'code_editor',
-        'value' => ''
-      ],
     ] ],
 
     custy_rand_id() => [ 'tab' => __( 'Shadow' ), 'options' => [

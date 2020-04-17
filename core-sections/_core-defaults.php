@@ -88,17 +88,6 @@ function _custy_core_default_values( $defaults ) {
     ],// 0 15px 12px rgba(0,0,0,0.22)
 
 
-    // GENERAL > OTHER
-
-    'globalBorderRadius' => '4px',
-    'globalTransition' => 'all .25s ease-in-out',
-
-    'siteWidth' => '1120px',
-    'blogWidth' => '650px',
-    'mobile_breakpoint' => '480px',
-    'tablet_breakpoint' => '767px',
-
-
     ///// TEXT
 
     'rootTypography' => blocksy_typography_default_values([

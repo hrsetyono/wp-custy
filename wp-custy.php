@@ -8,13 +8,13 @@
  * License: MIT
  * Author: Pixel Studio
  * Author URI: https://pixelstudio.id
- * Version: 1.3.2
+ * Version: 1.3.3
  */
 
 if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
 
 // Constant
-define( 'CUSTY_VERSION', '1.1.1' );
+define( 'CUSTY_VERSION', '1.3.3' );
 define( 'CUSTY_DIR', __DIR__ . '/lib' );
 define( 'CUSTY_URL', plugin_dir_url( __FILE__ ) );
 

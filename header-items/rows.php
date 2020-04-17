@@ -8,7 +8,7 @@ foreach( $rows as $row ) {
     'title' => ucfirst( $row ) . ' Row',
     'is_primary' => true,
     'css_selector' => "[data-header=\"{$row}-row\"]",
-    'options' => [
+    'options' => apply_filters( "custy_header_row_options", [
       'rowBackground' => [
         'label' => __( 'Row Background' ),
         'type'  => 'ct-background',
@@ -46,11 +46,11 @@ foreach( $rows as $row ) {
         'label' => __( 'Width Style' ),
         'type' => 'ct-radio',
         'choices' => [
-          'full-width' => __( 'Full Width' ),
+          'full' => __( 'Full' ),
           'centered' => __( 'Centered' ),
         ], 
       ],
       
-    ],
+    ] ),
   ];
 }

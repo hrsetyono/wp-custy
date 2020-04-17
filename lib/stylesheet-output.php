@@ -7,8 +7,8 @@ class Custy_OutputStyles {
    * Output the styles
    */
   function echo_css( $styles ) {
-    $mobile_bp = Custy::get_mod( 'mobile_breakpoint' );
-    $tablet_bp = Custy::get_mod( 'tablet_breakpoint' );
+    $mobile_bp = apply_filters( 'custy_mobile_breakpoint', '480px' );
+    $tablet_bp = apply_filters( 'custy_tablet_breakpoint',  '767px' );
 
     $output = '';
     $medias = [

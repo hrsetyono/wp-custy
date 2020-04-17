@@ -26,7 +26,7 @@ for( $i = 1; $i <= 4; $i++ ) {
           ],
         ],
 
-        custy_rand_id() => [ 'condition' => [], 'options' => [
+        custy_rand_id() => [ 'condition' => [ 'alignment' => 'horizontal' ], 'options' => [
 
           'widgetColumns' => [
             'label' => __( 'Widget Columns' ),

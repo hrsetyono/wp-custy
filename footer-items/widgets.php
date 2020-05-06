@@ -32,12 +32,13 @@ for( $i = 1; $i <= 4; $i++ ) {
             'label' => __( 'Widget Columns' ),
             'type' => 'ct-radio',
             'disableRevertButton' => true,
+            'responsive' => true,
             'css' => '--widgetColumns',
             'choices' => [
+              '1' => 1,
               '2' => 2,
               '3' => 3,
               '4' => 4,
-              '5' => 5,
             ],
           ]
 

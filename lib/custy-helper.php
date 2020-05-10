@@ -114,8 +114,10 @@ function _custy_color_palette( $raw_colors ) {
 
     // if value is a CSS var
     if( strpos( $color, 'var' ) > -1 ) {
-      $styles .= ".has-{$slug}-background-color { --bgColor: {$color}; --bgColorRGB: {$color}RGB }";
-      $styles .= ".has-{$slug}-color { --textColor: {$color}; --textColorRGB: {$color}RGB }";
+      preg_match('/--([\w\s]+)/', $color, $var_name );
+
+      $styles .= ".has-{$slug}-background-color { --bgColor: {$color}; --bgColorRGB: var(--{$var_name[1]}RGB); }";
+      $styles .= ".has-{$slug}-color { --textColor: {$color}; --textColorRGB: var(--{$var_name[1]}RGB); }";
     }
     // else, it's a normal CSS
     else {

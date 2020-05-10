@@ -1,1 +1,0 @@
-[data-shortcut]{position:relative}[data-shortcut*="border"]:hover{outline-width:2px;outline-style:solid;outline-offset:-2px;outline-color:var(--main);-webkit-transition:outline 0.15s ease;transition:outline 0.15s ease}.ct-customizer-shortcut{position:absolute;padding:0.25rem;background-color:var(--main);color:var(--textInvert);text-transform:uppercase}

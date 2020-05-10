@@ -8,7 +8,7 @@
  * License: MIT
  * Author: Pixel Studio
  * Author URI: https://pixelstudio.id
- * Version: 1.4.0
+ * Version: 1.5.0
  */
 
 if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
@@ -75,11 +75,6 @@ function _custy_after_theme() {
   require_once __DIR__ . '/core-sections/_index.php';
   require_once __DIR__ . '/header-items/_index.php';
   require_once __DIR__ . '/footer-items/_index.php';
-
-  // Output <style> tags
-  require_once CUSTY_DIR . '/stylesheet.php';
-  require_once CUSTY_DIR . '/stylesheet-compile.php';
-  require_once CUSTY_DIR . '/stylesheet-output.php';
   
   // BUILDER
   require_once CUSTY_DIR . '/builder.php';
@@ -87,6 +82,10 @@ function _custy_after_theme() {
 
   // FONTS
   require_once CUSTY_DIR . '/font-faces.php';
+
+  // Output <style> tags
+  require_once CUSTY_DIR . '/stylesheet-compile.php';
+  require_once CUSTY_DIR . '/stylesheet.php';
 }
 
 /**

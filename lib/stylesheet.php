@@ -7,35 +7,25 @@
  */
 class Custy_Stylesheet {
   function __construct() {
-    add_action( 'wp_enqueue_scripts', [$this, 'enqueue_public'] );
-    add_action( 'admin_enqueue_scripts', [$this, 'enqueue_admin'] );
 
-    add_action( 'wp_head', [$this, 'add_empty_style_tags'] ); // TODO; only add this on preview screen
+    // only in preview
+    global $wp_customize;
+    if( isset( $wp_customize ) && $wp_customize->is_preview() ) {
+      add_action( 'wp_head', [$this, 'add_empty_style_tags'] );
+    }
+
+    add_filter( 'custy_css', [$this, 'set_public_vars'] );
+    add_filter( 'custy_admin_css', [$this, 'set_admin_vars'] );
+    add_filter( 'custy_admin_css', [$this, 'apply_to_editor_css'] );
+
     add_action( 'customize_save_after', [$this, 'update_css_version'] );
     add_action( 'customize_save_after', [$this, 'rewrite_css_file'] );
   }
 
 
-  /**
-   * @action wp_enqueue_scripts
-   */
-  function enqueue_public() {
-    $version = get_option( 'custy_css_version', '' );
-    wp_enqueue_style( 'custy-public', content_url() . '/custy.css', [], $version );
-  }
 
   /**
-   * @action admin_enqueue_scripts
-   */
-  function enqueue_admin() {
-    $version = get_option( 'custy_css_version', '' );
-    wp_enqueue_style( 'custy-admin', content_url() . '/custy-admin.css', [], $version );
-  }
-
-
-
-  /**
-   * Add empty <style> tags with specific ID to enable live changes
+   * Add empty <style> tags with specific ID to enable live changes, only in preview
    * 
    * @action wp_head
    */
@@ -44,7 +34,7 @@ class Custy_Stylesheet {
     $tablet_bp = apply_filters( 'custy_tablet_breakpoint',  '767px' );
 
     $medias = [
-      [ 'id' => 'ct-main-styles-tablet-inline-css', 'media' => '' ],
+      [ 'id' => 'ct-main-styles-inline-css', 'media' => '' ],
       [ 'id' => 'ct-main-styles-tablet-inline-css', 'media' => "(max-width: $tablet_bp)" ],
       [ 'id' => 'ct-main-styles-mobile-inline-css', 'media' => "(max-width: $mobile_bp)" ],
     ];
@@ -53,7 +43,7 @@ class Custy_Stylesheet {
     foreach( $medias as $m ) {
       $id = $m['id'];
       $media = $m['media'];
-      $tags .= "<style type='text/css' id='$id' media='$media'></style>";
+      $tags .= "<style type='text/css' id='$id' media='$media'> :root {} </style>";
     }
 
     echo $tags;
@@ -90,33 +80,22 @@ class Custy_Stylesheet {
    * @action customize_save_after
    */
   function rewrite_css_file() {
-    // add_filter( 'custy_css', [$this, 'set_palette_css'] );
-    add_filter( 'custy_css', [$this, 'set_public_css'] );
-    add_filter( 'custy_admin_css', [$this, 'set_admin_css'] );
+    // write to files in /wp-content
+    $css = apply_filters( 'custy_css', '' );
+    file_put_contents( WP_CONTENT_DIR . '/custy.css', $css );
 
-    $this->write_css_file();
-    $this->write_admin_css_file();
+    $admin_css = apply_filters( 'custy_admin_css', '' );
+    file_put_contents( WP_CONTENT_DIR . '/custy-admin.css', $admin_css );
   }
 
 
-  
+
   /**
-   * Set color palette CSS for public
+   * Set all customizer CSS Variable for public
    * 
    * @filter custy_css
    */
-  function set_palette_css( $old_css ) {
-    $css = '';
-    return $old_css . ' ' . $css;
-  }
-
-
-  /**
-   * Set all customizer CSS for public
-   * 
-   * @filter custy_css
-   */
-  function set_public_css( $old_css ) {
+  function set_public_vars( $old_css ) {
     $sections = Custy::get_sections();
     $header_items = CustyBuilder::get_items( 'header', 'all', true, false );
     $footer_items = CustyBuilder::get_items( 'footer', 'all', true, false );
@@ -133,23 +112,79 @@ class Custy_Stylesheet {
 
 
   /**
-   * Set some customizer CSS for admin
+   * Set some customizer CSS Variable for admin
    * 
    * @filter custy_admin_css
    */
-  function set_admin_css( $old_css ) {
-    $sections = Custy::get_sections( 'palette' );
+  function set_admin_vars( $old_css ) {
+    $sections = array_merge(
+      custy_get_sections( 'general' ),
+      custy_get_sections( 'text' )
+    );
+  
     $compiler = new Custy_CompileStyles();
     $compiler->compile_from_sections( $sections );
     
     $data = $compiler->get_styles();
     $css = $this->format_data_to_css( $data );
+
+    // Change the font
     return $old_css . ' ' . $css;
   }
 
 
-
+  /**
+   * Add styling that change the Editor's font and background
+   * 
+   * @filter custy_admin_css
+   */
+  function apply_to_editor_css( $old_css ) {
+    $css = "
+    .editor-styles-wrapper {
+      background-color: var(--siteBackground);
+    }
     
+    .editor-styles-wrapper > * {
+      font-family: var(--fontFamily);
+      font-weight: var(--fontWeight);
+    }
+    
+    .editor-post-title__block .editor-post-title__input,
+    .editor-styles-wrapper .wp-block h1,
+    .editor-styles-wrapper .wp-block h2,
+    .editor-styles-wrapper .wp-block h3,
+    .editor-styles-wrapper .wp-block h4,
+    .editor-styles-wrapper .wp-block h5,
+    .editor-styles-wrapper .wp-block h6,
+    .editor-styles-wrapper .has-drop-cap:not(:focus)::first-letter {
+      font-family: var(--hFontFamily);
+      font-weight: var(--hFontWeight);
+      text-transform: var(--hTextTransform);
+    }
+    
+    .editor-styles-wrapper .wp-block h1 {
+      font-size: var(--h1Size);
+    }
+    .editor-styles-wrapper .wp-block h2 {
+      font-size: var(--h2Size);
+    }
+    .editor-styles-wrapper .wp-block h3 {
+      font-size: var(--h3Size);
+    }
+    .editor-styles-wrapper .wp-block h4 {
+      font-size: var(--h4Size);
+    }
+    .editor-styles-wrapper .wp-block h5 {
+      font-size: var(--h5Size);
+    }
+    .editor-styles-wrapper .wp-block h6 {
+      font-size: var(--h6Size);
+    }";
+
+    return $old_css . ' ' . $css;
+  }
+
+
   /**
    * Format all the data into CSS
    * 
@@ -195,27 +230,6 @@ class Custy_Stylesheet {
 
     return $full_css;
   }
-
-
-  
-
-  /**
-   * Write the CSS for public into /wp-content/custy.css
-   */
-  private function write_css_file() {
-    $css = apply_filters( 'custy_css', '' );
-    file_put_contents( WP_CONTENT_DIR . '/custy.css', $css );
-  }
-
-
-  /**
-   * Write the CSS for admin into /wp-content/custy-admin.css
-   */
-  private function write_admin_css_file() {
-    $css = apply_filters( 'custy_admin_css', '' );
-    file_put_contents( WP_CONTENT_DIR . '/custy-admin.css', $css );
-  }
-
 }
 
 new Custy_Stylesheet();

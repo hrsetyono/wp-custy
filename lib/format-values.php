@@ -159,9 +159,11 @@ class Custy_Values {
         $m['family'] = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
         break;
       case 'Serif':
-        $m['family'] = '"Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times","Source Serif Pro", serif;';
+      case 'serif':
+        $m['family'] = '"Noto Serif", "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times","Source Serif Pro", serif;';
         break;
       case 'Monospace':
+      case 'monospace':
         $m['family'] = '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;';
         break;
       default:

@@ -71,14 +71,13 @@ function custy_get_sections( $filter = null ) {
     $custy_sections = apply_filters( 'custy_sections', [] );
   }
 
-  if( $filter == 'palette' ) {
-    $palette_sections = [
-      'general' => $custy_sections['general']
-    ];
-    return $palette_sections;
+  if( $filter ) {
+    // keeping it as array so the loop works
+    return [ $filter => $custy_sections[ $filter ] ];
   }
-
-  return $custy_sections;
+  else {
+    return $custy_sections;
+  }
 }
 
 
@@ -175,6 +174,39 @@ function custy_get_editor_color_palette() {
   }
 
   return _custy_color_palette( $palette );
+}
+
+/**
+ * Get font size list for Gutenberg
+ */
+function custy_get_editor_font_sizes() {
+  $small = custy_get_mod( 'smallFontSize' );
+  $medium = custy_get_mod( 'mediumFontSize' );
+  $large = custy_get_mod( 'largeFontSize' );
+  $huge = custy_get_mod( 'hugeFontSize' );
+
+  return [
+    [
+      'name' => 'Small',
+      'slug' => 'small',
+      'size' => (int) str_replace( 'px', '', $small['desktop'] ?? $small ),
+    ],
+    [
+      'name' => 'Medium',
+      'slug' => 'medium',
+      'size' => (int) str_replace( 'px', '', $medium['desktop'] ?? $medium ),
+    ],
+    [
+      'name' => 'Large',
+      'slug' => 'large',
+      'size' => (int) str_replace( 'px', '', $large['desktop'] ?? $large ),
+    ],
+    [
+      'name' => 'Huge',
+      'slug' => 'huge',
+      'size' => (int) str_replace( 'px', '', $huge['desktop'] ?? $huge ),
+    ],
+  ];
 }
 
 

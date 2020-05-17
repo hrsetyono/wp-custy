@@ -4448,7 +4448,11 @@
     return {
       system: {
         type: "system",
-        families: [].concat(r(t ? [] : ["Default"]), ["System Default", "Arial", "Verdana", "Trebuchet", "Georgia", "Times New Roman", "Palatino", "Helvetica", "Calibri", "Myriad Pro", "Lucida", "Gill Sans", "Impact", "Serif", "monospace"]).map((function(e) {
+        // @changed - removed the default font selection
+        families: [].concat(r(t ? [] : ["Default"]),
+          []
+          //["System Default", "Arial", "Verdana", "Trebuchet", "Georgia", "Times New Roman", "Palatino", "Helvetica", "Calibri", "Myriad Pro", "Lucida", "Gill Sans", "Impact", "Serif", "monospace"]
+          ).map((function(e) {
           return {
             source: "system",
             family: e,

@@ -9,6 +9,8 @@
   "devDependencies": {},
   "scripts": {
     "sass": "node-sass -w sass -o css --output-style compressed",
-    "bsync": "browser-sync start --proxy \"demo.test/basic-theme\" --files \"css/*.css\""
-  }
+    "bsync": "browser-sync start --proxy \"demo.test/basic-theme\" --files \"css/*.css\"",
+    "prefix": "postcss assets/css/*.css --use=autoprefixer --output=assets/css/*.css"
+  },
+  "browserslist": [ "last 2 versions" ]
 }

@@ -96,7 +96,7 @@ class Custy_SyncPreview {
     // add var depending on the type
     switch( $args['type'] ) {
 
-      // Skip color picker
+      // Skip color palette
       case 'ct-color-palettes-picker':
         return null; // do nothing and return
 
@@ -116,12 +116,10 @@ class Custy_SyncPreview {
 
       case 'ct-color-picker':
         foreach( $args['css'] as $prop => $value ) {
-          preg_match('/(\w+)./', $value, $type ); // get the first key
-
           $var[] = [
             'selector' => $selector,
             'variable' => preg_replace( '/^--/', '', $prop ),
-            'type' => 'color:' . $type[1],
+            'type' => 'color:' . $value,
           ];
         }
         break;

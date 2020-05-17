@@ -3,8 +3,9 @@
 class CustyFonts {
   function __construct() {
     add_filter( 'custy_fonts', [$this, 'append_customizer_dropdown'] );
-    add_action( 'wp_head', [$this, 'output_css'] );
-    add_action( 'admin_head', [$this, 'output_css_admin'] );
+    
+    add_filter( 'custy_css', [$this, 'set_font_faces'] );
+    add_filter( 'custy_admin_css', [$this, 'set_font_faces'] );
   }
 
   /**
@@ -22,48 +23,26 @@ class CustyFonts {
     return $list;
   }
 
+
+  
   /**
-   * Output @font-face in frontend
-   * @action wp_head
+   * Add @font-face declaration based on theme support custy_fonts
+   * 
+   * @filter custy_css, custy_admin_css
    */
-  function output_css() {
+  function set_font_faces( $old_css ) {
     $fonts = get_theme_support( 'custy-fonts' );
-    if( empty( $fonts ) ) { return; } // abort if no theme_support
+    if( empty( $fonts ) ) { return $old_css; } // abort if no theme_support
 
     $css = $this->format_font_faces( $fonts );
-
-    echo "<style type='text/css' id='custy-fonts'> $css </style>";
-  }
-
-  /**
-   * Output @font-face only in gutenberg editor
-   */
-  function output_css_admin() {
-    $fonts = get_theme_support( 'custy-fonts' );
-    if( empty( $fonts ) ) { return; } // abort if no theme_support
-
-    global $current_screen;
-    $is_block_editor = isset( $current_screen ) && $current_screen->is_block_editor();
-
-    if( !$is_block_editor ) { return; } // abort if not in editor
-
-
-    $css = $this->format_font_faces( $fonts );
-
-    // Change the heading and body text
-    $heading_family = Custy::get_mod( 'headingTypography' )['family'];
-    $body_family = Custy::get_mod( 'rootTypography' )['family'];
-
-    $css .= ":root { --fontFamily: $body_family; --hFontFamily: $heading_family; }";
-
-    echo "<style type='text/css' id='custy-fonts'> $css </style>";
-  }
+    return $old_css . ' ' . $css;
+  } 
 
 
   /**
    * Format the font faces array into CSS
    */
-  function format_font_faces( $fonts ) {
+  private function format_font_faces( $fonts ) {
     $css = '';
 
     foreach( $fonts[0] as $name => $files ) {

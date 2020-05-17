@@ -104,6 +104,9 @@ function _custy_enqueue_customizer() {
   wp_enqueue_style( 'ct-options-styles', BLOCKSY_CSS_URL . '/options.css', ['wp-color-picker'], CUSTY_VERSION );
   wp_enqueue_style( 'custy-sidebar', CUSTY_URL . 'css/custy-sidebar.css', [], CUSTY_VERSION );
 
+  $version = get_option( 'custy_css_version', '' );
+  wp_enqueue_style( 'custy-admin', content_url() . '/custy-admin.css', [], $version );
+
   // Controls script
   wp_register_script( 'ct-events', BLOCKSY_JS_URL . '/events.js', [], CUSTY_VERSION, true );
   wp_enqueue_script( 'ct-customizer-controls', BLOCKSY_JS_URL . '/customizer-controls.js', $deps, CUSTY_VERSION, true );

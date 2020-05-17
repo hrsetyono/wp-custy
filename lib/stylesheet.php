@@ -15,8 +15,11 @@ class Custy_Stylesheet {
     }
 
     add_filter( 'custy_css', [$this, 'set_public_vars'] );
+    add_filter( 'custy_css', [$this, 'set_color_classes'] );
+
     add_filter( 'custy_admin_css', [$this, 'set_admin_vars'] );
-    add_filter( 'custy_admin_css', [$this, 'apply_to_editor_css'] );
+    add_filter( 'custy_admin_css', [$this, 'set_color_classes'] );
+    add_filter( 'custy_admin_css', [$this, 'set_editor_typography'] );
 
     add_action( 'customize_save_after', [$this, 'update_css_version'] );
     add_action( 'customize_save_after', [$this, 'rewrite_css_file'] );
@@ -112,6 +115,55 @@ class Custy_Stylesheet {
 
 
   /**
+   * Set the color classes like "has-main-background-color"
+   * 
+   * @filter custy_css
+   */
+  function set_color_classes( $old_css ) {
+    $raw_colors = _custy_get_color_palette();
+
+    // parse the raw colors
+    $colors = [];
+    foreach( $raw_colors as $name => $value ) {
+      $slug = custy_to_slug( $name, '-' );
+      
+      // if color name is 'text' (which will clash with gutenberg class)
+      if( $slug == 'text' ) {
+        $slug = 'text-base';
+      }
+      
+      $colors[ $name ] = [
+        'color' => $value,
+        'slug' => $slug
+      ];
+    }
+
+    // Create CSS selector and CSS variable
+    $styles = '';
+    foreach( $colors as $name => $value ) {
+      $slug = $value['slug'];
+      $color = $value['color'];
+
+      // if value is a CSS var
+      if( strpos( $color, 'var' ) > -1 ) {
+        preg_match('/--([\w\s]+)/', $color, $var_name );
+
+        $styles .= ".has-{$slug}-background-color { --bgColor: {$color}; --bgColorRGB: var(--{$var_name[1]}RGB); }";
+        $styles .= ".has-{$slug}-color { --textColor: {$color}; --textColorRGB: var(--{$var_name[1]}RGB); }";
+      }
+      // else, it's a normal CSS
+      else {
+        $styles .= ".has-{$slug}-background-color { background-color: {$color}; }";
+        $styles .= ".has-{$slug}-color { color: {$color}; }";
+      }
+    }
+
+
+    return $old_css . ' ' . $styles;
+  }
+
+
+  /**
    * Set some customizer CSS Variable for admin
    * 
    * @filter custy_admin_css
@@ -138,7 +190,7 @@ class Custy_Stylesheet {
    * 
    * @filter custy_admin_css
    */
-  function apply_to_editor_css( $old_css ) {
+  function set_editor_typography( $old_css ) {
     $css = "
     .editor-styles-wrapper {
       background-color: var(--siteBackground);

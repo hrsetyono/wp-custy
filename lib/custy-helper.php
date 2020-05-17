@@ -9,6 +9,20 @@ function custy_rand_id() {
   return md5( time() . '-' . uniqid( wp_rand(), true ) . '-' . wp_rand() );
 }
 
+/**
+ * Convert a titleized name into slug
+ * 
+ * @param string $text
+ * @param string $separator - Default is underscore
+ */
+function custy_to_slug( $text, $separator = '_' ) {
+  $targets = array( ' ', '[' , ']' );
+  $replace_with = array( $separator, $separator, '' );
+
+  $slug = strtolower( str_replace( $targets, $replace_with, $text ) );
+  return $slug;
+}
+
 
 /**
  * Get all theme mods
@@ -82,73 +96,35 @@ function custy_get_sections( $filter = null ) {
 
 
 
-
-/**
- * Format array for Gutenberg's palette theme_suport. Also output CSS classes at HEAD.
- * 
- * @return array - Formatted colors array suitable for theme_support.
- */
-function _custy_color_palette( $raw_colors ) {
-  // parse raw colors
-  $colors = [];
-  foreach( $raw_colors as $name => $value ) {
-    $slug = _H::to_slug( $name, '-' );
-    
-    // if color name is 'text' (which will clash with gutenberg class)
-    if( $slug == 'text' ) {
-      $slug = 'text-base';
-    }
-    
-    $colors[ $name ] = [
-      'color' => $value,
-      'slug' => $slug
-    ];
-  }
-
-  // format styles
-  $styles = '';
-  foreach( $colors as $name => $value ) {
-    $slug = $value['slug'];
-    $color = $value['color'];
-
-    // if value is a CSS var
-    if( strpos( $color, 'var' ) > -1 ) {
-      preg_match('/--([\w\s]+)/', $color, $var_name );
-
-      $styles .= ".has-{$slug}-background-color { --bgColor: {$color}; --bgColorRGB: var(--{$var_name[1]}RGB); }";
-      $styles .= ".has-{$slug}-color { --textColor: {$color}; --textColorRGB: var(--{$var_name[1]}RGB); }";
-    }
-    // else, it's a normal CSS
-    else {
-      $styles .= ".has-{$slug}-background-color { background-color: {$color}; }";
-      $styles .= ".has-{$slug}-color { color: {$color}; }";
-    }
-  }
-
-  // output the style in head
-  add_action( 'wp_head', function() use ( $styles ) {
-    echo "<style> $styles </style>";
-  } );
-
-  // format the array
-  $parsed_colors = [];
-  foreach( $colors as $name => $value ) {
-
-    $parsed_colors[] = [
-      'name' => $name,
-      'slug' => $value['slug'],
-      'color' => $value['color']
-    ];
-  }
-
-  return $parsed_colors;
-}
-
 /**
  * Get color palette for Gutenberg
  */
 function custy_get_editor_color_palette() {
-  $palette = [
+  // Abort if not in Editor
+  global $pagenow;
+  if( $pagenow !== 'post.php' ) { return; }
+
+  $raw_colors = _custy_get_color_palette();
+
+  // Create array with the right format for Palette
+  $palette = [];
+  foreach( $raw_colors as $name => $value ) {
+    $palette[] = [
+      'name' => $name,
+      'slug' => custy_to_slug( $name ),
+      'color' => $value
+    ];
+  }
+
+  return $palette;
+}
+
+
+/**
+ * Get the color
+ */
+function _custy_get_color_palette() {
+  $colors = [
     'Main'         => 'var(--main)',
     'Main Dark'    => 'var(--mainDark)',
     'Main Light'   => 'var(--mainLight)',
@@ -163,23 +139,29 @@ function custy_get_editor_color_palette() {
   $extra_colors = custy_get_mod( 'extraColor' );
 
   $index = 1;
-  foreach( $extra_colors as $slug => $color ) {
-    if( $color['color'] !== 'CT_CSS_SKIP_RULE' ) {
+  foreach( $extra_colors as $slug => $c ) {
+    if( $c['color'] !== 'CT_CSS_SKIP_RULE' ) {
       // format the title
       $title = preg_split( '/((?:^|[A-Z])[a-z]+)/', $slug, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
-      $palette[ ucfirst( implode( ' ', $title ) ) ] = "var(--{$slug})";
+      $colors[ ucfirst( implode( ' ', $title ) ) ] = "var(--{$slug})";
     }
     
     $index++;
   }
 
-  return _custy_color_palette( $palette );
+  return $colors;
 }
+
 
 /**
  * Get font size list for Gutenberg
  */
 function custy_get_editor_font_sizes() {
+  // Abort if not in Editor
+  global $pagenow;
+  if( $pagenow !== 'post.php' ) { return; }
+
+
   $small = custy_get_mod( 'smallFontSize' );
   $medium = custy_get_mod( 'mediumFontSize' );
   $large = custy_get_mod( 'largeFontSize' );

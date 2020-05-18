@@ -1,20 +1,20 @@
 <?php
 /**
- * Plugin Name: Custy - Advanced WP Customizer
- * Description: Add more variety of options such as Typography and Color Picker to WP Customizer.
+ * Plugin Name: Custy - Customizer Library
+ * Description: Add advanced options such as Typography and Color Picker to WP Customizer.
  * Plugin URI: http://github.com/hrsetyono/wp-custy
  * Requires at least: 5.3
  * Requires PHP: 7.0
  * License: MIT
  * Author: Pixel Studio
  * Author URI: https://pixelstudio.id
- * Version: 1.5.2
+ * Version: 1.5.3
  */
 
 if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
 
 // Constant
-define( 'CUSTY_VERSION', '1.4.0' );
+define( 'CUSTY_VERSION', '1.5.3' );
 define( 'CUSTY_DIR', __DIR__ . '/lib' );
 define( 'CUSTY_URL', plugin_dir_url( __FILE__ ) );
 

@@ -159,8 +159,7 @@ function _custy_get_color_palette() {
 function custy_get_editor_font_sizes() {
   // Abort if not in Editor
   global $pagenow;
-  if( $pagenow !== 'post.php' ) { return; }
-
+  if( $pagenow !== 'post.php' && $pagenow !== 'post-new.php' ) { return; }
 
   $small = custy_get_mod( 'smallFontSize' );
   $medium = custy_get_mod( 'mediumFontSize' );
@@ -308,25 +307,43 @@ function custy_get_social_list( $id = null ) {
       'color' => '#e60122',
       'placeholder' => 'https://pinterest.com/your-username',
       'svg' => custy_get_svg( 'pinterest' ),
-		],
+    ],
+    'pocket' => [
+      'label' => __( 'Pocket' ),
+      'color' => '#ef4155',
+      'placeholder' => 'https://getpocket.com/',
+      'svg' => custy_get_svg( 'pocket' ),
+    ],
     'skype' => [
       'label' => __( 'Skype' ),
       'color' => '#0478d7',
       'placeholder' => 'skype:your-username?chat',
       'svg' => custy_get_svg( 'skype' ),
     ],
-		// 'telegram' => [
-    //   'label' => __( 'Telegram' ),
-    //   'color' => '#08c',
-    //   'placeholder' => 'https://t.me/your-username',
-    //   'svg' => custy_get_svg( 'telegram' ),
-		// ],
-		// 'wechat' => [
-    //   'label' => __( 'WeChat' ),
-    //   'color' => '#7bb32e',
-    //   'placeholder' => 'weixin://dl/chat?your-username',
-    //   'svg' => custy_get_svg( 'wechat' ),
-    // ],
+    'reddit' => [
+      'label' => __( 'reddit' ),
+      'color' => '#fe4500',
+      'placeholder' => 'https://www.reddit.com/user/yourname',
+      'svg' => custy_get_svg( 'reddit' ),
+    ],
+		'telegram' => [
+      'label' => __( 'Telegram' ),
+      'color' => '#08c',
+      'placeholder' => 'https://t.me/your-username',
+      'svg' => custy_get_svg( 'telegram' ),
+    ],
+    'tumblr' => [
+      'label' => __( 'Tumblr' ),
+      'color' => '#011835',
+      'placeholder' => 'https://www.tumblr.com/blog/yourname',
+      'svg' => custy_get_svg( 'telegram' ),
+		],
+		'wechat' => [
+      'label' => __( 'WeChat' ),
+      'color' => '#7bb32e',
+      'placeholder' => 'weixin://dl/chat?your-username',
+      'svg' => custy_get_svg( 'wechat' ),
+    ],
     'youtube' => [
       'label' => __( 'YouTube' ),
       'color' => '#ff0100',

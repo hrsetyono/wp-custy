@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'wp_enqueue_scripts', '_custy_enqueue_public' );
+add_action( 'wp_enqueue_scripts', '_custy_enqueue_public', 9999 );
 add_action( 'enqueue_block_editor_assets', '_custy_enqueue_editor', 100 );
 
 add_action( 'customize_preview_init', '_custy_enqueue_customizer_preview' );

@@ -352,7 +352,11 @@ function custy_get_social_list( $id = null ) {
 		],
   ] );
 
-  return isset( $id ) ? $list[ $id ] : $list;
+  if( isset( $id ) ) {
+    return $list[ $id ] ?? trigger_error( 'Social Item "' . $id . '" does not exists' );
+  }
+
+  return $list;
 }
 
 
